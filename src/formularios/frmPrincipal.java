@@ -93,7 +93,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuMoviment.add(mnuMovimentNvVenda);
 
         mnuMovimentRlVenda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        mnuMovimentRlVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/relatoriovenda.png"))); // NOI18N
+        mnuMovimentRlVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/analytics-36.png"))); // NOI18N
         mnuMovimentRlVenda.setText("Relatorio Venda");
         mnuMoviment.add(mnuMovimentRlVenda);
 
@@ -103,10 +103,12 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuAjuda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
         mnuAjudaSobre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        mnuAjudaSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-informações-36.png"))); // NOI18N
         mnuAjudaSobre.setText("Sobre");
         mnuAjuda.add(mnuAjudaSobre);
 
         mnuAjudaAjuda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        mnuAjudaAjuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-ajuda-36.png"))); // NOI18N
         mnuAjudaAjuda.setText("Ajuda");
         mnuAjuda.add(mnuAjudaAjuda);
 
