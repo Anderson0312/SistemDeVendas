@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package formularios;
 
 import classes.Dados;
@@ -15,12 +12,16 @@ import javax.swing.JOptionPane;
  */
 public class frmLogin1 extends javax.swing.JFrame {
 
-    /**
-     * Creates new form frmLogin
-     */
+    private Dados msDados;
+    
+    public void setDados(Dados msDados) {
+        this.msDados = msDados;
+    }
+    
+     //Creates new form frmLogin
     public frmLogin1() {
         initComponents();
-        getContentPane().setBackground(Color.BLACK);
+        getContentPane().setBackground(Color.GRAY);
     }
 
     /**
@@ -138,7 +139,7 @@ public class frmLogin1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        Dados msDados = new Dados(); // chama a classe dados e cria a varivel msDados
+        
         if(!msDados.validarUsuario(txtUsuario.getText(), new String(txtSenha.getPassword()))) { // faz a verificação de usuario
             JOptionPane.showMessageDialog(rootPane,"Usuario e senha incorretas"); // se o usuario for incorreto mostra uma caixa de texto
             txtUsuario.setText(""); // reseta o conteudo das caixas
@@ -148,7 +149,8 @@ public class frmLogin1 extends javax.swing.JFrame {
         }
         frmPrincipal mPrincipal = new frmPrincipal(); // chama a classe de frmPrincipal e cria a variavel mPrincipa 
         this.setVisible(false); // set o frame de login com falso para tirar ele da tela
-        mPrincipal.setExtendedState(WIDTH); // seta o frame de formulario principal como tamanho maximo da tela
+        mPrincipal.setDados(msDados);
+        mPrincipal.setExtendedState(MAXIMIZED_BOTH); // seta o frame de formulario principal como tamanho maximo da tela
         mPrincipal.setVisible(true); // seta a visibilidade dele como true para mostrar na tela
     }//GEN-LAST:event_btnEntrarActionPerformed
 
