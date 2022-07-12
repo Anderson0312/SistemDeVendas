@@ -1,7 +1,10 @@
 
 package classes;
 
-
+/**
+ *
+ * @author AndersoNMN
+ */
 public class Dados {
     
     private int maxUsuarios = 50;
