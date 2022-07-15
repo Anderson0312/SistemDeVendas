@@ -4,6 +4,7 @@ package formularios;
 import classes.Dados;
 import classes.Usuario;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -14,6 +15,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     private Dados msDados;
     public int usuAtual = 0;
     private boolean novo = false;
+    private DefaultTableModel mTablela; 
     
     public void setDados(Dados msDados) {
         this.msDados = msDados;
@@ -54,6 +56,8 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         btnPesquisarCadastro = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblTabela = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
@@ -190,6 +194,19 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/add-user-group-woman-man.png"))); // NOI18N
 
+        tblTabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblTabela);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -246,6 +263,10 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(jLabel7))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(134, 134, 134)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -290,7 +311,9 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel8)))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         pack();
@@ -311,12 +334,10 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         txtSenha.setText(msDados.getUsuarios()[usuAtual].getSenha());
         txtConfirmarSenha.setText(msDados.getUsuarios()[usuAtual].getSenha());
         SelecionarPerfil.setSelectedIndex(msDados.getUsuarios()[usuAtual].getPerfil());
-        System.out.println(usuAtual +"linha 314");
         
     }
     
     private void btnCadastroAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroAnteriorActionPerformed
-
         usuAtual--;
         if(usuAtual == -1){ // se o numero de usuaro for igual ao seu retorno, coloca a variavel usuatual como 0
             usuAtual = msDados.numeroUsuarios()-1;
@@ -325,7 +346,6 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCadastroAnteriorActionPerformed
 
     private void btnProximoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProximoCadastroActionPerformed
-
         usuAtual++;
         if(usuAtual == msDados.numeroUsuarios()){ // se o numero de usuaro for igual ao seu proximo, coloca a variavel usuatual como 0
             usuAtual = 0;
@@ -377,6 +397,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         btnCancelarCadastro.setEnabled(true);
         
         //caixar de inputs
+        txtIDUsuario.setEditable(false);
         txtNome.setEnabled(true);
         txtSobreNome.setEnabled(true);
         txtSenha.setEnabled(true);
@@ -412,30 +433,37 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         
         if (!senha.equals(confirmar)) {
             JOptionPane.showMessageDialog(rootPane,"Sua senha está diferente da confirmação.");
+            txtSenha.setText("");
             return;
         }
         
-//       int pos = msDados.posicaoUsuario(txtIDUsuario.getText());
-//       if(novo){
-//            if(pos!=-1){
-//                JOptionPane.showMessageDialog(rootPane,"Este usuario já existe!");
-//                txtIDUsuario.requestFocusInWindow();
-//                return;
-//            }
-//       } else {
-//           if (pos == -1) {
-//               JOptionPane.showMessageDialog(rootPane,"Este usuario ainda não existe!");
-//                txtIDUsuario.requestFocusInWindow();
-//                return;
-//           }
-//       }
+       int pos = msDados.posicaoUsuario(txtIDUsuario.getText());
+       if(novo){
+            if(pos != -1){
+                JOptionPane.showMessageDialog(rootPane,"Este usuario já existe!");
+                txtIDUsuario.requestFocusInWindow();
+                return;
+            }
+       } else {
+           if (pos == -1) {
+               JOptionPane.showMessageDialog(rootPane,"Este usuario ainda não existe!");
+                txtIDUsuario.requestFocusInWindow();
+                return;
+           }
+       }
        
-        Usuario msUsuario = new Usuario(
+        Usuario mUsuario = new Usuario(
                 txtIDUsuario.getText(), txtNome.getText(), txtSobreNome.getText(), senha, SelecionarPerfil.getSelectedIndex());
         
         
-        String msg = msDados.adicionarUsuario(msUsuario);
-        JOptionPane.showMessageDialog(rootPane, msg);
+        String msg;
+        if(novo){
+            msg = msDados.adicionarUsuario(mUsuario);
+        } else {
+            msg = msDados.editarUsuario(mUsuario, pos);
+        }    
+            JOptionPane.showMessageDialog(rootPane, msg);
+        
         
         btnProximoCadastro.setEnabled(true);
         btnCadastroAnterior.setEnabled(true);
@@ -453,10 +481,23 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         txtSenha.setEditable(true);
         txtConfirmarSenha.setEditable(true);
         SelecionarPerfil.setEditable(true);
+        
+        preencherTabela();
+        
     }//GEN-LAST:event_btnSalvarCadastroActionPerformed
 
     private void btnExcluirCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirCadastroActionPerformed
-        // TODO add your handling code here:
+        int resposta = JOptionPane.showConfirmDialog(rootPane,"Deseja realmente Deletar este Usuário?");
+        if (resposta != 0) {
+            return;
+        }
+        
+        String msg;
+        msg = msDados.deletarUsuario(usuAtual);
+        JOptionPane.showMessageDialog(rootPane,msg);
+        usuAtual= 0;
+        mostrarCadastros();
+        preencherTabela();
     }//GEN-LAST:event_btnExcluirCadastroActionPerformed
 
     private void btnCancelarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarCadastroActionPerformed
@@ -471,16 +512,49 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCancelarCadastroActionPerformed
 
     private void btnPesquisarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarCadastroActionPerformed
-        // TODO add your handling code here:
+        String usuario = JOptionPane.showInputDialog("Favor Inserir o código do Usuario");
+        if(usuario.equals("")) {
+            return;
+        } 
+
+        int pos = msDados.posicaoUsuario(usuario);
+        if(pos == -1) {
+            JOptionPane.showMessageDialog(rootPane,"Este usuario NÃO EXISTE");
+            return;
+        } 
+            usuAtual = pos;
+            mostrarCadastros();
+        
     }//GEN-LAST:event_btnPesquisarCadastroActionPerformed
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         mostrarCadastros();
-        
+        preencherTabela();
     }//GEN-LAST:event_formInternalFrameOpened
 
-    
-                                                      
+    private void preencherTabela(){
+        String titulos[] =  {"ID Usuario", "Nome", "Sobre nome", "Perfil"};
+        String registro[] = new String[4];
+        mTablela = new DefaultTableModel(null, titulos);
+        for(int i =0; i < msDados.numeroUsuarios(); i++) {
+            registro[0] = msDados.getUsuarios()[i].getIdUsuario();
+            registro[1] = msDados.getUsuarios()[i].getNome();
+            registro[2] = msDados.getUsuarios()[i].getSobreNome();
+            registro[3] = perfil(msDados.getUsuarios()[i].getPerfil());
+            mTablela.addRow(registro);
+            
+        }
+        tblTabela.setModel(mTablela);
+    }
+                             
+    private String perfil(int idPerfil){
+        if(idPerfil == 1) {
+            return "Administrador";
+        } else {
+            return "Funcionario";
+        } 
+       
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -501,6 +575,8 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblTabela;
     private javax.swing.JPasswordField txtConfirmarSenha;
     private javax.swing.JTextField txtIDUsuario;
     private javax.swing.JTextField txtNome;
