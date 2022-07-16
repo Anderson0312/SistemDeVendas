@@ -74,6 +74,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuArquivoProdutos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         mnuArquivoProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/produtos.png"))); // NOI18N
         mnuArquivoProdutos.setText("Produtos");
+        mnuArquivoProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuArquivoProdutosActionPerformed(evt);
+            }
+        });
         mnuArquivo.add(mnuArquivoProdutos);
 
         mnuArquivoUsuarios.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -163,6 +168,13 @@ public class frmPrincipal extends javax.swing.JFrame {
         dpnDesk.add(mUsuarios);
         mUsuarios.show();
     }//GEN-LAST:event_mnuArquivoUsuariosActionPerformed
+
+    private void mnuArquivoProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivoProdutosActionPerformed
+        frmProdutos mProdutos = new frmProdutos();
+        mProdutos.setDados(msDados);
+        dpnDesk.add(mProdutos);
+        mProdutos.show();
+    }//GEN-LAST:event_mnuArquivoProdutosActionPerformed
 
     /**
      * @param args the command line arguments

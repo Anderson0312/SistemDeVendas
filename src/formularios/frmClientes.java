@@ -2,7 +2,9 @@
 package formularios;
 
 import classes.Dados;
+import classes.Produto;
 import classes.Usuario;
+import classes.Utilidades;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -10,10 +12,10 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author AndersoNMN
  */
-public class frmUsuarios extends javax.swing.JInternalFrame {
+public class frmClientes extends javax.swing.JInternalFrame {
 
     private Dados msDados;
-    public int usuAtual = 0;
+    public int prodAtual = 0;
     private boolean novo = false;
     private DefaultTableModel mTablela; 
     
@@ -21,7 +23,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         this.msDados = msDados;
     }
     
-    public frmUsuarios() {
+    public frmClientes() {
         initComponents();
     }
 
@@ -38,14 +40,9 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtIDUsuario = new javax.swing.JTextField();
+        txtIDCliente = new javax.swing.JTextField();
         txtNome = new javax.swing.JTextField();
         txtSobreNome = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        SelecionarPerfil = new javax.swing.JComboBox<>();
-        txtConfirmarSenha = new javax.swing.JPasswordField();
-        txtSenha = new javax.swing.JPasswordField();
         btnCadastroAnterior = new javax.swing.JButton();
         btnProximoCadastro = new javax.swing.JButton();
         btnNovoCadastro = new javax.swing.JButton();
@@ -55,13 +52,20 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         btnCancelarCadastro = new javax.swing.JButton();
         btnPesquisarCadastro = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblTabela = new javax.swing.JTable();
+        txtEndereco = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtTelefone = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        cmbCidade = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        txtEmail = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
-        setTitle("Cadastrar Usuarios ");
+        setTitle("Cadastrar Cliente");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -84,19 +88,19 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         jLabel1.setText("Nome");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("ID Usuario");
+        jLabel2.setText("ID Cliente");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setText("Senha");
+        jLabel3.setText("Endereço");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Sobre Nome");
 
-        txtIDUsuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtIDUsuario.setEnabled(false);
-        txtIDUsuario.addActionListener(new java.awt.event.ActionListener() {
+        txtIDCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtIDCliente.setEnabled(false);
+        txtIDCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIDUsuarioActionPerformed(evt);
+                txtIDClienteActionPerformed(evt);
             }
         });
 
@@ -105,27 +109,6 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
 
         txtSobreNome.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtSobreNome.setEnabled(false);
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setText("Perfil");
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel6.setText("Confimar senha");
-
-        SelecionarPerfil.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        SelecionarPerfil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar Um Perfil", "Administrador", "Funcionário" }));
-        SelecionarPerfil.setEnabled(false);
-
-        txtConfirmarSenha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtConfirmarSenha.setEnabled(false);
-
-        txtSenha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtSenha.setEnabled(false);
-        txtSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSenhaActionPerformed(evt);
-            }
-        });
 
         btnCadastroAnterior.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnCadastroAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-anterior-36.png"))); // NOI18N
@@ -192,7 +175,8 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/adduser.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cliente.png"))); // NOI18N
+        jLabel7.setPreferredSize(new java.awt.Dimension(32, 32));
 
         tblTabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -207,6 +191,29 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tblTabela);
 
+        txtEndereco.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtEndereco.setEnabled(false);
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setText("Telefone");
+
+        txtTelefone.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtTelefone.setEnabled(false);
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setText("Cidade");
+
+        cmbCidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione uma Cidade", "Rio de janeior", "São paulo" }));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel9.setText("Data");
+
+        txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtEmail.setEnabled(false);
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setText("Email");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -215,54 +222,64 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtIDUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel5)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(SelecionarPerfil, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(txtSenha)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel6)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtConfirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(txtSobreNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel7))
+                        .addGap(82, 82, 82)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnCadastroAnterior)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnProximoCadastro)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnNovoCadastro)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnEditarCadastro)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnSalvarCadastro)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnExcluirCadastro)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnCancelarCadastro)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnPesquisarCadastro)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(cmbCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(82, 82, 82)
+                                                .addComponent(btnCadastroAnterior))
+                                            .addComponent(jLabel8))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnProximoCadastro)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnNovoCadastro)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnEditarCadastro)))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnSalvarCadastro)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnExcluirCadastro)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnCancelarCadastro)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnPesquisarCadastro))
+                                    .addComponent(jLabel9)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addGap(41, 41, 41)
+                                    .addComponent(txtEndereco))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtSobreNome))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel2)
+                                        .addComponent(jLabel1))
+                                    .addGap(39, 39, 39)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel6)
+                                        .addComponent(jLabel5))
+                                    .addGap(45, 45, 45)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtEmail)
+                                        .addComponent(txtTelefone)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,81 +289,80 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
                         .addGap(54, 54, 54)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel5)
-                            .addComponent(SelecionarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtIDUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addComponent(jLabel7)))
-                        .addGap(18, 18, 18)
+                            .addComponent(txtIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(txtSobreNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addGap(14, 14, 14)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)
-                            .addComponent(txtConfirmarSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(cmbCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnProximoCadastro)
-                    .addComponent(btnCadastroAnterior)
+                    .addComponent(btnPesquisarCadastro)
+                    .addComponent(btnExcluirCadastro)
+                    .addComponent(btnSalvarCadastro)
                     .addComponent(btnEditarCadastro)
                     .addComponent(btnNovoCadastro)
-                    .addComponent(btnSalvarCadastro)
-                    .addComponent(btnExcluirCadastro)
-                    .addComponent(btnCancelarCadastro)
-                    .addComponent(btnPesquisarCadastro))
-                .addGap(18, 18, 18)
+                    .addComponent(btnProximoCadastro)
+                    .addComponent(btnCadastroAnterior)
+                    .addComponent(btnCancelarCadastro))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtIDUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDUsuarioActionPerformed
+    private void txtIDClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtIDUsuarioActionPerformed
+    }//GEN-LAST:event_txtIDClienteActionPerformed
 
-    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSenhaActionPerformed
-
-    private void mostrarCadastros(){
-        txtIDUsuario.setText(msDados.getUsuarios()[usuAtual].getIdUsuario());
-        txtNome.setText(msDados.getUsuarios()[usuAtual].getNome());
-        txtSobreNome.setText(msDados.getUsuarios()[usuAtual].getSobreNome());
-        txtSenha.setText(msDados.getUsuarios()[usuAtual].getSenha());
-        txtConfirmarSenha.setText(msDados.getUsuarios()[usuAtual].getSenha());
-        SelecionarPerfil.setSelectedIndex(msDados.getUsuarios()[usuAtual].getPerfil());
+    private void mostrarProdutos(){
+        txtIDCliente.setText(msDados.getProdutos()[prodAtual].getIdProduto());
+        txtNome.setText(msDados.getProdutos()[prodAtual].getDescircao());
+        txtSobreNome.setText("" + msDados.getProdutos()[prodAtual].getPreco());
+        txtAnotacao.setText(msDados.getProdutos()[prodAtual].getAnotacao());
+        impImposto.setSelectedIndex(msDados.getProdutos()[prodAtual].getImposto());
         
     }
     
     private void btnCadastroAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroAnteriorActionPerformed
-        usuAtual--;
-        if(usuAtual == -1){ // se o numero de usuaro for igual ao seu retorno, coloca a variavel usuatual como 0
-            usuAtual = msDados.numeroUsuarios()-1;
+        prodAtual--;
+        if(prodAtual == -1){ // se o numero de Produtos for igual ao seu retorno, coloca a variavel usuatual como 0
+            prodAtual = msDados.numeroProdutos()-1;
         }
-        mostrarCadastros();
+        mostrarProdutos();
     }//GEN-LAST:event_btnCadastroAnteriorActionPerformed
 
     private void btnProximoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProximoCadastroActionPerformed
-        usuAtual++;
-        if(usuAtual == msDados.numeroUsuarios()){ // se o numero de usuaro for igual ao seu proximo, coloca a variavel usuatual como 0
-            usuAtual = 0;
+        prodAtual++;
+        if(prodAtual == msDados.numeroProdutos()){ // se o numero de Produtos for igual ao seu proximo, coloca a variavel usuatual como 0
+            prodAtual = 0;
         }
-        mostrarCadastros();
+        mostrarProdutos();
     }//GEN-LAST:event_btnProximoCadastroActionPerformed
 
     private void btnNovoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoCadastroActionPerformed
@@ -360,24 +376,22 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         btnCancelarCadastro.setEnabled(true);
         
         //caixar de inputs
-        txtIDUsuario.setEnabled(true);
+        txtIDCliente.setEnabled(true);
         txtNome.setEnabled(true);
         txtSobreNome.setEnabled(true);
-        txtSenha.setEnabled(true);
-        txtConfirmarSenha.setEnabled(true);
-        SelecionarPerfil.setEnabled(true);
+        impImposto.setEnabled(true);
+        txtAnotacao.setEnabled(true);
         
         //Limpar caixar de inputs
-        txtIDUsuario.setText("");
+        txtIDCliente.setText("");
         txtNome.setText("");
         txtSobreNome.setText("");
-        txtSenha.setText("");
-        txtConfirmarSenha.setText("");
-        SelecionarPerfil.setSelectedIndex(0);
+        impImposto.setSelectedIndex(0);
+        txtAnotacao.setText("");
         
         novo = true;
         
-        txtIDUsuario.requestFocus();
+        txtIDCliente.requestFocus();
         
         
     }//GEN-LAST:event_btnNovoCadastroActionPerformed
@@ -393,12 +407,11 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         btnCancelarCadastro.setEnabled(true);
         
         //caixar de inputs
-        txtIDUsuario.setEditable(false);
+        txtIDCliente.setEditable(true);
         txtNome.setEnabled(true);
         txtSobreNome.setEnabled(true);
-        txtSenha.setEnabled(true);
-        txtConfirmarSenha.setEnabled(true);
-        SelecionarPerfil.setEnabled(true);
+        txtAnotacao.setEditable(true);
+        impImposto.setEnabled(true);
         
         novo = false;
       
@@ -407,56 +420,66 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnEditarCadastroActionPerformed
 
     private void btnSalvarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarCadastroActionPerformed
-        if (txtIDUsuario.getText().equals("")) {
+        if (txtIDCliente.getText().equals("")) {
             JOptionPane.showMessageDialog(rootPane,"Favor inserir um ID.");
-            txtIDUsuario.requestFocusInWindow();
+            txtIDCliente.requestFocusInWindow();
             return;
         }
         
-        if (SelecionarPerfil.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(rootPane,"Favor Selecionar um perfil.");
-            SelecionarPerfil.requestFocusInWindow();
+        if (impImposto.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(rootPane,"Favor Selecionar um Imposto.");
+            impImposto.requestFocusInWindow();
             return;
         }
         
-        String senha = new String(txtSenha.getPassword());
-        String confirmar = new String(txtConfirmarSenha.getPassword());
         
-        if (txtNome.getText().equals("") || txtSobreNome.getText().equals("") || senha.equals("")|| confirmar.equals("")) {
+        if (txtNome.getText().equals("") || txtSobreNome.getText().equals("")) {
             JOptionPane.showMessageDialog(rootPane,"Favor Prencher todos os campos.");
             return;
         }
         
-        if (!senha.equals(confirmar)) {
-            JOptionPane.showMessageDialog(rootPane,"Sua senha está diferente da confirmação.");
-            txtSenha.setText("");
+        if (!Utilidades.isNumeric(txtSobreNome.getText())) {
+            JOptionPane.showMessageDialog(rootPane,"Favor Digitar somente numeros.");
+            txtSobreNome.requestFocusInWindow();
             return;
         }
         
-       int pos = msDados.posicaoUsuario(txtIDUsuario.getText());
+        int preco = Integer.parseInt(txtSobreNome.getText());
+        if (preco <= 0){
+            JOptionPane.showMessageDialog(rootPane,"Favor Digitar um numero acima de zero.");
+            txtSobreNome.requestFocusInWindow();
+            return;
+        }
+        
+        
+       int pos = msDados.posicaoUsuario(txtIDCliente.getText());
        if(novo){
             if(pos != -1){
-                JOptionPane.showMessageDialog(rootPane,"Este usuario já existe!");
-                txtIDUsuario.requestFocusInWindow();
+                JOptionPane.showMessageDialog(rootPane,"Este Produto já existe!");
+                txtIDCliente.requestFocusInWindow();
                 return;
             }
        } else {
            if (pos == -1) {
-               JOptionPane.showMessageDialog(rootPane,"Este usuario ainda não existe!");
-                txtIDUsuario.requestFocusInWindow();
+               JOptionPane.showMessageDialog(rootPane,"Este Produto ainda não existe!");
+                txtIDCliente.requestFocusInWindow();
                 return;
            }
        }
        
-        Usuario mUsuario = new Usuario(
-                txtIDUsuario.getText(), txtNome.getText(), txtSobreNome.getText(), senha, SelecionarPerfil.getSelectedIndex());
+        Produto mProduto = new Produto(
+                txtIDCliente.getText(),
+                txtNome.getText(),            
+                preco,
+                impImposto.getSelectedIndex(),
+                txtAnotacao.getText());
         
         
         String msg;
         if(novo){
-            msg = msDados.adicionarUsuario(mUsuario);
+            msg = msDados.adicionarProduto(mProduto);
         } else {
-            msg = msDados.editarUsuario(mUsuario, pos);
+            msg = msDados.editarProduto(mProduto, pos);
         }    
             JOptionPane.showMessageDialog(rootPane, msg);
         
@@ -471,28 +494,27 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         btnCancelarCadastro.setEnabled(false);
         
         // Desabilitar os butões
-        txtIDUsuario.setEditable(true);
+        txtIDCliente.setEditable(true);
         txtNome.setEditable(true);
         txtSobreNome.setEditable(true);
-        txtSenha.setEditable(true);
-        txtConfirmarSenha.setEditable(true);
-        SelecionarPerfil.setEditable(true);
+        txtAnotacao.setEditable(true);
+        impImposto.setEditable(true);
         
         preencherTabela();
         
     }//GEN-LAST:event_btnSalvarCadastroActionPerformed
 
     private void btnExcluirCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirCadastroActionPerformed
-        int resposta = JOptionPane.showConfirmDialog(rootPane,"Deseja realmente Deletar este Usuário?");
+        int resposta = JOptionPane.showConfirmDialog(rootPane,"Deseja realmente Deletar este Produto?");
         if (resposta != 0) {
             return;
         }
         
         String msg;
-        msg = msDados.deletarUsuario(usuAtual);
+        msg = msDados.deletarUsuario(prodAtual);
         JOptionPane.showMessageDialog(rootPane,msg);
-        usuAtual= 0;
-        mostrarCadastros();
+        prodAtual= 0;
+        mostrarProdutos();
         preencherTabela();
     }//GEN-LAST:event_btnExcluirCadastroActionPerformed
 
@@ -508,53 +530,62 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCancelarCadastroActionPerformed
 
     private void btnPesquisarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarCadastroActionPerformed
-        String usuario = JOptionPane.showInputDialog("Favor Inserir o código do Usuario");
-        if(usuario.equals("")) {
+        String produto = JOptionPane.showInputDialog("Favor Inserir o código do Produtos");
+        if(produto.equals("")) {
             return;
         } 
 
-        int pos = msDados.posicaoUsuario(usuario);
+        int pos = msDados.posicaoProduto(produto);
         if(pos == -1) {
-            JOptionPane.showMessageDialog(rootPane,"Este usuario NÃO EXISTE");
+            JOptionPane.showMessageDialog(rootPane,"Este Produtos NÃO EXISTE");
             return;
         } 
-            usuAtual = pos;
-            mostrarCadastros();
+            prodAtual = pos;
+            mostrarProdutos();
         
     }//GEN-LAST:event_btnPesquisarCadastroActionPerformed
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
-        mostrarCadastros();
+        mostrarProdutos();
         preencherTabela();
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void preencherTabela(){
-        String titulos[] =  {"ID Usuario", "Nome", "Sobre nome", "Perfil"};
-        String registro[] = new String[4];
+        String titulos[] =  {"ID Produto", "Nome", "Preço", "Imposto", "Anotação"};
+        String registro[] = new String[5];
         mTablela = new DefaultTableModel(null, titulos);
-        for(int i =0; i < msDados.numeroUsuarios(); i++) {
-            registro[0] = msDados.getUsuarios()[i].getIdUsuario();
-            registro[1] = msDados.getUsuarios()[i].getNome();
-            registro[2] = msDados.getUsuarios()[i].getSobreNome();
-            registro[3] = perfil(msDados.getUsuarios()[i].getPerfil());
+        for(int i =0; i < msDados.numeroProdutos(); i++) {
+            registro[0] = msDados.getProdutos()[i].getIdProduto();
+            registro[1] = msDados.getProdutos()[i].getDescircao();
+            registro[2] = "" + msDados.getProdutos()[i].getPreco();
+            registro[3] = msDados.getProdutos()[i].getAnotacao(); 
+            registro[4] = Imposto(msDados.getProdutos()[i].getImposto());
+            
             mTablela.addRow(registro);
             
         }
         tblTabela.setModel(mTablela);
     }
                              
-    private String perfil(int idPerfil){
-        if(idPerfil == 1) {
-            return "Administrador";
-        } else {
-            return "Funcionario";
-        } 
-       
+    private String Imposto(int idImposto){
+        switch (idImposto) {
+            case 0:
+                return "0%";
+            
+            case 1:
+                return "10%";
+            
+            case 2:
+                return "15%";
+            
+            default:
+                    return "Não definido";
+            
+        }   
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> SelecionarPerfil;
     private javax.swing.JButton btnCadastroAnterior;
     private javax.swing.JButton btnCancelarCadastro;
     private javax.swing.JButton btnEditarCadastro;
@@ -563,6 +594,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnPesquisarCadastro;
     private javax.swing.JButton btnProximoCadastro;
     private javax.swing.JButton btnSalvarCadastro;
+    private javax.swing.JComboBox<String> cmbCidade;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -571,12 +603,14 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblTabela;
-    private javax.swing.JPasswordField txtConfirmarSenha;
-    private javax.swing.JTextField txtIDUsuario;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtEndereco;
+    private javax.swing.JTextField txtIDCliente;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JPasswordField txtSenha;
     private javax.swing.JTextField txtSobreNome;
+    private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 }
