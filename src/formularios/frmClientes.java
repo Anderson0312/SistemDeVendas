@@ -1,6 +1,7 @@
 
 package formularios;
 
+import classes.Cliente;
 import classes.Dados;
 import classes.Produto;
 import classes.Usuario;
@@ -15,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 public class frmClientes extends javax.swing.JInternalFrame {
 
     private Dados msDados;
-    public int prodAtual = 0;
+    public int clientAtual = 0;
     private boolean novo = false;
     private DefaultTableModel mTablela; 
     
@@ -223,35 +224,35 @@ public class frmClientes extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(82, 82, 82)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnCadastroAnterior)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnProximoCadastro)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnNovoCadastro)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnEditarCadastro)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnSalvarCadastro)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnExcluirCadastro)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnCancelarCadastro)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnPesquisarCadastro))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(cmbCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(82, 82, 82)
-                                                .addComponent(btnCadastroAnterior))
-                                            .addComponent(jLabel8))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnProximoCadastro)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnNovoCadastro)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnEditarCadastro)))
-                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnSalvarCadastro)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnExcluirCadastro)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnCancelarCadastro)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnPesquisarCadastro))
-                                    .addComponent(jLabel9)))
+                                        .addComponent(jLabel8)
+                                        .addGap(275, 275, 275))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(cmbCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)))
+                                .addComponent(jLabel9))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(jLabel3)
@@ -279,7 +280,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
                                         .addComponent(txtTelefone)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -318,7 +319,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnPesquisarCadastro)
                     .addComponent(btnExcluirCadastro)
@@ -328,7 +329,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
                     .addComponent(btnProximoCadastro)
                     .addComponent(btnCadastroAnterior)
                     .addComponent(btnCancelarCadastro))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
@@ -341,26 +342,28 @@ public class frmClientes extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtIDClienteActionPerformed
 
     private void mostrarProdutos(){
-        txtIDCliente.setText(msDados.getProdutos()[prodAtual].getIdProduto());
-        txtNome.setText(msDados.getProdutos()[prodAtual].getDescircao());
-        txtSobreNome.setText("" + msDados.getProdutos()[prodAtual].getPreco());
-        txtAnotacao.setText(msDados.getProdutos()[prodAtual].getAnotacao());
-        impImposto.setSelectedIndex(msDados.getProdutos()[prodAtual].getImposto());
+        txtIDCliente.setText(msDados.getClientes()[clientAtual].getIdCliente());
+        txtNome.setText(msDados.getClientes()[clientAtual].getNome());
+        txtSobreNome.setText("" + msDados.getClientes()[clientAtual].getSobreNome());
+        txtEndereco.setText(msDados.getClientes()[clientAtual].getEndereco());
+        txtEmail.setText(msDados.getClientes()[clientAtual].getEmail());
+        txtTelefone.setText(msDados.getClientes()[clientAtual].getTelefone());
+        cmbCidade.setSelectedIndex(msDados.getClientes()[clientAtual].getCidade());
         
     }
     
     private void btnCadastroAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroAnteriorActionPerformed
-        prodAtual--;
-        if(prodAtual == -1){ // se o numero de Produtos for igual ao seu retorno, coloca a variavel usuatual como 0
-            prodAtual = msDados.numeroProdutos()-1;
+        clientAtual--;
+        if(clientAtual == -1){ // se o numero de Produtos for igual ao seu retorno, coloca a variavel usuatual como 0
+            clientAtual = msDados.numeroProdutos()-1;
         }
         mostrarProdutos();
     }//GEN-LAST:event_btnCadastroAnteriorActionPerformed
 
     private void btnProximoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProximoCadastroActionPerformed
-        prodAtual++;
-        if(prodAtual == msDados.numeroProdutos()){ // se o numero de Produtos for igual ao seu proximo, coloca a variavel usuatual como 0
-            prodAtual = 0;
+        clientAtual++;
+        if(clientAtual == msDados.numeroProdutos()){ // se o numero de Produtos for igual ao seu proximo, coloca a variavel usuatual como 0
+            clientAtual = 0;
         }
         mostrarProdutos();
     }//GEN-LAST:event_btnProximoCadastroActionPerformed
@@ -379,15 +382,19 @@ public class frmClientes extends javax.swing.JInternalFrame {
         txtIDCliente.setEnabled(true);
         txtNome.setEnabled(true);
         txtSobreNome.setEnabled(true);
-        impImposto.setEnabled(true);
-        txtAnotacao.setEnabled(true);
+        txtEndereco.setEnabled(true);
+        txtEmail.setEnabled(true);
+        txtTelefone.setEnabled(true);
+        cmbCidade.setEditable(true);
         
         //Limpar caixar de inputs
         txtIDCliente.setText("");
         txtNome.setText("");
         txtSobreNome.setText("");
-        impImposto.setSelectedIndex(0);
-        txtAnotacao.setText("");
+        txtEndereco.setText("");
+        txtEmail.setText("");
+        cmbCidade.setSelectedIndex(0);
+        txtTelefone.setText("");
         
         novo = true;
         
@@ -407,11 +414,13 @@ public class frmClientes extends javax.swing.JInternalFrame {
         btnCancelarCadastro.setEnabled(true);
         
         //caixar de inputs
-        txtIDCliente.setEditable(true);
+        txtIDCliente.setEnabled(true);
         txtNome.setEnabled(true);
         txtSobreNome.setEnabled(true);
-        txtAnotacao.setEditable(true);
-        impImposto.setEnabled(true);
+        txtEndereco.setEnabled(true);
+        txtEmail.setEnabled(true);
+        txtTelefone.setEnabled(true);
+        cmbCidade.setEditable(true);
         
         novo = false;
       
@@ -426,60 +435,50 @@ public class frmClientes extends javax.swing.JInternalFrame {
             return;
         }
         
-        if (impImposto.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(rootPane,"Favor Selecionar um Imposto.");
-            impImposto.requestFocusInWindow();
-            return;
-        }
+//        if (impImposto.getSelectedIndex() == 0) {
+//            JOptionPane.showMessageDialog(rootPane,"Favor Selecionar um Imposto.");
+//            impImposto.requestFocusInWindow();
+//            return;
+//        }
         
         
-        if (txtNome.getText().equals("") || txtSobreNome.getText().equals("")) {
+        if (txtNome.getText().equals("") || txtSobreNome.getText().equals("") || txtEmail.getText().equals("") || txtTelefone.getText().equals("")) {
             JOptionPane.showMessageDialog(rootPane,"Favor Prencher todos os campos.");
             return;
         }
+                
         
-        if (!Utilidades.isNumeric(txtSobreNome.getText())) {
-            JOptionPane.showMessageDialog(rootPane,"Favor Digitar somente numeros.");
-            txtSobreNome.requestFocusInWindow();
-            return;
-        }
-        
-        int preco = Integer.parseInt(txtSobreNome.getText());
-        if (preco <= 0){
-            JOptionPane.showMessageDialog(rootPane,"Favor Digitar um numero acima de zero.");
-            txtSobreNome.requestFocusInWindow();
-            return;
-        }
-        
-        
-       int pos = msDados.posicaoUsuario(txtIDCliente.getText());
+       int pos = msDados.posicaoCliente(txtIDCliente.getText());
        if(novo){
             if(pos != -1){
-                JOptionPane.showMessageDialog(rootPane,"Este Produto já existe!");
+                JOptionPane.showMessageDialog(rootPane,"Este Cliente já existe!");
                 txtIDCliente.requestFocusInWindow();
                 return;
             }
        } else {
            if (pos == -1) {
-               JOptionPane.showMessageDialog(rootPane,"Este Produto ainda não existe!");
+               JOptionPane.showMessageDialog(rootPane,"Este Cliente ainda não existe!");
                 txtIDCliente.requestFocusInWindow();
                 return;
            }
        }
        
-        Produto mProduto = new Produto(
+        Cliente mCliente = new Cliente(
                 txtIDCliente.getText(),
                 txtNome.getText(),            
-                preco,
-                impImposto.getSelectedIndex(),
-                txtAnotacao.getText());
+                txtSobreNome.getText(),
+                txtEndereco.getText(),
+                txtEmail.getText(),
+                txtTelefone.getText(),
+                cmbCidade.getSelectedIndex()
+        );
         
         
         String msg;
         if(novo){
-            msg = msDados.adicionarProduto(mProduto);
+            msg = msDados.adicionarCliente(mCliente);
         } else {
-            msg = msDados.editarProduto(mProduto, pos);
+            msg = msDados.editarCliente(mCliente, pos);
         }    
             JOptionPane.showMessageDialog(rootPane, msg);
         
@@ -494,11 +493,12 @@ public class frmClientes extends javax.swing.JInternalFrame {
         btnCancelarCadastro.setEnabled(false);
         
         // Desabilitar os butões
-        txtIDCliente.setEditable(true);
-        txtNome.setEditable(true);
-        txtSobreNome.setEditable(true);
-        txtAnotacao.setEditable(true);
-        impImposto.setEditable(true);
+        txtIDCliente.setEnabled(true);
+        txtNome.setEnabled(true);
+        txtSobreNome.setEnabled(true);
+        txtEndereco.setEnabled(true);
+        txtTelefone.setEnabled(true);
+        cmbCidade.setEditable(true);
         
         preencherTabela();
         
@@ -511,9 +511,9 @@ public class frmClientes extends javax.swing.JInternalFrame {
         }
         
         String msg;
-        msg = msDados.deletarUsuario(prodAtual);
+        msg = msDados.deletarUsuario(clientAtual);
         JOptionPane.showMessageDialog(rootPane,msg);
-        prodAtual= 0;
+        clientAtual= 0;
         mostrarProdutos();
         preencherTabela();
     }//GEN-LAST:event_btnExcluirCadastroActionPerformed
@@ -530,7 +530,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCancelarCadastroActionPerformed
 
     private void btnPesquisarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarCadastroActionPerformed
-        String produto = JOptionPane.showInputDialog("Favor Inserir o código do Produtos");
+        String produto = JOptionPane.showInputDialog("Favor Inserir o ID do cliente");
         if(produto.equals("")) {
             return;
         } 
@@ -540,7 +540,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(rootPane,"Este Produtos NÃO EXISTE");
             return;
         } 
-            prodAtual = pos;
+            clientAtual = pos;
             mostrarProdutos();
         
     }//GEN-LAST:event_btnPesquisarCadastroActionPerformed
@@ -551,15 +551,17 @@ public class frmClientes extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void preencherTabela(){
-        String titulos[] =  {"ID Produto", "Nome", "Preço", "Imposto", "Anotação"};
-        String registro[] = new String[5];
+        String titulos[] =  {"ID Cliente", "Nome", "Sobre Nome", "Endereco", "Email", "Eelefone", "Cidade"};
+        String registro[] = new String[7];
         mTablela = new DefaultTableModel(null, titulos);
-        for(int i =0; i < msDados.numeroProdutos(); i++) {
-            registro[0] = msDados.getProdutos()[i].getIdProduto();
-            registro[1] = msDados.getProdutos()[i].getDescircao();
-            registro[2] = "" + msDados.getProdutos()[i].getPreco();
-            registro[3] = msDados.getProdutos()[i].getAnotacao(); 
-            registro[4] = Imposto(msDados.getProdutos()[i].getImposto());
+        for(int i =0; i < msDados.numeroClientes(); i++) {
+            registro[0] = msDados.getClientes()[i].getIdCliente();
+            registro[1] = msDados.getClientes()[i].getNome();
+            registro[2] = msDados.getClientes()[i].getSobreNome();
+            registro[3] = msDados.getClientes()[i].getEndereco(); 
+            registro[4] = msDados.getClientes()[i].getEmail();
+            registro[5] = msDados.getClientes()[i].getTelefone();
+            registro[6] = "" + msDados.getClientes()[i].getCidade();
             
             mTablela.addRow(registro);
             

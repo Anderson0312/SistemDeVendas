@@ -543,7 +543,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         tblTabela.setModel(mTablela);
     }
                              
-    private String perfil(int idPerfil){
+    public String perfil(int idPerfil){
         if(idPerfil == 1) {
             return "Administrador";
         } else {

@@ -1,0 +1,4 @@
+1 | Arroz | 43.0 | 0 | Arroz branco
+2 | feijão | 53.0 | 1 | Feijão Preto
+3 | Macarrão | 23.0 | 0 | Macarrão enroladinho
+4 | Carne | 143.0 | 2 | Carne de boi

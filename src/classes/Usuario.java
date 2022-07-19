@@ -60,4 +60,16 @@ public class Usuario {
     }
     
     
+    
+    @Override
+    public String toString(){
+        
+        return idUsuario + " | "
+               +nome+ " | " 
+                +sobreNome+ " | "
+                +senha+ " | "
+                +perfil;
+        
+    }
+    
 }

@@ -1,6 +1,7 @@
 
 package formularios;
 
+import classes.BackGround;
 import classes.Dados;
 
 /**
@@ -28,7 +29,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        dpnDesk = new javax.swing.JDesktopPane();
+        dpnDesk = new BackGround();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuArquivo = new javax.swing.JMenu();
         mnuArquivoClientes = new javax.swing.JMenuItem();
@@ -48,6 +49,11 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de vendas");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         dpnDesk.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -69,6 +75,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuArquivoClientes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         mnuArquivoClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/clienteicon.png"))); // NOI18N
         mnuArquivoClientes.setText("Clientes");
+        mnuArquivoClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuArquivoClientesActionPerformed(evt);
+            }
+        });
         mnuArquivo.add(mnuArquivoClientes);
 
         mnuArquivoProdutos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -106,6 +117,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuArquivoSair.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         mnuArquivoSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout.png"))); // NOI18N
         mnuArquivoSair.setText("Sair");
+        mnuArquivoSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuArquivoSairActionPerformed(evt);
+            }
+        });
         mnuArquivo.add(mnuArquivoSair);
 
         jMenuBar1.add(mnuArquivo);
@@ -154,9 +170,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(dpnDesk)
-                .addGap(0, 0, 0))
+            .addComponent(dpnDesk)
         );
 
         pack();
@@ -175,6 +189,22 @@ public class frmPrincipal extends javax.swing.JFrame {
         dpnDesk.add(mProdutos);
         mProdutos.show();
     }//GEN-LAST:event_mnuArquivoProdutosActionPerformed
+
+    private void mnuArquivoClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivoClientesActionPerformed
+        frmClientes mClientes = new frmClientes();
+        mClientes.setDados(msDados);
+        dpnDesk.add(mClientes);
+        mClientes.show();
+    }//GEN-LAST:event_mnuArquivoClientesActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        ((BackGround)dpnDesk).setImage("/images/background.jpg"); // setando a imagagem de fundo do formulario principal
+    }//GEN-LAST:event_formWindowOpened
+
+    private void mnuArquivoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivoSairActionPerformed
+        msDados.salvarDados();
+        System.exit(0);
+    }//GEN-LAST:event_mnuArquivoSairActionPerformed
 
     /**
      * @param args the command line arguments

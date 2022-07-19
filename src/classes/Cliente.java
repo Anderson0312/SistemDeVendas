@@ -68,6 +68,7 @@ public class Cliente {
     }
 
     public void setTelefone(String telefone) {
+        
         this.telefone = telefone;
     }
 
@@ -78,4 +79,19 @@ public class Cliente {
     public void setCidade(int cidade) {
         this.cidade = cidade;
     }
+    
+    
+    @Override
+    public String toString(){
+        
+        return idCliente + " | "
+               +nome+ " | " 
+                +sobreNome+ " | "
+                +endereco+ " | "
+                +email+" | "
+                +telefone+ " | "
+                +cidade;
+        
+    }
+    
 }

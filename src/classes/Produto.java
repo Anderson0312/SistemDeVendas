@@ -60,4 +60,16 @@ public class Produto {
         this.anotacao = anotacao;
     }
     
+    
+    @Override
+    public String toString(){
+        
+        return idProduto + " | "
+               +descircao+ " | " 
+                +preco+ " | "
+                +imposto+ " | "
+                +anotacao;
+        
+    }
+    
 }
