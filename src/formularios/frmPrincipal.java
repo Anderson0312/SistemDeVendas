@@ -9,11 +9,25 @@ import classes.Dados;
  * @author AndersoNMN
  */
 public class frmPrincipal extends javax.swing.JFrame {
-
+    private int perfil;
+    private String senha;
+    private String usuario;
     private Dados msDados;
     
     public void setDados(Dados msDados) {
         this.msDados = msDados;
+    }
+    
+    public void setSenha (String senha) {
+        this.senha = senha;
+    }
+    
+    public void setUsuario (String usuario) {
+        this.usuario = usuario;
+    }
+    
+    public void  setPerfil(int perfil){
+        this.perfil = perfil;
     }
     
     public frmPrincipal() {
@@ -106,11 +120,21 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuArquivoTSenha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         mnuArquivoTSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/password.png"))); // NOI18N
         mnuArquivoTSenha.setText("Trocar Senha");
+        mnuArquivoTSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuArquivoTSenhaActionPerformed(evt);
+            }
+        });
         mnuArquivo.add(mnuArquivoTSenha);
 
         mnuArquivoTUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         mnuArquivoTUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/renameuser.png"))); // NOI18N
         mnuArquivoTUsuario.setText("Trocar Usuario");
+        mnuArquivoTUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuArquivoTUsuarioActionPerformed(evt);
+            }
+        });
         mnuArquivo.add(mnuArquivoTUsuario);
         mnuArquivo.add(jSeparator2);
 
@@ -133,6 +157,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuMovimentNvVenda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         mnuMovimentNvVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Product-sale.png"))); // NOI18N
         mnuMovimentNvVenda.setText("Nova Venda");
+        mnuMovimentNvVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuMovimentNvVendaActionPerformed(evt);
+            }
+        });
         mnuMoviment.add(mnuMovimentNvVenda);
 
         mnuMovimentRlVenda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -149,11 +178,21 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuAjudaSobre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         mnuAjudaSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-informações-36.png"))); // NOI18N
         mnuAjudaSobre.setText("Sobre");
+        mnuAjudaSobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuAjudaSobreActionPerformed(evt);
+            }
+        });
         mnuAjuda.add(mnuAjudaSobre);
 
         mnuAjudaAjuda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         mnuAjudaAjuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-ajuda-36.png"))); // NOI18N
         mnuAjudaAjuda.setText("Ajuda");
+        mnuAjudaAjuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuAjudaAjudaActionPerformed(evt);
+            }
+        });
         mnuAjuda.add(mnuAjudaAjuda);
 
         jMenuBar1.add(mnuAjuda);
@@ -191,20 +230,69 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuArquivoProdutosActionPerformed
 
     private void mnuArquivoClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivoClientesActionPerformed
+
         frmClientes mClientes = new frmClientes();
         mClientes.setDados(msDados);
-        dpnDesk.add(mClientes);
+        dpnDesk.add(mClientes);   
+        
         mClientes.show();
+
     }//GEN-LAST:event_mnuArquivoClientesActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         ((BackGround)dpnDesk).setImage("/images/background.jpg"); // setando a imagagem de fundo do formulario principal
+        if (perfil == 2) { // verificação do usuario(usuario comum não pode acessar todas areas)
+            mnuArquivoClientes.setEnabled(false);
+            mnuArquivoProdutos.setEnabled(false);
+            mnuArquivoUsuarios.setEnabled(false);
+            mnuMovimentRlVenda.setEnabled(false);
+        }
     }//GEN-LAST:event_formWindowOpened
-
+    
+    // botão para sair do sistema
     private void mnuArquivoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivoSairActionPerformed
         msDados.salvarDados();
         System.exit(0);
     }//GEN-LAST:event_mnuArquivoSairActionPerformed
+
+    // botão para trocar de usuario 
+    private void mnuArquivoTUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivoTUsuarioActionPerformed
+        this.setVisible(false);
+        frmLogin1 mLogin = new frmLogin1();
+        mLogin.setDados(msDados);
+        mLogin.setLocationRelativeTo(null);
+        mLogin.setVisible(true);
+    }//GEN-LAST:event_mnuArquivoTUsuarioActionPerformed
+
+    private void mnuArquivoTSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivoTSenhaActionPerformed
+        frmTrocarSenha mSenha = new frmTrocarSenha(this, rootPaneCheckingEnabled);
+        mSenha.setLocationRelativeTo(null);
+        mSenha.setSenha(senha);
+        mSenha.setUsuario(usuario);
+        mSenha.setDados(msDados);
+        mSenha.setVisible(rootPaneCheckingEnabled);
+    }//GEN-LAST:event_mnuArquivoTSenhaActionPerformed
+
+    private void mnuAjudaSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAjudaSobreActionPerformed
+        frmSobre mSobre = new frmSobre(this, rootPaneCheckingEnabled);
+        mSobre.setLocationRelativeTo(this);
+        mSobre.setVisible(rootPaneCheckingEnabled);
+    }//GEN-LAST:event_mnuAjudaSobreActionPerformed
+
+    private void mnuAjudaAjudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAjudaAjudaActionPerformed
+        frmAjuda mAjuda = new frmAjuda(this, rootPaneCheckingEnabled);
+        mAjuda.setLocationRelativeTo(this);
+        mAjuda.setVisible(rootPaneCheckingEnabled);
+    }//GEN-LAST:event_mnuAjudaAjudaActionPerformed
+
+    private void mnuMovimentNvVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMovimentNvVendaActionPerformed
+        frmFaturamento MVenda = new frmFaturamento();
+        
+        MVenda.setDados(msDados);
+        dpnDesk.add(MVenda);   
+        
+        MVenda.show();
+    }//GEN-LAST:event_mnuMovimentNvVendaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -260,4 +348,6 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuMovimentNvVenda;
     private javax.swing.JMenuItem mnuMovimentRlVenda;
     // End of variables declaration//GEN-END:variables
+
+    
 }

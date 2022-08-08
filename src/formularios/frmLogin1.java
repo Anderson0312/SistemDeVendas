@@ -21,7 +21,7 @@ public class frmLogin1 extends javax.swing.JFrame {
      //Creates new form frmLogin
     public frmLogin1() {
         initComponents();
-        getContentPane().setBackground(Color.GRAY);
+        getContentPane().setBackground(Color.GRAY); // cor do form de login do sistema
     }
 
     /**
@@ -146,12 +146,15 @@ public class frmLogin1 extends javax.swing.JFrame {
         frmPrincipal mPrincipal = new frmPrincipal(); // chama a classe de frmPrincipal e cria a variavel mPrincipa 
         this.setVisible(false); // set o frame de login com falso para tirar ele da tela
         mPrincipal.setDados(msDados);
+        mPrincipal.setPerfil(msDados.getPerfil(txtUsuario.getText()));
+        mPrincipal.setSenha(new String(txtSenha.getPassword()));
+        mPrincipal.setUsuario(txtUsuario.getText());
         mPrincipal.setExtendedState(MAXIMIZED_BOTH); // seta o frame de formulario principal como tamanho maximo da tela
         mPrincipal.setVisible(true); // seta a visibilidade dele como true para mostrar na tela
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        this.dispose(); // botaão para fechar o formulario de login
+        System.exit(0); // botaão para fechar o formulario de login
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed

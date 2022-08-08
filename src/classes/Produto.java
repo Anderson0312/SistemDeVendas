@@ -64,10 +64,10 @@ public class Produto {
     @Override
     public String toString(){
         
-        return idProduto + " | "
-               +descircao+ " | " 
-                +preco+ " | "
-                +imposto+ " | "
+        return idProduto + "|"
+               +descircao+ "|" 
+                +preco+ "|"
+                +imposto+ "|"
                 +anotacao;
         
     }

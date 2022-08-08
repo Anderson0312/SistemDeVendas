@@ -511,8 +511,11 @@ public class frmProdutos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnPesquisarCadastroActionPerformed
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+        //voltar aqui para resolver problema de quando não tem nenhum item não abre o formulario
+        // if (!msDados.getProdutos().equals("")){
         mostrarProdutos();
         preencherTabela();
+        
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void preencherTabela(){

@@ -13,7 +13,7 @@ import java.io.PrintWriter;
  */
 public class Dados {
     
-    private int maxUsuarios = 50;
+    private final int maxUsuarios = 50;
     private int maxProdutos = 100;
     private int maxCliente = 100;
     private Usuario mUsuarios[] = new Usuario[maxUsuarios];
@@ -23,47 +23,27 @@ public class Dados {
     private int contProd = 0;
     private int contClient = 0;
     private Usuario mUsuario;
+    private int numFatura = 0;
     
     public Dados() {
-        preencherUsuarios();
+        
+          preencherUsuarios();
                
-        
-        Produto mProduto;
-        mProduto = new Produto("1", "Arroz", 43, 0, "Arroz branco" );
-        mProdutos[contProd] = mProduto;
-        contProd++;
-        
-        
-        mProduto = new Produto("2", "feijão", 53, 1, "Feijão Preto" );
-        mProdutos[contProd] = mProduto;
-        contProd++;
-        
-        
-        mProduto = new Produto("3", "Macarrão", 23, 0, "Macarrão enroladinho" );
-        mProdutos[contProd] = mProduto;
-        contProd++;
-        
-        
-        mProduto = new Produto("4", "Carne", 143, 2, "Carne de boi" );
-        mProdutos[contProd] = mProduto;
-        contProd++;
-        
-        
-        Cliente mCliente;
-        mCliente = new Cliente("1", "Anderson", "Moura", "Rj", "anderson@gmail.com", "21 0000-0000", 1 );
-        mClientes[contClient] = mCliente;
-        contClient++;
-        
-        mCliente = new Cliente("2", "lucas", "Moura", "Rj", "lucas@gmail.com", "21 0000-0000", 1 );
-        mClientes[contClient] = mCliente;
-        contClient++;
-        
-        mCliente = new Cliente("3", "bruno", "Moura", "Rj", "bruno@gmail.com", "21 0000-0000", 1 );
-        mClientes[contClient] = mCliente;
-        contClient++;
+          preencherProdutos();
+          
+          preencherClientes();
+          
+          preencherConfiguracao();
+          
     }
     
+    public int getNumeroFatura(){
+        return numFatura;
+    }
     
+    public void setNumeroFatura(int numFatura){
+        this.numFatura = numFatura;
+    }
      
     public int numeroUsuarios(){
         return contUsu;
@@ -100,6 +80,28 @@ public class Dados {
             }    
         }
         return false;
+    }
+    
+    
+    // classe de verifição de usuario e validar se é o adm ou usuario simples
+    public int getPerfil(String usuario){
+        
+        for (int i = 0; i < contUsu; i++){
+            if(mUsuarios[i].getIdUsuario().equals(usuario)){
+                return mUsuarios[i].getPerfil();
+            }    
+        }
+        return -1;
+    }
+    
+    public void trocarSenha(String usuario, String senha){
+        
+        for (int i = 0; i < contUsu; i++){
+            if(mUsuarios[i].getIdUsuario().equals(usuario)){
+                mUsuarios[i].setSenha(senha);
+                return;
+            }    
+        }
     }
     
     
@@ -250,6 +252,7 @@ public class Dados {
             salvarUsuarios();
             salvarClientes();
             salvarProdutos();
+            salvarConfiguracao();
         }
         
         public void salvarUsuarios(){
@@ -322,6 +325,32 @@ public class Dados {
         }
         
         
+        public void salvarConfiguracao(){
+            FileWriter fw = null;
+            PrintWriter pw = null;
+            try {
+                fw = new FileWriter("Data/Configuracao.ini");
+                pw = new PrintWriter(fw);
+                
+                pw.println("[Geral]");
+                pw.println("FaturaAtual="+numFatura);
+                
+                
+            } catch (Exception e1) {
+                e1.printStackTrace();
+                
+            } finally{
+                try {
+                    if(fw != null) {
+                        fw.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+        
+        
         public void preencherUsuarios() {
             File arquivo = null;
             FileReader fr = null;
@@ -340,7 +369,7 @@ public class Dados {
                 String nome; 
                 String sobreNome; 
                 String senha; 
-                Integer perfil; 
+                int perfil; 
                  
                 while((linha = br.readLine())!= null) {
                     pos = linha.indexOf('|');
@@ -362,7 +391,7 @@ public class Dados {
                     aux = linha.substring(0, pos);
                     senha =  aux;
                     linha = linha.substring(pos + 1);
-                    perfil = new Integer(linha);
+                    perfil = Integer.parseInt(linha);
                     
                     
                     Usuario mUsuario = new Usuario(
@@ -389,4 +418,195 @@ public class Dados {
                 }
             }
         }
+        
+        
+        public void preencherProdutos() {
+            File arquivo = null;
+            FileReader fr = null;
+            
+            BufferedReader br = null;
+            
+            try {
+                arquivo = new File("Data/Produtos.txt");
+                fr = new FileReader(arquivo);
+                br = new BufferedReader(fr);
+                
+                int pos;
+                String aux;
+                String linha;
+                String idProduto;
+                String descircao;
+                Double preco;
+                int imposto;
+                String anotacao; 
+                 
+                while((linha = br.readLine())!= null) {
+                    pos = linha.indexOf('|');
+                    aux = linha.substring(0, pos);
+                    idProduto =  aux;
+                    linha = linha.substring(pos + 1);
+                    
+                    pos = linha.indexOf('|');
+                    aux = linha.substring(0, pos);
+                    descircao =  aux;
+                    linha = linha.substring(pos + 1);
+                    
+                    pos = linha.indexOf('|');
+                    aux = linha.substring(0,pos);
+                    preco = Double.valueOf(aux);
+                    linha = linha.substring(pos + 1);
+                    
+                    pos = linha.indexOf('|');
+                    aux = linha.substring(0,pos);
+                    imposto = Integer.parseInt(aux);
+                    linha = linha.substring(pos + 1);
+                    anotacao = linha;
+                    
+                    
+                    Produto mProduto = new Produto(
+                            idProduto,
+                            descircao,
+                            preco,
+                            imposto,
+                            anotacao);
+                    
+                    mProdutos[contProd] = mProduto;
+                    contProd ++;
+                }
+                 
+            } catch (Exception e1) {
+                e1.printStackTrace();
+                
+            } finally {
+                try {
+                    if(fr != null) {
+                        fr.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+        
+        
+        
+            public void preencherClientes() {
+            File arquivo = null;
+            FileReader fr = null;
+            
+            BufferedReader br = null;
+            
+            try {
+                arquivo = new File("Data/Clientes.txt");
+                fr = new FileReader(arquivo);
+                br = new BufferedReader(fr);
+                
+                int pos;
+                String aux;
+                String linha;
+                String idCliente;
+                String nome;
+                String sobreNome;
+                String endereco;
+                String email;
+                String telefone;
+                int cidade;
+                 
+                while((linha = br.readLine())!= null) {
+                    pos = linha.indexOf('|');
+                    aux = linha.substring(0, pos);
+                    idCliente =  aux;
+                    linha = linha.substring(pos + 1);
+                    
+                    pos = linha.indexOf('|');
+                    aux = linha.substring(0, pos);
+                    nome =  aux;
+                    linha = linha.substring(pos + 1);
+                    
+                    pos = linha.indexOf('|');
+                    aux = linha.substring(0,pos);
+                    sobreNome = aux;
+                    linha = linha.substring(pos + 1);
+                    
+                    pos = linha.indexOf('|');
+                    aux = linha.substring(0,pos);
+                    endereco = aux;
+                    linha = linha.substring(pos + 1);
+                    
+                    pos = linha.indexOf('|');
+                    aux = linha.substring(0,pos);
+                    email = aux;
+                    linha = linha.substring(pos + 1);
+                    
+                    pos = linha.indexOf('|');
+                    aux = linha.substring(0,pos);
+                    telefone = aux;
+                    linha = linha.substring(pos + 1);
+                    cidade = Integer.parseInt(linha);
+                    
+                    
+                    Cliente mCliente = new Cliente(
+                            idCliente,
+                            nome,
+                            sobreNome,
+                            endereco,
+                            email,
+                            telefone,
+                            cidade
+                            );
+                    
+                    mClientes[contClient] = mCliente;
+                    contClient ++;
+                }
+                 
+            } catch (Exception e1) {
+                e1.printStackTrace();
+                
+            } finally {
+                try {
+                    if(fr != null) {
+                        fr.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+            
+            
+            
+    public void preencherConfiguracao() {
+            File arquivo = null;
+            FileReader fr = null;
+            
+            BufferedReader br = null;
+            
+            try {
+                arquivo = new File("Data/Configuracao.ini");
+                fr = new FileReader(arquivo);
+                br = new BufferedReader(fr);
+                
+                String linha;
+                                 
+                while((linha = br.readLine())!= null) {
+                    if (linha.startsWith("FatruaAtual=")){
+                        numFatura = Integer.parseInt(linha.substring(13));
+                    }
+                   
+                }           
+            } catch (Exception e1) {
+                e1.printStackTrace();
+                
+            } finally {
+                try {
+                    if(fr != null) {
+                        fr.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+
+
 }
