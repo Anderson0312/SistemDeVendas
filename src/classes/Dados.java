@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 
+
 /**
  *
  * @author AndersoNMN
@@ -14,11 +15,11 @@ import java.io.PrintWriter;
 public class Dados {
     
     private final int maxUsuarios = 50;
-    private int maxProdutos = 100;
-    private int maxCliente = 100;
-    private Usuario mUsuarios[] = new Usuario[maxUsuarios];
-    private Produto mProdutos[] = new Produto[maxProdutos];
-    private Cliente mClientes[] = new Cliente[maxCliente];
+    private final int maxProdutos = 100;
+    private final int maxCliente = 100;
+    private final Usuario mUsuarios[] = new Usuario[maxUsuarios];
+    private final Produto mProdutos[] = new Produto[maxProdutos];
+    private final Cliente mClientes[] = new Cliente[maxCliente];
     private int contUsu = 0;
     private int contProd = 0;
     private int contClient = 0;
