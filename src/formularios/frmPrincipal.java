@@ -3,6 +3,7 @@ package formularios;
 
 import classes.BackGround;
 import classes.Dados;
+import classes.Dados_DB;
 
 /**
  *
@@ -14,8 +15,14 @@ public class frmPrincipal extends javax.swing.JFrame {
     private String usuario;
     private Dados msDados;
     
+    private Dados_DB msDados_DB;
+    
     public void setDados(Dados msDados) {
         this.msDados = msDados;
+    }
+    
+    public void setDados_DB(Dados_DB msDados_DB) {
+        this.msDados_DB = msDados_DB;
     }
     
     public void setSenha (String senha) {

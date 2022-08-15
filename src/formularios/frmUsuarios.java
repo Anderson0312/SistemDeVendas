@@ -2,6 +2,7 @@
 package formularios;
 
 import classes.Dados;
+import classes.Dados_DB;
 import classes.Usuario;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -13,12 +14,19 @@ import javax.swing.table.DefaultTableModel;
 public class frmUsuarios extends javax.swing.JInternalFrame {
 
     private Dados msDados;
+    
+    private Dados_DB msDados_DB;
+    
     public int usuAtual = 0;
     private boolean novo = false;
     private DefaultTableModel mTablela; 
     
     public void setDados(Dados msDados) {
         this.msDados = msDados;
+    }
+    
+    public void setDados_DB(Dados_DB msDados_DB) {
+        this.msDados_DB = msDados_DB;
     }
     
     public frmUsuarios() {
@@ -433,15 +441,15 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
             return;
         }
         
-       int pos = msDados.posicaoUsuario(txtIDUsuario.getText());
+       
        if(novo){
-            if(pos != -1){
+            if(msDados_DB.existeUsuario(txtIDUsuario.getText())){
                 JOptionPane.showMessageDialog(rootPane,"Este usuario já existe!");
                 txtIDUsuario.requestFocusInWindow();
                 return;
             }
        } else {
-           if (pos == -1) {
+           if (msDados_DB.existeUsuario(txtIDUsuario.getText())) {
                JOptionPane.showMessageDialog(rootPane,"Este usuario ainda não existe!");
                 txtIDUsuario.requestFocusInWindow();
                 return;
