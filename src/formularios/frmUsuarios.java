@@ -4,13 +4,12 @@ package formularios;
 import classes.Dados;
 import classes.Dados_DB;
 import classes.Usuario;
-import com.mysql.cj.xdevapi.Result;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.sql.ResultSet;
 
 /**
  *
@@ -542,10 +541,11 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void preencherTabela(){
-        try {
             String titulos[] =  {"ID Usuario", "Nome", "Sobre nome", "Perfil"};
             String registro[] = new String[4];
             mTablela = new DefaultTableModel(null, titulos);
+        try {
+            
             ResultSet rs = msDados_DB.getUsuarios();
             if (!rs.isBeforeFirst()) {
                 System.out.println("Não há registros."); 

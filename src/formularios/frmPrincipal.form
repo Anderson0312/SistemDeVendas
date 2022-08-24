@@ -242,7 +242,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="798" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="795" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -288,15 +288,15 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="btnPizza" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnRefri" min="-2" pref="60" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnSuco" min="-2" pref="60" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnCerveja" min="-2" pref="60" max="-2" attributes="0"/>
-                      <EmptySpace pref="121" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="btnPizza" min="-2" pref="70" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnRefri" min="-2" pref="70" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnSuco" min="-2" pref="70" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnCerveja" min="-2" pref="70" max="-2" attributes="0"/>
+                      <EmptySpace pref="116" max="32767" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="txtOperador" min="-2" pref="17" max="-2" attributes="0"/>
@@ -308,8 +308,11 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="btnPizza">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/images/icons8-salvar-e-fechar-36.png"/>
+                  <Image iconType="3" name="/images/icons8-pizza-40.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Pizzas"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -318,8 +321,11 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnSuco">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/images/icons8-salvar-e-fechar-36.png"/>
+                  <Image iconType="3" name="/images/icons8-sumo-de-laranja-40.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Suco"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -328,8 +334,11 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnRefri">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/images/icons8-salvar-e-fechar-36.png"/>
+                  <Image iconType="3" name="/images/icons8-soda-can-40.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Refrigerante"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -338,8 +347,11 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnCerveja">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/images/icons8-salvar-e-fechar-36.png"/>
+                  <Image iconType="3" name="/images/icons8-cerveja-40.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cerveja"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>

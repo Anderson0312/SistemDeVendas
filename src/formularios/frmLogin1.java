@@ -28,7 +28,7 @@ public class frmLogin1 extends javax.swing.JFrame {
      //Creates new form frmLogin
     public frmLogin1() {
         initComponents();
-        getContentPane().setBackground(Color.GRAY); // cor do form de login do sistema
+        getContentPane().setBackground(Color.WHITE); // cor do form de login do sistema
     }
 
     /**
@@ -50,7 +50,7 @@ public class frmLogin1 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema Login");
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(153, 153, 255));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -106,13 +106,12 @@ public class frmLogin1 extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(btnEntrar)
-                            .addGap(62, 62, 62)
-                            .addComponent(btnSair)
-                            .addGap(14, 14, 14))
-                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnEntrar)
+                        .addGap(62, 62, 62)
+                        .addComponent(btnSair)
+                        .addGap(14, 14, 14))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(75, 75, 75))
         );
         layout.setVerticalGroup(

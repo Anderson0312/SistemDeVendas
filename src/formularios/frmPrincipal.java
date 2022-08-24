@@ -4,6 +4,12 @@ package formularios;
 import classes.BackGround;
 import classes.Dados;
 import classes.Dados_DB;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
 
 /**
  *
@@ -89,22 +95,26 @@ public class frmPrincipal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 102));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
-        btnPizza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-salvar-e-fechar-36.png"))); // NOI18N
+        btnPizza.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
         btnPizza.setText("Pizzas");
         btnPizza.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnPizza.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        btnSuco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-salvar-e-fechar-36.png"))); // NOI18N
+        btnSuco.setBackground(new java.awt.Color(204, 204, 204));
+        btnSuco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-sumo-de-laranja-40.png"))); // NOI18N
         btnSuco.setText("Suco");
         btnSuco.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnSuco.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        btnRefri.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-salvar-e-fechar-36.png"))); // NOI18N
+        btnRefri.setBackground(new java.awt.Color(204, 204, 204));
+        btnRefri.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
         btnRefri.setText("Refrigerante");
         btnRefri.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnRefri.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        btnCerveja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-salvar-e-fechar-36.png"))); // NOI18N
+        btnCerveja.setBackground(new java.awt.Color(204, 204, 204));
+        btnCerveja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-cerveja-40.png"))); // NOI18N
         btnCerveja.setText("Cerveja");
         btnCerveja.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnCerveja.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -137,15 +147,15 @@ public class frmPrincipal extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(btnPizza)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnRefri, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSuco, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCerveja, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
+                .addComponent(btnPizza, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnRefri, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSuco, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnCerveja, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtOperador, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -160,7 +170,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             dpnDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dpnDeskLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 798, Short.MAX_VALUE))
+                .addGap(0, 795, Short.MAX_VALUE))
         );
         dpnDeskLayout.setVerticalGroup(
             dpnDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -332,8 +342,9 @@ public class frmPrincipal extends javax.swing.JFrame {
             mnuArquivoUsuarios.setEnabled(false);
             mnuMovimentRlVenda.setEnabled(false);
         }
+        
+        txtOperador.setText(usuario);   
 
-        txtOperador.setText(msDados.getUsuarios()[usuAtual].getNome());
     }//GEN-LAST:event_formWindowOpened
     
     // botão para sair do sistema
