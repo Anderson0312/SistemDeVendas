@@ -158,7 +158,7 @@ public class Dados_DB {
         
         public ResultSet getUsuarios(){
             try {
-                    String sql = "select * from usuarios ";
+                    String sql = "SELECT * FROM usuarios";
                 Statement st;
                 st = cnn.createStatement();
                 //executa a Update no banco de dados

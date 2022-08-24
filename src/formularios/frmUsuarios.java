@@ -547,7 +547,11 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
             String registro[] = new String[4];
             mTablela = new DefaultTableModel(null, titulos);
             ResultSet rs = msDados_DB.getUsuarios();
-            
+            if (!rs.isBeforeFirst()) {
+                System.out.println("Não há registros."); 
+            } else {
+                System.out.println("há registros."); 
+            }
             while(rs.next()) {
                 registro[0] = rs.getString("idUsuario");
                 registro[1] = rs.getString("nome");
