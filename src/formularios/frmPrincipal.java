@@ -353,7 +353,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             mnuMovimentRlVenda.setEnabled(false);
         }
 
-        txtOperador.setText(msDados.getUsuarios().[usuAtual].);
+        txtOperador.setText(msDados.getUsuarios()[usuAtual].getNome());
     }//GEN-LAST:event_formWindowOpened
     
     // botão para sair do sistema
