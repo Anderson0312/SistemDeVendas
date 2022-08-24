@@ -14,6 +14,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private String senha;
     private String usuario;
     private Dados msDados;
+    public int usuAtual = 0;
     
     private Dados_DB msDados_DB;
     
@@ -352,7 +353,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             mnuMovimentRlVenda.setEnabled(false);
         }
 
-        txtOperador.setText(msDados_DB.getUsuarios());
+        txtOperador.setText(msDados.getUsuarios().[usuAtual].);
     }//GEN-LAST:event_formWindowOpened
     
     // botão para sair do sistema
