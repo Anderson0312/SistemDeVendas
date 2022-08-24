@@ -73,6 +73,100 @@ public class Dados_DB {
             return -1;
         }
     }
+    
+    public boolean existeUsuario(String usuario){
+        try {
+            String sql = "select (1) from usuarios where idUsuario = '"
+                    +usuario+"'";
+            Statement st;
+            st = cnn.createStatement();
+            //executa a pesquisa no banco de dados
+            ResultSet rs = st.executeQuery(sql);
+            // se o resultado da query for igual a 1 significa que o usuario existe
+            if(rs.next()){
+                return true;
+            } else {
+                return false;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Dados_DB.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+        
+    
+        public String adicionarUsuario(Usuario mUsuario) {
+            try {
+            String sql = "insert into usuarios values ('"+mUsuario.getIdUsuario()+"',"
+                    + "'"+mUsuario.getNome()+"',"
+                    + "'"+mUsuario.getSobreNome()+"',"
+                    + "'"+mUsuario.getSenha()+"',"
+                    + "'"+mUsuario.getPerfil()+"')";
+            Statement st;
+            st = cnn.createStatement();
+            //executa o Update no banco de dados
+            st.executeUpdate(sql);
+            return "Usuario cadastrado com sucesso!";
+            
+                        
+        } catch (SQLException ex) {
+            Logger.getLogger(Dados_DB.class.getName()).log(Level.SEVERE, null, ex);
+            return "Não foi possivel cadastrar";
+        }
+        }
         
         
+        public String editarUsuario(Usuario mUsuario) {
+            try {
+            String sql = "update usuarios set "
+                    +"nomes = '"+mUsuario.getNome()+"', "
+                    +"sobreNome = '"+mUsuario.getSobreNome()+"', "
+                    +"senha = '"+mUsuario.getSenha()+"', "
+                    +"perfil "
+                    + "where idUsuario = '"+mUsuario.getIdUsuario()+"'";
+            Statement st;
+            st = cnn.createStatement();
+            //executa a Update no banco de dados
+            st.executeUpdate(sql);
+            return "Usuario Editado com sucesso!";
+            
+                        
+        } catch (SQLException ex) {
+            Logger.getLogger(Dados_DB.class.getName()).log(Level.SEVERE, null, ex);
+            return "Não foi possivel Editado";
+        }
+        }
+        
+        
+        public String deletarUsuario(String usuario) {
+            try {
+                String sql = "delete from usuarios where idUsuario = '"+usuario+"'";
+            Statement st;
+            st = cnn.createStatement();
+            //executa a Update no banco de dados
+            st.executeUpdate(sql);
+            return "Usuario Deletado com sucesso!";
+            
+                        
+        } catch (SQLException ex) {
+            Logger.getLogger(Dados_DB.class.getName()).log(Level.SEVERE, null, ex);
+            return "Não foi possivel Deletado";
+        }
+        }
+        
+        
+        public ResultSet getUsuarios(){
+            try {
+                    String sql = "select * from usuarios ";
+                Statement st;
+                st = cnn.createStatement();
+                //executa a Update no banco de dados
+                return st.executeQuery(sql);
+
+            } catch (SQLException ex) {
+                Logger.getLogger(Dados_DB.class.getName()).log(Level.SEVERE, null, ex);
+                return null;
+            }
+        }
 }

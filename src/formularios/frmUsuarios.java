@@ -4,8 +4,13 @@ package formularios;
 import classes.Dados;
 import classes.Dados_DB;
 import classes.Usuario;
+import com.mysql.cj.xdevapi.Result;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -332,12 +337,12 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtSenhaActionPerformed
 
     private void mostrarCadastros(){
-        txtIDUsuario.setText(msDados.getUsuarios()[usuAtual].getIdUsuario());
-        txtNome.setText(msDados.getUsuarios()[usuAtual].getNome());
-        txtSobreNome.setText(msDados.getUsuarios()[usuAtual].getSobreNome());
-        txtSenha.setText(msDados.getUsuarios()[usuAtual].getSenha());
-        txtConfirmarSenha.setText(msDados.getUsuarios()[usuAtual].getSenha());
-        SelecionarPerfil.setSelectedIndex(msDados.getUsuarios()[usuAtual].getPerfil());
+//        txtIDUsuario.setText(msDados.getUsuarios()[usuAtual].getIdUsuario());
+//        txtNome.setText(msDados.getUsuarios()[usuAtual].getNome());
+//        txtSobreNome.setText(msDados.getUsuarios()[usuAtual].getSobreNome());
+//        txtSenha.setText(msDados.getUsuarios()[usuAtual].getSenha());
+//        txtConfirmarSenha.setText(msDados.getUsuarios()[usuAtual].getSenha());
+//        SelecionarPerfil.setSelectedIndex(msDados.getUsuarios()[usuAtual].getPerfil());
         
     }
     
@@ -462,9 +467,9 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         
         String msg;
         if(novo){
-            msg = msDados.adicionarUsuario(mUsuario);
+            msg = msDados_DB.adicionarUsuario(mUsuario);
         } else {
-            msg = msDados.editarUsuario(mUsuario, pos);
+            msg = msDados_DB.editarUsuario(mUsuario);
         }    
             JOptionPane.showMessageDialog(rootPane, msg);
         
@@ -497,7 +502,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         }
         
         String msg;
-        msg = msDados.deletarUsuario(usuAtual);
+        msg = msDados_DB.deletarUsuario(txtIDUsuario.getText());
         JOptionPane.showMessageDialog(rootPane,msg);
         usuAtual= 0;
         mostrarCadastros();
@@ -537,18 +542,24 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void preencherTabela(){
-        String titulos[] =  {"ID Usuario", "Nome", "Sobre nome", "Perfil"};
-        String registro[] = new String[4];
-        mTablela = new DefaultTableModel(null, titulos);
-        for(int i =0; i < msDados.numeroUsuarios(); i++) {
-            registro[0] = msDados.getUsuarios()[i].getIdUsuario();
-            registro[1] = msDados.getUsuarios()[i].getNome();
-            registro[2] = msDados.getUsuarios()[i].getSobreNome();
-            registro[3] = perfil(msDados.getUsuarios()[i].getPerfil());
-            mTablela.addRow(registro);
+        try {
+            String titulos[] =  {"ID Usuario", "Nome", "Sobre nome", "Perfil"};
+            String registro[] = new String[4];
+            mTablela = new DefaultTableModel(null, titulos);
+            ResultSet rs = msDados_DB.getUsuarios();
             
+            while(rs.next()) {
+                registro[0] = rs.getString("idUsuario");
+                registro[1] = rs.getString("nome");
+                registro[2] = rs.getString("sobreNome");
+                registro[3] = perfil(rs.getInt("idPerfil"));
+                mTablela.addRow(registro);
+                
+            }
+            tblTabela.setModel(mTablela);
+        } catch (SQLException ex) {
+            Logger.getLogger(frmUsuarios.class.getName()).log(Level.SEVERE, null, ex);
         }
-        tblTabela.setModel(mTablela);
     }
                              
     public String perfil(int idPerfil){
