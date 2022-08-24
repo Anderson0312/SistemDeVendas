@@ -53,10 +53,10 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         dpnDesk = new BackGround();
         jPanel1 = new javax.swing.JPanel();
-        btnSalvar = new javax.swing.JButton();
-        btnSalvar6 = new javax.swing.JButton();
-        btnSalvar7 = new javax.swing.JButton();
-        btnSalvar8 = new javax.swing.JButton();
+        btnPizza = new javax.swing.JButton();
+        btnSuco = new javax.swing.JButton();
+        btnRefri = new javax.swing.JButton();
+        btnCerveja = new javax.swing.JButton();
         txtOperador = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -89,45 +89,25 @@ public class frmPrincipal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 102));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
-        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-salvar-e-fechar-36.png"))); // NOI18N
-        btnSalvar.setText("Pizzas");
-        btnSalvar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnSalvar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarActionPerformed(evt);
-            }
-        });
+        btnPizza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-salvar-e-fechar-36.png"))); // NOI18N
+        btnPizza.setText("Pizzas");
+        btnPizza.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        btnSalvar6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-salvar-e-fechar-36.png"))); // NOI18N
-        btnSalvar6.setText("Suco");
-        btnSalvar6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnSalvar6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnSalvar6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvar6ActionPerformed(evt);
-            }
-        });
+        btnSuco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-salvar-e-fechar-36.png"))); // NOI18N
+        btnSuco.setText("Suco");
+        btnSuco.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnSuco.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        btnSalvar7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-salvar-e-fechar-36.png"))); // NOI18N
-        btnSalvar7.setText("Refrigerante");
-        btnSalvar7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnSalvar7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnSalvar7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvar7ActionPerformed(evt);
-            }
-        });
+        btnRefri.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-salvar-e-fechar-36.png"))); // NOI18N
+        btnRefri.setText("Refrigerante");
+        btnRefri.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnRefri.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        btnSalvar8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-salvar-e-fechar-36.png"))); // NOI18N
-        btnSalvar8.setText("Cerveja");
-        btnSalvar8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnSalvar8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnSalvar8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvar8ActionPerformed(evt);
-            }
-        });
+        btnCerveja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-salvar-e-fechar-36.png"))); // NOI18N
+        btnCerveja.setText("Cerveja");
+        btnCerveja.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCerveja.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         txtOperador.setBackground(new java.awt.Color(255, 255, 255));
         txtOperador.setForeground(new java.awt.Color(255, 255, 255));
@@ -145,26 +125,26 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtOperador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSalvar8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCerveja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnSalvar6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSalvar7, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
-                            .addComponent(btnSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btnSuco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnRefri, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                            .addComponent(btnPizza, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addComponent(btnSalvar)
+                .addComponent(btnPizza)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSalvar7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRefri, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSalvar6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSuco, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSalvar8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCerveja, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -429,18 +409,16 @@ public class frmPrincipal extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frmPrincipal().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new frmPrincipal().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSalvar;
-    private javax.swing.JButton btnSalvar6;
-    private javax.swing.JButton btnSalvar7;
-    private javax.swing.JButton btnSalvar8;
+    private javax.swing.JButton btnCerveja;
+    private javax.swing.JButton btnPizza;
+    private javax.swing.JButton btnRefri;
+    private javax.swing.JButton btnSuco;
     private javax.swing.JDesktopPane dpnDesk;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;

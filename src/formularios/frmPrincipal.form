@@ -271,13 +271,13 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="txtOperador" max="32767" attributes="0"/>
                           <Component id="jLabel1" alignment="1" max="32767" attributes="0"/>
-                          <Component id="btnSalvar8" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnCerveja" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="btnSalvar6" max="32767" attributes="0"/>
-                                  <Component id="btnSalvar7" alignment="0" pref="108" max="32767" attributes="0"/>
-                                  <Component id="btnSalvar" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnSuco" max="32767" attributes="0"/>
+                                  <Component id="btnRefri" alignment="0" pref="108" max="32767" attributes="0"/>
+                                  <Component id="btnPizza" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -289,13 +289,13 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="btnSalvar" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnPizza" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnSalvar7" min="-2" pref="60" max="-2" attributes="0"/>
+                      <Component id="btnRefri" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnSalvar6" min="-2" pref="60" max="-2" attributes="0"/>
+                      <Component id="btnSuco" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnSalvar8" min="-2" pref="60" max="-2" attributes="0"/>
+                      <Component id="btnCerveja" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace pref="121" max="32767" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -306,7 +306,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnSalvar">
+            <Component class="javax.swing.JButton" name="btnPizza">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/images/icons8-salvar-e-fechar-36.png"/>
@@ -315,11 +315,8 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvarActionPerformed"/>
-              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnSalvar6">
+            <Component class="javax.swing.JButton" name="btnSuco">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/images/icons8-salvar-e-fechar-36.png"/>
@@ -328,11 +325,8 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvar6ActionPerformed"/>
-              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnSalvar7">
+            <Component class="javax.swing.JButton" name="btnRefri">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/images/icons8-salvar-e-fechar-36.png"/>
@@ -341,11 +335,8 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvar7ActionPerformed"/>
-              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnSalvar8">
+            <Component class="javax.swing.JButton" name="btnCerveja">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/images/icons8-salvar-e-fechar-36.png"/>
@@ -354,9 +345,6 @@
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvar8ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="txtOperador">
               <Properties>
