@@ -552,7 +552,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
             } else {
                 System.out.println("há registros."); 
             }
-            while(rs.next()) {
+            while(rs.isBeforeFirst()) {
                 registro[0] = rs.getString("idUsuario");
                 registro[1] = rs.getString("nome");
                 registro[2] = rs.getString("sobreNome");
