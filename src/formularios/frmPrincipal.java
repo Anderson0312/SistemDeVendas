@@ -713,11 +713,12 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     private void btnPizzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizzaActionPerformed
         panelPizza.setVisible(true);
+        panelRefriger.setVisible(false);
     }//GEN-LAST:event_btnPizzaActionPerformed
 
     private void btnRefriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefriActionPerformed
         panelRefriger.setVisible(true);
-        panelPizza.setVisible(false);
+
     }//GEN-LAST:event_btnRefriActionPerformed
 
     private void btnPizza1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizza1ActionPerformed
