@@ -192,6 +192,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         jLabel2.setText("TOTAL:");
 
         txtData.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        txtData.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -211,7 +212,9 @@ public class frmPrincipal extends javax.swing.JFrame {
         );
 
         jLabel3.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("R$ 0,00");
+        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
