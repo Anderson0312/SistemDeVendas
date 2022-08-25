@@ -354,7 +354,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         panelRefriger.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnPizza4.setBackground(new java.awt.Color(204, 204, 204));
-        btnPizza4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
         btnPizza4.setText("Refrigerante");
         btnPizza4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnPizza4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -366,35 +366,35 @@ public class frmPrincipal extends javax.swing.JFrame {
         panelRefriger.add(btnPizza4, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 40, 110, 70));
 
         btnPizza8.setBackground(new java.awt.Color(204, 204, 204));
-        btnPizza8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
         btnPizza8.setText("Refrigerante");
         btnPizza8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnPizza8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelRefriger.add(btnPizza8, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 116, 110, 70));
 
         btnPizza9.setBackground(new java.awt.Color(204, 204, 204));
-        btnPizza9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
         btnPizza9.setText("Refrigerante");
         btnPizza9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnPizza9.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelRefriger.add(btnPizza9, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 192, 110, 70));
 
         btnPizza10.setBackground(new java.awt.Color(204, 204, 204));
-        btnPizza10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
         btnPizza10.setText("Refrigerante");
         btnPizza10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnPizza10.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelRefriger.add(btnPizza10, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 192, 110, 70));
 
         btnPizza11.setBackground(new java.awt.Color(204, 204, 204));
-        btnPizza11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
         btnPizza11.setText("Refrigerante");
         btnPizza11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnPizza11.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelRefriger.add(btnPizza11, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 40, 110, 70));
 
         btnPizza12.setBackground(new java.awt.Color(204, 204, 204));
-        btnPizza12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
         btnPizza12.setText("Refrigerante");
         btnPizza12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnPizza12.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -717,8 +717,9 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPizzaActionPerformed
 
     private void btnRefriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefriActionPerformed
+        
         panelRefriger.setVisible(true);
-
+        
     }//GEN-LAST:event_btnRefriActionPerformed
 
     private void btnPizza1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizza1ActionPerformed
