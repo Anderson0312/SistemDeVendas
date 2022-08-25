@@ -160,6 +160,7 @@ public class frmLogin1 extends javax.swing.JFrame {
         mPrincipal.setUsuario(txtUsuario.getText());
         mPrincipal.setExtendedState(MAXIMIZED_BOTH); // seta o frame de formulario principal como tamanho maximo da tela
         mPrincipal.setVisible(true); // seta a visibilidade dele como true para mostrar na tela
+
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed

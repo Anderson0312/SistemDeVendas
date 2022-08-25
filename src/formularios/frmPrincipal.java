@@ -9,6 +9,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 
 
 
@@ -21,7 +24,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private String senha;
     private String usuario;
     private Dados msDados;
-    public int usuAtual = 0;
+    private DefaultTableModel mTablela;
     
     private Dados_DB msDados_DB;
     
@@ -67,13 +70,30 @@ public class frmPrincipal extends javax.swing.JFrame {
         txtOperador = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         txtData = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        txtValorTot = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        txtQuanti = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblDetalhesVenda = new javax.swing.JTable();
+        panelPrincipla = new javax.swing.JPanel();
+        panelPizza = new javax.swing.JPanel();
+        btnPizza1 = new javax.swing.JButton();
+        btnPizza3 = new javax.swing.JButton();
+        btnPizza2 = new javax.swing.JButton();
+        btnPizza5 = new javax.swing.JButton();
+        btnPizza6 = new javax.swing.JButton();
+        panelRefrigerant = new javax.swing.JPanel();
+        btnRefri1 = new javax.swing.JButton();
+        btnRefri2 = new javax.swing.JButton();
+        btnRefri3 = new javax.swing.JButton();
+        btnRefri5 = new javax.swing.JButton();
+        btnRefri6 = new javax.swing.JButton();
+        btnRefri4 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuArquivo = new javax.swing.JMenu();
         mnuArquivoClientes = new javax.swing.JMenuItem();
@@ -109,6 +129,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnPizza.setText("Pizzas");
         btnPizza.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnPizza.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnPizza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPizzaActionPerformed(evt);
+            }
+        });
 
         btnSuco.setBackground(new java.awt.Color(204, 204, 204));
         btnSuco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-sumo-de-laranja-40.png"))); // NOI18N
@@ -121,6 +146,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnRefri.setText("Refrigerante");
         btnRefri.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnRefri.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnRefri.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefriActionPerformed(evt);
+            }
+        });
 
         btnCerveja.setBackground(new java.awt.Color(204, 204, 204));
         btnCerveja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-cerveja-40.png"))); // NOI18N
@@ -171,27 +201,14 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addGap(48, 48, 48))
         );
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 153));
+        jPanel2.setBackground(new java.awt.Color(0, 51, 153));
         jPanel2.setForeground(new java.awt.Color(0, 0, 153));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("TOTAL:");
 
-        txtData.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        txtData.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         txtData.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -211,57 +228,281 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel3.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel3.setText("R$ 0,00");
-        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        txtValorTot.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        txtValorTot.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtValorTot.setText("R$ 0,00");
+        txtValorTot.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+            .addComponent(txtValorTot, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                .addComponent(txtValorTot, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-salvar-e-fechar-36.png"))); // NOI18N
+        jButton1.setText("FInalizar");
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-remove-properties-36.png"))); // NOI18N
+        jButton3.setText("Cancelar");
+
+        txtQuanti.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        tblDetalhesVenda.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblDetalhesVenda);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(17, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtQuanti, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jButton1))
+                                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                .addGap(17, 17, 17))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58)
+                .addComponent(txtQuanti, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton3))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelPrincipla.setBackground(new java.awt.Color(0, 153, 255));
+
+        panelPizza.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        btnPizza1.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza1.setText("Pizzas");
+        btnPizza1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnPizza1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPizza1ActionPerformed(evt);
+            }
+        });
+
+        btnPizza3.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza3.setText("Pizzas");
+        btnPizza3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        btnPizza2.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza2.setText("Pizzas");
+        btnPizza2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        btnPizza5.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza5.setText("Pizzas");
+        btnPizza5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        btnPizza6.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza6.setText("Pizzas");
+        btnPizza6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        panelRefrigerant.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        btnRefri1.setBackground(new java.awt.Color(204, 204, 204));
+        btnRefri1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnRefri1.setText("Refrigerante");
+        btnRefri1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnRefri1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnRefri1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefri1ActionPerformed(evt);
+            }
+        });
+
+        btnRefri2.setBackground(new java.awt.Color(204, 204, 204));
+        btnRefri2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnRefri2.setText("Refrigerante");
+        btnRefri2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnRefri2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        btnRefri3.setBackground(new java.awt.Color(204, 204, 204));
+        btnRefri3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnRefri3.setText("Refrigerante");
+        btnRefri3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnRefri3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        btnRefri5.setBackground(new java.awt.Color(204, 204, 204));
+        btnRefri5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnRefri5.setText("Refrigerante");
+        btnRefri5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnRefri5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        btnRefri6.setBackground(new java.awt.Color(204, 204, 204));
+        btnRefri6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnRefri6.setText("Refrigerante");
+        btnRefri6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnRefri6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        btnRefri4.setBackground(new java.awt.Color(204, 204, 204));
+        btnRefri4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnRefri4.setText("Refrigerante");
+        btnRefri4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnRefri4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        javax.swing.GroupLayout panelRefrigerantLayout = new javax.swing.GroupLayout(panelRefrigerant);
+        panelRefrigerant.setLayout(panelRefrigerantLayout);
+        panelRefrigerantLayout.setHorizontalGroup(
+            panelRefrigerantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRefrigerantLayout.createSequentialGroup()
+                .addGap(121, 121, 121)
+                .addGroup(panelRefrigerantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelRefrigerantLayout.createSequentialGroup()
+                        .addComponent(btnRefri3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnRefri6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelRefrigerantLayout.createSequentialGroup()
+                        .addComponent(btnRefri2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnRefri5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelRefrigerantLayout.createSequentialGroup()
+                        .addComponent(btnRefri1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnRefri4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(123, Short.MAX_VALUE))
+        );
+        panelRefrigerantLayout.setVerticalGroup(
+            panelRefrigerantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRefrigerantLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(panelRefrigerantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRefri1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRefri4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelRefrigerantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRefri2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRefri5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelRefrigerantLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRefri3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRefri6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout panelPizzaLayout = new javax.swing.GroupLayout(panelPizza);
+        panelPizza.setLayout(panelPizzaLayout);
+        panelPizzaLayout.setHorizontalGroup(
+            panelPizzaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPizzaLayout.createSequentialGroup()
+                .addGap(121, 121, 121)
+                .addGroup(panelPizzaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPizzaLayout.createSequentialGroup()
+                        .addComponent(btnPizza2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnPizza5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnPizza3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelPizzaLayout.createSequentialGroup()
+                        .addComponent(btnPizza1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnPizza6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(135, Short.MAX_VALUE))
+            .addGroup(panelPizzaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelPizzaLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panelRefrigerant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        panelPizzaLayout.setVerticalGroup(
+            panelPizzaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPizzaLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(panelPizzaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnPizza1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPizza6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnPizza3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelPizzaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnPizza2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPizza5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panelPizzaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelPizzaLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panelRefrigerant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
+        panelRefrigerant.getAccessibleContext().setAccessibleParent(panelPrincipla);
+
+        javax.swing.GroupLayout panelPrinciplaLayout = new javax.swing.GroupLayout(panelPrincipla);
+        panelPrincipla.setLayout(panelPrinciplaLayout);
+        panelPrinciplaLayout.setHorizontalGroup(
+            panelPrinciplaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrinciplaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelPizza, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panelPrinciplaLayout.setVerticalGroup(
+            panelPrinciplaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrinciplaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelPizza, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         dpnDesk.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         dpnDesk.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dpnDesk.setLayer(panelPrincipla, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout dpnDeskLayout = new javax.swing.GroupLayout(dpnDesk);
         dpnDesk.setLayout(dpnDeskLayout);
@@ -269,13 +510,16 @@ public class frmPrincipal extends javax.swing.JFrame {
             dpnDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dpnDeskLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 415, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelPrincipla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         dpnDeskLayout.setVerticalGroup(
             dpnDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelPrincipla, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         mnuArquivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/arquivosicon.png"))); // NOI18N
@@ -436,6 +680,10 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuArquivoClientesActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        panelPizza.setVisible(false);
+        panelRefrigerant.setVisible(false);
+        
+        
         ((BackGround)dpnDesk).setImage("/images/background.jpg"); // setando a imagagem de fundo do formulario principal
         if (perfil == 2) { // verificação do usuario(usuario comum não pode acessar todas areas)
             mnuArquivoClientes.setEnabled(false);
@@ -444,8 +692,12 @@ public class frmPrincipal extends javax.swing.JFrame {
             mnuMovimentRlVenda.setEnabled(false);
         }
         
+        preencherTabelaVenda();
         txtOperador.setText(usuario);   
         txtData.setText(Utilidades.getDate());
+        
+        
+
     }//GEN-LAST:event_formWindowOpened
     
     // botão para sair do sistema
@@ -493,6 +745,61 @@ public class frmPrincipal extends javax.swing.JFrame {
         MVenda.show();
     }//GEN-LAST:event_mnuMovimentNvVendaActionPerformed
 
+    private void btnPizzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizzaActionPerformed
+        panelPizza.setVisible(true);
+    }//GEN-LAST:event_btnPizzaActionPerformed
+
+    private void btnRefri1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefri1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRefri1ActionPerformed
+
+    private void btnRefriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefriActionPerformed
+        panelRefrigerant.setVisible(true);
+
+    }//GEN-LAST:event_btnRefriActionPerformed
+
+    private void btnPizza1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizza1ActionPerformed
+
+    }//GEN-LAST:event_btnPizza1ActionPerformed
+
+    //Cria os titulos da tabela de venda 
+    private void preencherTabelaVenda(){
+        String titulos[] =  {"ID Produto", "Descrição", "Preço", "Quantidade", "Valor"};
+        String registro[] = new String[5];
+        mTablela = new DefaultTableModel(null, titulos);
+        tblDetalhesVenda.setModel(mTablela);
+        
+        DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();
+        dtcr.setHorizontalAlignment(SwingConstants.RIGHT); // Metodo para alinha os item a direita
+        tblDetalhesVenda.getColumnModel().getColumn(2).setCellRenderer(dtcr);
+        tblDetalhesVenda.getColumnModel().getColumn(3).setCellRenderer(dtcr);
+        tblDetalhesVenda.getColumnModel().getColumn(4).setCellRenderer(dtcr);
+    }
+    
+    //Para fazer a soma do valor total e quantidade toda de produtos
+    private void totais() {
+        int num = tblDetalhesVenda.getRowCount();
+        int somaQuant = 0, somaVal=0;
+        for (int i = 0; i<num; i++) {
+            somaQuant += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 3));
+            somaVal += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 4));
+        }
+        
+        txtValorTot.setText("" + somaQuant);
+        txtValorTot.setText("" + somaVal);
+    }
+    
+    public void limparTablea(){
+        try {
+            DefaultTableModel modelo = (DefaultTableModel)tblDetalhesVenda.getModel();
+            int Linha = tblDetalhesVenda.getRowCount();
+            for(int i = 0; Linha> i; i++){
+                modelo.removeRow(0);
+            }
+        } catch (Exception e) {
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -529,12 +836,24 @@ public class frmPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerveja;
     private javax.swing.JButton btnPizza;
+    private javax.swing.JButton btnPizza1;
+    private javax.swing.JButton btnPizza2;
+    private javax.swing.JButton btnPizza3;
+    private javax.swing.JButton btnPizza5;
+    private javax.swing.JButton btnPizza6;
     private javax.swing.JButton btnRefri;
+    private javax.swing.JButton btnRefri1;
+    private javax.swing.JButton btnRefri2;
+    private javax.swing.JButton btnRefri3;
+    private javax.swing.JButton btnRefri4;
+    private javax.swing.JButton btnRefri5;
+    private javax.swing.JButton btnRefri6;
     private javax.swing.JButton btnSuco;
     private javax.swing.JDesktopPane dpnDesk;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -543,7 +862,6 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JMenu mnuAjuda;
     private javax.swing.JMenuItem mnuAjudaAjuda;
     private javax.swing.JMenuItem mnuAjudaSobre;
@@ -557,8 +875,14 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu mnuMoviment;
     private javax.swing.JMenuItem mnuMovimentNvVenda;
     private javax.swing.JMenuItem mnuMovimentRlVenda;
+    private javax.swing.JPanel panelPizza;
+    private javax.swing.JPanel panelPrincipla;
+    private javax.swing.JPanel panelRefrigerant;
+    private javax.swing.JTable tblDetalhesVenda;
     private javax.swing.JLabel txtData;
     private javax.swing.JLabel txtOperador;
+    private javax.swing.JTextField txtQuanti;
+    private javax.swing.JLabel txtValorTot;
     // End of variables declaration//GEN-END:variables
 
     
