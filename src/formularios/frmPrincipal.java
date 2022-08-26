@@ -5,10 +5,14 @@ import classes.BackGround;
 import classes.Dados;
 import classes.Dados_DB;
 import classes.Utilidades;
+import java.awt.BorderLayout;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -85,19 +89,12 @@ public class frmPrincipal extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         panelPrincipla = new javax.swing.JPanel();
         panelPizza = new javax.swing.JPanel();
-        panelRefriger = new javax.swing.JPanel();
-        btnPizza4 = new javax.swing.JButton();
-        btnPizza8 = new javax.swing.JButton();
-        btnPizza9 = new javax.swing.JButton();
-        btnPizza10 = new javax.swing.JButton();
-        btnPizza11 = new javax.swing.JButton();
-        btnPizza12 = new javax.swing.JButton();
-        btnPizza3 = new javax.swing.JButton();
         btnPizza1 = new javax.swing.JButton();
+        btnPizza6 = new javax.swing.JButton();
+        btnPizza3 = new javax.swing.JButton();
+        btnPizza7 = new javax.swing.JButton();
         btnPizza2 = new javax.swing.JButton();
         btnPizza5 = new javax.swing.JButton();
-        btnPizza7 = new javax.swing.JButton();
-        btnPizza6 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuArquivo = new javax.swing.JMenu();
         mnuArquivoClientes = new javax.swing.JMenuItem();
@@ -144,6 +141,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnSuco.setText("Suco");
         btnSuco.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnSuco.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnSuco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSucoActionPerformed(evt);
+            }
+        });
 
         btnRefri.setBackground(new java.awt.Color(204, 204, 204));
         btnRefri.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
@@ -161,6 +163,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnCerveja.setText("Cerveja");
         btnCerveja.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnCerveja.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnCerveja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCervejaActionPerformed(evt);
+            }
+        });
 
         txtOperador.setBackground(new java.awt.Color(255, 255, 255));
         txtOperador.setForeground(new java.awt.Color(255, 255, 255));
@@ -332,113 +339,19 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton3))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelPrincipla.setBackground(new java.awt.Color(0, 153, 255));
 
         panelPizza.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        panelPizza.setMaximumSize(new java.awt.Dimension(400, 500));
         panelPizza.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentRemoved(java.awt.event.ContainerEvent evt) {
                 panelPizzaComponentRemoved(evt);
             }
         });
-        panelPizza.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        panelRefriger.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        panelRefriger.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentRemoved(java.awt.event.ContainerEvent evt) {
-                panelRefrigerComponentRemoved(evt);
-            }
-        });
-
-        btnPizza4.setBackground(new java.awt.Color(204, 204, 204));
-        btnPizza4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
-        btnPizza4.setText("Refrigerante");
-        btnPizza4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnPizza4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnPizza4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPizza4ActionPerformed(evt);
-            }
-        });
-
-        btnPizza8.setBackground(new java.awt.Color(204, 204, 204));
-        btnPizza8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
-        btnPizza8.setText("Refrigerante");
-        btnPizza8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnPizza8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-        btnPizza9.setBackground(new java.awt.Color(204, 204, 204));
-        btnPizza9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
-        btnPizza9.setText("Refrigerante");
-        btnPizza9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnPizza9.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-        btnPizza10.setBackground(new java.awt.Color(204, 204, 204));
-        btnPizza10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
-        btnPizza10.setText("Refrigerante");
-        btnPizza10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnPizza10.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-        btnPizza11.setBackground(new java.awt.Color(204, 204, 204));
-        btnPizza11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
-        btnPizza11.setText("Refrigerante");
-        btnPizza11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnPizza11.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-        btnPizza12.setBackground(new java.awt.Color(204, 204, 204));
-        btnPizza12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
-        btnPizza12.setText("Refrigerante");
-        btnPizza12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnPizza12.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-        javax.swing.GroupLayout panelRefrigerLayout = new javax.swing.GroupLayout(panelRefriger);
-        panelRefriger.setLayout(panelRefrigerLayout);
-        panelRefrigerLayout.setHorizontalGroup(
-            panelRefrigerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRefrigerLayout.createSequentialGroup()
-                .addGap(121, 121, 121)
-                .addGroup(panelRefrigerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelRefrigerLayout.createSequentialGroup()
-                        .addComponent(btnPizza4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(btnPizza11, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelRefrigerLayout.createSequentialGroup()
-                        .addComponent(btnPizza8, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(btnPizza12, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelRefrigerLayout.createSequentialGroup()
-                        .addComponent(btnPizza9, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(btnPizza10, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
-        panelRefrigerLayout.setVerticalGroup(
-            panelRefrigerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRefrigerLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(panelRefrigerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnPizza4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPizza11, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addGroup(panelRefrigerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnPizza8, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPizza12, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addGroup(panelRefrigerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnPizza9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPizza10, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-
-        panelPizza.add(panelRefriger, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 570));
-        panelRefriger.getAccessibleContext().setAccessibleParent(panelPrincipla);
-
-        btnPizza3.setBackground(new java.awt.Color(204, 204, 204));
-        btnPizza3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
-        btnPizza3.setText("Pizzas");
-        btnPizza3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnPizza3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panelPizza.add(btnPizza3, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 116, 110, 70));
+        panelPizza.setLayout(new javax.swing.BoxLayout(panelPizza, javax.swing.BoxLayout.LINE_AXIS));
 
         btnPizza1.setBackground(new java.awt.Color(204, 204, 204));
         btnPizza1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
@@ -450,35 +363,42 @@ public class frmPrincipal extends javax.swing.JFrame {
                 btnPizza1ActionPerformed(evt);
             }
         });
-        panelPizza.add(btnPizza1, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 40, 110, 70));
-
-        btnPizza2.setBackground(new java.awt.Color(204, 204, 204));
-        btnPizza2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
-        btnPizza2.setText("Pizzas");
-        btnPizza2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnPizza2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panelPizza.add(btnPizza2, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 192, 110, 70));
-
-        btnPizza5.setBackground(new java.awt.Color(204, 204, 204));
-        btnPizza5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
-        btnPizza5.setText("Pizzas");
-        btnPizza5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnPizza5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panelPizza.add(btnPizza5, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 192, 110, 70));
-
-        btnPizza7.setBackground(new java.awt.Color(204, 204, 204));
-        btnPizza7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
-        btnPizza7.setText("Pizzas");
-        btnPizza7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnPizza7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panelPizza.add(btnPizza7, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 116, 110, 70));
+        panelPizza.add(btnPizza1);
 
         btnPizza6.setBackground(new java.awt.Color(204, 204, 204));
         btnPizza6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
         btnPizza6.setText("Pizzas");
         btnPizza6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnPizza6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panelPizza.add(btnPizza6, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 40, 110, 70));
+        panelPizza.add(btnPizza6);
+
+        btnPizza3.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza3.setText("Pizzas");
+        btnPizza3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelPizza.add(btnPizza3);
+
+        btnPizza7.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza7.setText("Pizzas");
+        btnPizza7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelPizza.add(btnPizza7);
+
+        btnPizza2.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza2.setText("Pizzas");
+        btnPizza2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelPizza.add(btnPizza2);
+
+        btnPizza5.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza5.setText("Pizzas");
+        btnPizza5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelPizza.add(btnPizza5);
 
         javax.swing.GroupLayout panelPrinciplaLayout = new javax.swing.GroupLayout(panelPrincipla);
         panelPrincipla.setLayout(panelPrinciplaLayout);
@@ -486,14 +406,14 @@ public class frmPrincipal extends javax.swing.JFrame {
             panelPrinciplaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrinciplaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelPizza, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelPizza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         panelPrinciplaLayout.setVerticalGroup(
             panelPrinciplaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPrinciplaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelPizza, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(panelPizza, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -680,8 +600,9 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuArquivoClientesActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+
         panelPizza.setVisible(false);
-        panelRefriger.setVisible(false);
+        panelPizza.setOpaque(true);
         
         
         ((BackGround)dpnDesk).setImage("/images/background.jpg"); // setando a imagagem de fundo do formulario principal
@@ -745,31 +666,47 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuMovimentNvVendaActionPerformed
 
     private void btnPizzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizzaActionPerformed
+        //habilita o painel com todas opções de pizzas     
         panelPizza.setVisible(true);
-        panelRefriger.setVisible(false);
+        
+        // cria a lista de butoes de acordo com a quantidade preordenada
+        JButton jbuttons[] = new JButton[10];
+        panelPizza.removeAll();
+        for(int i = 0; i < jbuttons.length; i++) {
+            
+            jbuttons[i] = new JButton("Pizza" + i);
+            Icon icone = new ImageIcon("C:\\Users\\AndersoNMN\\OneDrive\\Documentos\\NetBeansProjects\\JavaApplication1\\src\\images\\icons8-pizza-40.png");
+            jbuttons[i].setIcon(icone);
+            panelPizza.add(jbuttons[i]);
+            //panelPizza.add(BorderLayout.CENTER,jbuttons[i]);
+        }
+        
+        panelPizza.validate();
+        panelPizza.repaint();
+        
     }//GEN-LAST:event_btnPizzaActionPerformed
 
     private void btnRefriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefriActionPerformed
         
-        panelRefriger.setVisible(true);
+        panelPizza.setVisible(false);
         
     }//GEN-LAST:event_btnRefriActionPerformed
+
+    private void panelPizzaComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_panelPizzaComponentRemoved
+
+    }//GEN-LAST:event_panelPizzaComponentRemoved
 
     private void btnPizza1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizza1ActionPerformed
 
     }//GEN-LAST:event_btnPizza1ActionPerformed
 
-    private void btnPizza4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizza4ActionPerformed
-  // TODO add your handling code here:
-    }//GEN-LAST:event_btnPizza4ActionPerformed
+    private void btnSucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSucoActionPerformed
+        panelPizza.setVisible(false);
+    }//GEN-LAST:event_btnSucoActionPerformed
 
-    private void panelRefrigerComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_panelRefrigerComponentRemoved
-
-    }//GEN-LAST:event_panelRefrigerComponentRemoved
-
-    private void panelPizzaComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_panelPizzaComponentRemoved
-
-    }//GEN-LAST:event_panelPizzaComponentRemoved
+    private void btnCervejaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCervejaActionPerformed
+        panelPizza.setVisible(false);
+    }//GEN-LAST:event_btnCervejaActionPerformed
 
     //Cria os titulos da tabela de venda 
     private void preencherTabelaVenda(){
@@ -846,17 +783,11 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnCerveja;
     private javax.swing.JButton btnPizza;
     private javax.swing.JButton btnPizza1;
-    private javax.swing.JButton btnPizza10;
-    private javax.swing.JButton btnPizza11;
-    private javax.swing.JButton btnPizza12;
     private javax.swing.JButton btnPizza2;
     private javax.swing.JButton btnPizza3;
-    javax.swing.JButton btnPizza4;
     private javax.swing.JButton btnPizza5;
     private javax.swing.JButton btnPizza6;
     private javax.swing.JButton btnPizza7;
-    private javax.swing.JButton btnPizza8;
-    private javax.swing.JButton btnPizza9;
     private javax.swing.JButton btnRefri;
     private javax.swing.JButton btnSuco;
     private javax.swing.JDesktopPane dpnDesk;
@@ -890,7 +821,6 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuMovimentRlVenda;
     private javax.swing.JPanel panelPizza;
     private javax.swing.JPanel panelPrincipla;
-    private javax.swing.JPanel panelRefriger;
     private javax.swing.JTable tblDetalhesVenda;
     private javax.swing.JLabel txtData;
     private javax.swing.JLabel txtOperador;
