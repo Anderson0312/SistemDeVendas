@@ -343,15 +343,15 @@ public class frmPrincipal extends javax.swing.JFrame {
         );
 
         panelPrincipla.setBackground(new java.awt.Color(0, 153, 255));
+        panelPrincipla.setLayout(null);
 
         panelPizza.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        panelPizza.setMaximumSize(new java.awt.Dimension(400, 500));
+        panelPizza.setMaximumSize(new java.awt.Dimension(1000, 1000));
         panelPizza.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentRemoved(java.awt.event.ContainerEvent evt) {
                 panelPizzaComponentRemoved(evt);
             }
         });
-        panelPizza.setLayout(new javax.swing.BoxLayout(panelPizza, javax.swing.BoxLayout.LINE_AXIS));
 
         btnPizza1.setBackground(new java.awt.Color(204, 204, 204));
         btnPizza1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
@@ -400,22 +400,8 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnPizza5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelPizza.add(btnPizza5);
 
-        javax.swing.GroupLayout panelPrinciplaLayout = new javax.swing.GroupLayout(panelPrincipla);
-        panelPrincipla.setLayout(panelPrinciplaLayout);
-        panelPrinciplaLayout.setHorizontalGroup(
-            panelPrinciplaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrinciplaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelPizza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        panelPrinciplaLayout.setVerticalGroup(
-            panelPrinciplaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPrinciplaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelPizza, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        panelPrincipla.add(panelPizza);
+        panelPizza.setBounds(6, 6, 467, 567);
 
         dpnDesk.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         dpnDesk.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -665,17 +651,39 @@ public class frmPrincipal extends javax.swing.JFrame {
         MVenda.show();
     }//GEN-LAST:event_mnuMovimentNvVendaActionPerformed
 
+
+    public static int maxH = 5;
+    public static int maxV = 5;
+    
     private void btnPizzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizzaActionPerformed
         //habilita o painel com todas opções de pizzas     
         panelPizza.setVisible(true);
         
+
         // cria a lista de butoes de acordo com a quantidade preordenada
         JButton jbuttons[] = new JButton[10];
+        
         panelPizza.removeAll();
+//        int y = 5;
+//        for (int i = 0; i<5; i++) {
+//            int x = 5;
+//            for (int a = 0; a<5; a++) {
+//                jbuttons[i][a] = new JButton("Pizza" + i);
+//                Icon icone = new ImageIcon("C:\\Users\\47127512021.1\\Documents\\GitHub\\SistemDeVendas\\src\\images\\icons8-pizza-40.png");
+//                jbuttons[i][a].setIcon(icone);
+//                jbuttons[i][a].setBounds(x, y,100, 40);
+//                panelPizza.add(jbuttons[i][a]);
+//                x+= 105;
+//            }
+//            y+= 55;
+//        }
+//        
+        
+        
         for(int i = 0; i < jbuttons.length; i++) {
             
             jbuttons[i] = new JButton("Pizza" + i);
-            Icon icone = new ImageIcon("C:\\Users\\AndersoNMN\\OneDrive\\Documentos\\NetBeansProjects\\JavaApplication1\\src\\images\\icons8-pizza-40.png");
+            Icon icone = new ImageIcon("C:\\Users\\47127512021.1\\Documents\\GitHub\\SistemDeVendas\\src\\images\\icons8-pizza-40.png");
             jbuttons[i].setIcon(icone);
             panelPizza.add(jbuttons[i]);
             //panelPizza.add(BorderLayout.CENTER,jbuttons[i]);
