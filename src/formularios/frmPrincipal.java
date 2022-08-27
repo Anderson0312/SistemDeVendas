@@ -87,6 +87,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
         panelPrincipla = new javax.swing.JPanel();
         panelPizza = new javax.swing.JPanel();
         btnPizza1 = new javax.swing.JButton();
@@ -121,6 +122,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         });
 
         dpnDesk.setBackground(new java.awt.Color(204, 204, 255));
+        dpnDesk.setPreferredSize(new java.awt.Dimension(1300, 650));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 102));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -339,14 +341,16 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         panelPrincipla.setBackground(new java.awt.Color(0, 153, 255));
+        panelPrincipla.setDoubleBuffered(false);
+        panelPrincipla.setInheritsPopupMenu(true);
         panelPrincipla.setLayout(null);
 
         panelPizza.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        panelPizza.setMaximumSize(new java.awt.Dimension(1000, 1000));
+        panelPizza.setPreferredSize(new java.awt.Dimension(500, 76));
         panelPizza.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentRemoved(java.awt.event.ContainerEvent evt) {
                 panelPizzaComponentRemoved(evt);
@@ -401,11 +405,30 @@ public class frmPrincipal extends javax.swing.JFrame {
         panelPizza.add(btnPizza5);
 
         panelPrincipla.add(panelPizza);
-        panelPizza.setBounds(6, 6, 900, 650);
+        panelPizza.setBounds(10, 10, 690, 650);
+
+        jLayeredPane1.setLayer(panelPrincipla, javax.swing.JLayeredPane.MODAL_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        jLayeredPane1.setLayout(jLayeredPane1Layout);
+        jLayeredPane1Layout.setHorizontalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelPrincipla, javax.swing.GroupLayout.DEFAULT_SIZE, 709, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jLayeredPane1Layout.setVerticalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelPrincipla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         dpnDesk.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         dpnDesk.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        dpnDesk.setLayer(panelPrincipla, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dpnDesk.setLayer(jLayeredPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout dpnDeskLayout = new javax.swing.GroupLayout(dpnDesk);
         dpnDesk.setLayout(dpnDeskLayout);
@@ -414,7 +437,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             .addGroup(dpnDeskLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelPrincipla, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
+                .addComponent(jLayeredPane1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -424,7 +447,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(dpnDeskLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelPrincipla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLayeredPane1)
                 .addContainerGap())
         );
 
@@ -550,12 +573,12 @@ public class frmPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(dpnDesk)
+                .addComponent(dpnDesk, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dpnDesk)
+            .addComponent(dpnDesk, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -588,7 +611,6 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
 
         panelPizza.setVisible(false);
-        panelPizza.setOpaque(true);
         
         
         ((BackGround)dpnDesk).setImage("/images/background.jpg"); // setando a imagagem de fundo do formulario principal
@@ -664,27 +686,16 @@ public class frmPrincipal extends javax.swing.JFrame {
         JButton jbuttons[] = new JButton[10];
         
         panelPizza.removeAll();
-//        int y = 5;
-//        for (int i = 0; i<5; i++) {
-//            int x = 5;
-//            for (int a = 0; a<5; a++) {
-//                jbuttons[i][a] = new JButton("Pizza" + i);
-//                Icon icone = new ImageIcon("C:\\Users\\47127512021.1\\Documents\\GitHub\\SistemDeVendas\\src\\images\\icons8-pizza-40.png");
-//                jbuttons[i][a].setIcon(icone);
-//                jbuttons[i][a].setBounds(x, y,100, 40);
-//                panelPizza.add(jbuttons[i][a]);
-//                x+= 105;
-//            }
-//            y+= 55;
-//        }
-//        
-        
+       
         
         for(int i = 0; i < jbuttons.length; i++) {
             
             jbuttons[i] = new JButton("Pizza" + i);
-            Icon icone = new ImageIcon("C:\\Users\\47127512021.1\\Documents\\GitHub\\SistemDeVendas\\src\\images\\icons8-pizza-40.png");
-            jbuttons[i].setIcon(icone);
+            jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+            jbuttons[i].setBackground(new java.awt.Color(204, 204, 204));
+            jbuttons[i].setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            jbuttons[i].setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
             panelPizza.add(jbuttons[i]);
             //panelPizza.add(BorderLayout.CENTER,jbuttons[i]);
         }
@@ -805,6 +816,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
