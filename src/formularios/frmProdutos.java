@@ -111,8 +111,13 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         jLabel5.setText("Imposto");
 
         impImposto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        impImposto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0%", "10%", "15%" }));
+        impImposto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Desconto%", "0%", "10%" }));
         impImposto.setEnabled(false);
+        impImposto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                impImpostoActionPerformed(evt);
+            }
+        });
 
         btnCadastroAnterior.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnCadastroAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-anterior-36.png"))); // NOI18N
@@ -518,6 +523,10 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_formInternalFrameOpened
 
+    private void impImpostoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_impImpostoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_impImpostoActionPerformed
+
     private void preencherTabela(){
         String titulos[] =  {"ID Produto", "Nome", "Preço", "Imposto", "Anotação"};
         String registro[] = new String[5];
@@ -541,10 +550,10 @@ public class frmProdutos extends javax.swing.JInternalFrame {
                 return "0%";
             
             case 1:
-                return "10%";
+                return "0%";
             
             case 2:
-                return "15%";
+                return "10%";
             
             default:
                     return "Não definido";

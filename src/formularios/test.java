@@ -47,7 +47,6 @@ public class test extends javax.swing.JPanel {
                 panelRefrigerComponentRemoved(evt);
             }
         });
-        panelRefriger.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnPizza4.setBackground(new java.awt.Color(204, 204, 204));
         btnPizza4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
@@ -59,42 +58,42 @@ public class test extends javax.swing.JPanel {
                 btnPizza4ActionPerformed(evt);
             }
         });
-        panelRefriger.add(btnPizza4, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 40, 110, 70));
+        panelRefriger.add(btnPizza4);
 
         btnPizza8.setBackground(new java.awt.Color(204, 204, 204));
         btnPizza8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
         btnPizza8.setText("Refrigerante");
         btnPizza8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnPizza8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panelRefriger.add(btnPizza8, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 116, 110, 70));
+        panelRefriger.add(btnPizza8);
 
         btnPizza9.setBackground(new java.awt.Color(204, 204, 204));
         btnPizza9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
         btnPizza9.setText("Refrigerante");
         btnPizza9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnPizza9.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panelRefriger.add(btnPizza9, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 192, 110, 70));
+        panelRefriger.add(btnPizza9);
 
         btnPizza10.setBackground(new java.awt.Color(204, 204, 204));
         btnPizza10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
         btnPizza10.setText("Refrigerante");
         btnPizza10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnPizza10.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panelRefriger.add(btnPizza10, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 192, 110, 70));
+        panelRefriger.add(btnPizza10);
 
         btnPizza11.setBackground(new java.awt.Color(204, 204, 204));
         btnPizza11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
         btnPizza11.setText("Refrigerante");
         btnPizza11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnPizza11.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panelRefriger.add(btnPizza11, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 40, 110, 70));
+        panelRefriger.add(btnPizza11);
 
         btnPizza12.setBackground(new java.awt.Color(204, 204, 204));
         btnPizza12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
         btnPizza12.setText("Refrigerante");
         btnPizza12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnPizza12.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panelRefriger.add(btnPizza12, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 116, 110, 70));
+        panelRefriger.add(btnPizza12);
 
         panelPizza.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         panelPizza.addContainerListener(new java.awt.event.ContainerAdapter() {
@@ -157,19 +156,19 @@ public class test extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(472, 472, 472)
-                .addComponent(panelPizza, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelPizza, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelRefriger, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(567, Short.MAX_VALUE)))
+                    .addComponent(panelRefriger, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(554, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(8, 8, 8)
-                .addComponent(panelPizza, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(panelPizza, javax.swing.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()

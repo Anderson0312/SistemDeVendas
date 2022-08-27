@@ -29,6 +29,10 @@ public class Dados_DB {
         
     }
     
+    
+    
+    //////////////////////////USUARIO/////////////////////////////
+    
     public boolean validarUsuario(String usuario, String senha){
        
         try {
@@ -94,15 +98,17 @@ public class Dados_DB {
             return false;
         }
     }
+    
         
     
         public String adicionarUsuario(Usuario mUsuario) {
             try {
-            String sql = "insert into usuarios values ('"+mUsuario.getIdUsuario()+"',"
-                    + "'"+mUsuario.getNome()+"',"
-                    + "'"+mUsuario.getSobreNome()+"',"
-                    + "'"+mUsuario.getSenha()+"',"
-                    + "'"+mUsuario.getPerfil()+"')";
+            String sql = "insert into usuarios values ('"
+                    +mUsuario.getIdUsuario()+"','"
+                    +mUsuario.getNome()+"','"
+                    +mUsuario.getSobreNome()+"','"
+                    +mUsuario.getSenha()+"',"
+                    +mUsuario.getPerfil()+")";
             Statement st;
             st = cnn.createStatement();
             //executa o Update no banco de dados
@@ -159,8 +165,7 @@ public class Dados_DB {
         public ResultSet getUsuarios(){
             try {
                     String sql = "SELECT * FROM usuarios";
-                Statement st;
-                st = cnn.createStatement();
+                Statement st = cnn.createStatement();
                 //executa a Update no banco de dados
                 return st.executeQuery(sql);
 
@@ -168,5 +173,69 @@ public class Dados_DB {
                 Logger.getLogger(Dados_DB.class.getName()).log(Level.SEVERE, null, ex);
                 return null;
             }
+        }
+        
+    public int numeroProdutos(){
+        try {
+                String sql = "SELECT count (*) as num FROM usuarios";
+                Statement st;
+                st = cnn.createStatement();
+                //executa a Update no banco de dados
+                ResultSet rs = st.executeQuery(sql);
+                if(rs.next()){
+                    return rs.getInt("num");
+                } else{
+                    return 0;
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(Dados_DB.class.getName()).log(Level.SEVERE, null, ex);
+                return 0;
+            }
+    }
+    
+    
+    //////////////////////PRODUTOS/////////////////////////////
+    
+        public boolean existeProduto(String produto){
+        try {
+            String sql = "select (1) from produtos where idProduto = '"
+                    +produto+"'";
+            Statement st;
+            st = cnn.createStatement();
+            //executa a pesquisa no banco de dados
+            ResultSet rs = st.executeQuery(sql);
+            // se o resultado da query for igual a 1 significa que o usuario existe
+            if(rs.next()){
+                return true;
+            } else {
+                return false;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Dados_DB.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+        
+                public String adicionarProduto(Produto mProduto) {
+            try {
+            String sql = "insert into produtos values ('"
+                    +mProduto.getIdProduto()+"','"
+                    +mProduto.getDescircao()+"','"
+                    +mProduto.getPreco()+ ","
+                    +mProduto.getImposto()+",'"
+                    +mProduto.getAnotacao()+"')";
+            Statement st;
+            st = cnn.createStatement();
+            //executa o Update no banco de dados
+            st.executeUpdate(sql);
+            return "Produto cadastrado com sucesso!";
+            
+                        
+        } catch (SQLException ex) {
+            Logger.getLogger(Dados_DB.class.getName()).log(Level.SEVERE, null, ex);
+            return "Não foi possivel cadastrar";
+        }
         }
 }

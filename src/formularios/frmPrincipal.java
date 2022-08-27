@@ -96,6 +96,13 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnPizza7 = new javax.swing.JButton();
         btnPizza2 = new javax.swing.JButton();
         btnPizza5 = new javax.swing.JButton();
+        panelRefriger = new javax.swing.JPanel();
+        btnPizza4 = new javax.swing.JButton();
+        btnPizza8 = new javax.swing.JButton();
+        btnPizza9 = new javax.swing.JButton();
+        btnPizza10 = new javax.swing.JButton();
+        btnPizza11 = new javax.swing.JButton();
+        btnPizza12 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuArquivo = new javax.swing.JMenu();
         mnuArquivoClientes = new javax.swing.JMenuItem();
@@ -407,6 +414,63 @@ public class frmPrincipal extends javax.swing.JFrame {
         panelPrincipla.add(panelPizza);
         panelPizza.setBounds(10, 10, 690, 650);
 
+        panelRefriger.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        panelRefriger.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentRemoved(java.awt.event.ContainerEvent evt) {
+                panelRefrigerComponentRemoved(evt);
+            }
+        });
+
+        btnPizza4.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza4.setText("Refrigerante");
+        btnPizza4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnPizza4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPizza4ActionPerformed(evt);
+            }
+        });
+        panelRefriger.add(btnPizza4);
+
+        btnPizza8.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza8.setText("Refrigerante");
+        btnPizza8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelRefriger.add(btnPizza8);
+
+        btnPizza9.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza9.setText("Refrigerante");
+        btnPizza9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza9.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelRefriger.add(btnPizza9);
+
+        btnPizza10.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza10.setText("Refrigerante");
+        btnPizza10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza10.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelRefriger.add(btnPizza10);
+
+        btnPizza11.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza11.setText("Refrigerante");
+        btnPizza11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza11.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelRefriger.add(btnPizza11);
+
+        btnPizza12.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza12.setText("Refrigerante");
+        btnPizza12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza12.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelRefriger.add(btnPizza12);
+
+        panelPrincipla.add(panelRefriger);
+        panelRefriger.setBounds(9, 10, 690, 620);
+
         jLayeredPane1.setLayer(panelPrincipla, javax.swing.JLayeredPane.MODAL_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
@@ -611,7 +675,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
 
         panelPizza.setVisible(false);
-        
+        panelRefriger.setVisible(false);
         
         ((BackGround)dpnDesk).setImage("/images/background.jpg"); // setando a imagagem de fundo do formulario principal
         if (perfil == 2) { // verificação do usuario(usuario comum não pode acessar todas areas)
@@ -709,6 +773,32 @@ public class frmPrincipal extends javax.swing.JFrame {
         
         panelPizza.setVisible(false);
         
+                //habilita o painel com todas opções de pizzas     
+        panelRefriger.setVisible(true);
+        
+
+        // cria a lista de butoes de acordo com a quantidade preordenada
+        JButton jbuttons[] = new JButton[10];
+        
+        panelRefriger.removeAll();
+       
+        
+        for(int i = 0; i < jbuttons.length; i++) {
+            
+            jbuttons[i] = new JButton("Refrigerante" + i);
+            jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+            jbuttons[i].setBackground(new java.awt.Color(204, 204, 204));
+            jbuttons[i].setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            jbuttons[i].setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+            panelRefriger.add(jbuttons[i]);
+            //panelPizza.add(BorderLayout.CENTER,jbuttons[i]);
+        }
+        
+        panelRefriger.validate();
+        panelRefriger.repaint();
+        
+        
     }//GEN-LAST:event_btnRefriActionPerformed
 
     private void panelPizzaComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_panelPizzaComponentRemoved
@@ -721,11 +811,21 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     private void btnSucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSucoActionPerformed
         panelPizza.setVisible(false);
+        panelRefriger.setVisible(false);
     }//GEN-LAST:event_btnSucoActionPerformed
 
     private void btnCervejaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCervejaActionPerformed
         panelPizza.setVisible(false);
+        panelRefriger.setVisible(false);
     }//GEN-LAST:event_btnCervejaActionPerformed
+
+    private void btnPizza4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizza4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPizza4ActionPerformed
+
+    private void panelRefrigerComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_panelRefrigerComponentRemoved
+
+    }//GEN-LAST:event_panelRefrigerComponentRemoved
 
     //Cria os titulos da tabela de venda 
     private void preencherTabelaVenda(){
@@ -802,11 +902,17 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnCerveja;
     private javax.swing.JButton btnPizza;
     private javax.swing.JButton btnPizza1;
+    private javax.swing.JButton btnPizza10;
+    private javax.swing.JButton btnPizza11;
+    private javax.swing.JButton btnPizza12;
     private javax.swing.JButton btnPizza2;
     private javax.swing.JButton btnPizza3;
+    javax.swing.JButton btnPizza4;
     private javax.swing.JButton btnPizza5;
     private javax.swing.JButton btnPizza6;
     private javax.swing.JButton btnPizza7;
+    private javax.swing.JButton btnPizza8;
+    private javax.swing.JButton btnPizza9;
     private javax.swing.JButton btnRefri;
     private javax.swing.JButton btnSuco;
     private javax.swing.JDesktopPane dpnDesk;
@@ -841,6 +947,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuMovimentRlVenda;
     private javax.swing.JPanel panelPizza;
     private javax.swing.JPanel panelPrincipla;
+    private javax.swing.JPanel panelRefriger;
     private javax.swing.JTable tblDetalhesVenda;
     private javax.swing.JLabel txtData;
     private javax.swing.JLabel txtOperador;

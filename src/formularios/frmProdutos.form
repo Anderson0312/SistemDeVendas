@@ -223,13 +223,16 @@
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
-            <StringItem index="0" value="0%"/>
-            <StringItem index="1" value="10%"/>
-            <StringItem index="2" value="15%"/>
+            <StringItem index="0" value="Desconto%"/>
+            <StringItem index="1" value="0%"/>
+            <StringItem index="2" value="10%"/>
           </StringArray>
         </Property>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="impImpostoActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
