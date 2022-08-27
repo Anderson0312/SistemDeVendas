@@ -175,7 +175,7 @@ public class Dados_DB {
             }
         }
         
-    public int numeroProdutos(){
+    public int numeroUsuarios(){
         try {
                 String sql = "SELECT count (*) as num FROM usuarios";
                 Statement st;
@@ -238,4 +238,75 @@ public class Dados_DB {
             return "Não foi possivel cadastrar";
         }
         }
+                
+               
+        public String editarProduto(Produto mProduto) {
+            try {
+            String sql = "update usuarios set "
+                    +"descricao = "+mProduto.getDescircao()+"', "
+                    +"preco = "+mProduto.getPreco()+", "
+                    +"imposto = "+mProduto.getImposto()+", "
+                    +"anotacao = '" + mProduto.getAnotacao() + "',"
+                    +"where idUsuario = '"+mProduto.getIdProduto()+"'";
+            Statement st;
+            st = cnn.createStatement();
+            //executa a Update no banco de dados
+            st.executeUpdate(sql);
+            return "Produto Editado com sucesso!";
+            
+                        
+        } catch (SQLException ex) {
+            Logger.getLogger(Dados_DB.class.getName()).log(Level.SEVERE, null, ex);
+            return "Não foi possivel Editado";
+        }
+        }
+        
+        
+        public String deletarProduto(String produto) {
+            try {
+                String sql = "delete from usuarios where idProduto = '"+produto+"'";
+            Statement st;
+            st = cnn.createStatement();
+            //executa a Update no banco de dados
+            st.executeUpdate(sql);
+            return "Produto Deletado com sucesso!";
+            
+                        
+        } catch (SQLException ex) {
+            Logger.getLogger(Dados_DB.class.getName()).log(Level.SEVERE, null, ex);
+            return "Não foi possivel Deletado";
+        }
+        }
+        
+        public ResultSet getProdutos(){
+            try {
+                    String sql = "SELECT * FROM produtos";
+                Statement st = cnn.createStatement();
+                //executa a Update no banco de dados
+                return st.executeQuery(sql);
+
+            } catch (SQLException ex) {
+                Logger.getLogger(Dados_DB.class.getName()).log(Level.SEVERE, null, ex);
+                return null;
+            }
+        }
+        
+        public int numeroProdutos(){
+        try {
+                String sql = "SELECT count (*) as num FROM produtos";
+                Statement st;
+                st = cnn.createStatement();
+                //executa a Update no banco de dados
+                ResultSet rs = st.executeQuery(sql);
+                if(rs.next()){
+                    return rs.getInt("num");
+                } else{
+                    return 0;
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(Dados_DB.class.getName()).log(Level.SEVERE, null, ex);
+                return 0;
+            }
+    }
 }
