@@ -348,13 +348,13 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton3))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelPrincipla.setBackground(new java.awt.Color(0, 153, 255));
         panelPrincipla.setDoubleBuffered(false);
         panelPrincipla.setInheritsPopupMenu(true);
-        panelPrincipla.setLayout(null);
+        panelPrincipla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelPizza.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         panelPizza.setPreferredSize(new java.awt.Dimension(500, 76));
@@ -411,8 +411,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnPizza5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelPizza.add(btnPizza5);
 
-        panelPrincipla.add(panelPizza);
-        panelPizza.setBounds(10, 10, 690, 650);
+        panelPrincipla.add(panelPizza, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 690, 650));
 
         panelRefriger.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         panelRefriger.addContainerListener(new java.awt.event.ContainerAdapter() {
@@ -468,8 +467,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnPizza12.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelRefriger.add(btnPizza12);
 
-        panelPrincipla.add(panelRefriger);
-        panelRefriger.setBounds(9, 10, 690, 620);
+        panelPrincipla.add(panelRefriger, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 10, 690, 620));
 
         jLayeredPane1.setLayer(panelPrincipla, javax.swing.JLayeredPane.MODAL_LAYER);
 
@@ -685,7 +683,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             mnuMovimentRlVenda.setEnabled(false);
         }
         
-        preencherTabelaVenda();
+        TabelaVenda();
         txtOperador.setText(usuario);   
         txtData.setText(Utilidades.getDate());
         
@@ -736,15 +734,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         
         MVenda.show();
     }//GEN-LAST:event_mnuMovimentNvVendaActionPerformed
-
-
-    public static int maxH = 5;
-    public static int maxV = 5;
-    
+       
     private void btnPizzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizzaActionPerformed
-        //habilita o painel com todas opções de pizzas     
+        //habilita o painel com todas opções de pizzas  
+        panelRefriger.setVisible(false);
         panelPizza.setVisible(true);
-        
 
         // cria a lista de butoes de acordo com a quantidade preordenada
         JButton jbuttons[] = new JButton[10];
@@ -759,9 +753,23 @@ public class frmPrincipal extends javax.swing.JFrame {
             jbuttons[i].setBackground(new java.awt.Color(204, 204, 204));
             jbuttons[i].setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
             jbuttons[i].setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+            jbuttons[i].addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                String registro[] = new String[4];
 
+                                registro[0] = msDados.getProdutos()[2].getIdProduto();
+                                registro[1] = msDados.getProdutos()[2].getDescircao();
+                                registro[2] = "" + msDados.getProdutos()[2].getPreco();
+                                registro[3] = msDados.getProdutos()[2].getAnotacao(); 
+
+
+                                mTablela.addRow(registro);
+                                tblDetalhesVenda.setModel(mTablela);
+                            }
+                        });
             panelPizza.add(jbuttons[i]);
-            //panelPizza.add(BorderLayout.CENTER,jbuttons[i]);
+            
+
         }
         
         panelPizza.validate();
@@ -769,11 +777,23 @@ public class frmPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnPizzaActionPerformed
 
+    //função para adicionar um produto no formulario
+    private void addProdForm(int i){
+            String registro[] = new String[4];
+
+            registro[0] = msDados.getProdutos()[1].getIdProduto();
+            registro[1] = msDados.getProdutos()[1].getDescircao();
+            registro[2] = "" + msDados.getProdutos()[1].getPreco();
+            registro[3] = msDados.getProdutos()[1].getAnotacao(); 
+
+            
+            mTablela.addRow(registro);
+            tblDetalhesVenda.setModel(mTablela);
+    }
+    
     private void btnRefriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefriActionPerformed
-        
-        panelPizza.setVisible(false);
-        
-                //habilita o painel com todas opções de pizzas     
+        //habilita o painel com todas opções de pizzas 
+        panelPizza.setVisible(false);   
         panelRefriger.setVisible(true);
         
 
@@ -790,9 +810,23 @@ public class frmPrincipal extends javax.swing.JFrame {
             jbuttons[i].setBackground(new java.awt.Color(204, 204, 204));
             jbuttons[i].setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
             jbuttons[i].setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+            jbuttons[i].addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                String registro[] = new String[4];
 
+                                registro[0] = msDados.getProdutos()[1].getIdProduto();
+                                registro[1] = msDados.getProdutos()[1].getDescircao();
+                                registro[2] = "" + msDados.getProdutos()[1].getPreco();
+                                registro[3] = msDados.getProdutos()[1].getAnotacao(); 
+
+
+                                mTablela.addRow(registro);
+                                tblDetalhesVenda.setModel(mTablela);
+                            }
+                        });
+            
             panelRefriger.add(jbuttons[i]);
-            //panelPizza.add(BorderLayout.CENTER,jbuttons[i]);
+
         }
         
         panelRefriger.validate();
@@ -817,6 +851,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void btnCervejaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCervejaActionPerformed
         panelPizza.setVisible(false);
         panelRefriger.setVisible(false);
+
     }//GEN-LAST:event_btnCervejaActionPerformed
 
     private void btnPizza4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizza4ActionPerformed
@@ -828,18 +863,20 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_panelRefrigerComponentRemoved
 
     //Cria os titulos da tabela de venda 
-    private void preencherTabelaVenda(){
-        String titulos[] =  {"ID Produto", "Descrição", "Preço", "Quantidade", "Valor"};
-        String registro[] = new String[5];
+    private void TabelaVenda(){
+        String titulos[] =  {"ID Produto", "Nome", "Preço", "Quantidade"};
+
         mTablela = new DefaultTableModel(null, titulos);
+
         tblDetalhesVenda.setModel(mTablela);
         
         DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();
         dtcr.setHorizontalAlignment(SwingConstants.RIGHT); // Metodo para alinha os item a direita
+        tblDetalhesVenda.getColumnModel().getColumn(1).setCellRenderer(dtcr);
         tblDetalhesVenda.getColumnModel().getColumn(2).setCellRenderer(dtcr);
         tblDetalhesVenda.getColumnModel().getColumn(3).setCellRenderer(dtcr);
-        tblDetalhesVenda.getColumnModel().getColumn(4).setCellRenderer(dtcr);
     }
+    
     
     //Para fazer a soma do valor total e quantidade toda de produtos
     private void totais() {
