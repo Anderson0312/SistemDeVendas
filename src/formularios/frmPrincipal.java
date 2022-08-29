@@ -272,6 +272,11 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-remove-properties-36.png"))); // NOI18N
         jButton3.setText("Cancelar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         txtQuanti.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
@@ -294,7 +299,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Qnt:");
+        jLabel4.setText("Nota N°");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -477,7 +482,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelPrincipla, javax.swing.GroupLayout.DEFAULT_SIZE, 709, Short.MAX_VALUE)
+                .addComponent(panelPrincipla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jLayeredPane1Layout.setVerticalGroup(
@@ -765,6 +770,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
                                 mTablela.addRow(registro);
                                 tblDetalhesVenda.setModel(mTablela);
+                                totais();
                             }
                         });
             panelPizza.add(jbuttons[i]);
@@ -822,6 +828,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
                                 mTablela.addRow(registro);
                                 tblDetalhesVenda.setModel(mTablela);
+                                totais();
                             }
                         });
             
@@ -862,9 +869,17 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_panelRefrigerComponentRemoved
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String titulos[] =  {"ID Produto", "Nome", "Preço", "Descrição"};
+
+        mTablela = new DefaultTableModel(null, titulos);
+        tblDetalhesVenda.setModel(mTablela);
+        txtValorTot.setText("R$ 0,00");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     //Cria os titulos da tabela de venda 
     private void TabelaVenda(){
-        String titulos[] =  {"ID Produto", "Nome", "Preço", "Quantidade"};
+        String titulos[] =  {"ID Produto", "Nome", "Preço", "Descrição"};
 
         mTablela = new DefaultTableModel(null, titulos);
 
@@ -883,12 +898,13 @@ public class frmPrincipal extends javax.swing.JFrame {
         int num = tblDetalhesVenda.getRowCount();
         int somaQuant = 0, somaVal=0;
         for (int i = 0; i<num; i++) {
-            somaQuant += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 3));
-            somaVal += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 4));
+            //somaQuant += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 3));
+            somaVal += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 2));
         }
         
-        txtValorTot.setText("" + somaQuant);
-        txtValorTot.setText("" + somaVal);
+        //txtValorTot.setText("" + somaQuant);
+        txtValorTot.setText("R$ " + somaVal);
+
     }
     
     public void limparTablea(){
