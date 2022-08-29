@@ -16,7 +16,7 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import  java.util.Timer;
+
 
 
 /**
@@ -54,6 +54,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     
     public frmPrincipal() {
         initComponents();
+        //metodo para atualizar o componente de hora automaticamente
         timer1.start();
     }
 
@@ -724,9 +725,8 @@ public class frmPrincipal extends javax.swing.JFrame {
         TabelaVenda();
         txtOperador.setText(usuario);   
         
-        txtData.setText(Utilidades.getDataHora());
         int numFatura = msDados.getNumeroFatura();
-        System.out.println("formularios.frmPrincipal.formWindowOpened()" + numFatura);
+     
         txtNNota.setText("" + numFatura);
         
     }//GEN-LAST:event_formWindowOpened
@@ -917,6 +917,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
+    //calsse para atualizar setar a hora e atualizar auto
     private void timer1OnTime(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timer1OnTime
         txtData.setText(Utilidades.getDataHora());
     }//GEN-LAST:event_timer1OnTime
