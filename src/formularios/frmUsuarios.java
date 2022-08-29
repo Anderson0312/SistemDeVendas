@@ -336,12 +336,12 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtSenhaActionPerformed
 
     private void mostrarCadastros(){
-//        txtIDUsuario.setText(msDados.getUsuarios()[usuAtual].getIdUsuario());
-//        txtNome.setText(msDados.getUsuarios()[usuAtual].getNome());
-//        txtSobreNome.setText(msDados.getUsuarios()[usuAtual].getSobreNome());
-//        txtSenha.setText(msDados.getUsuarios()[usuAtual].getSenha());
-//        txtConfirmarSenha.setText(msDados.getUsuarios()[usuAtual].getSenha());
-//        SelecionarPerfil.setSelectedIndex(msDados.getUsuarios()[usuAtual].getPerfil());
+        txtIDUsuario.setText(msDados.getUsuarios()[usuAtual].getIdUsuario());
+        txtNome.setText(msDados.getUsuarios()[usuAtual].getNome());
+        txtSobreNome.setText(msDados.getUsuarios()[usuAtual].getSobreNome());
+        txtSenha.setText(msDados.getUsuarios()[usuAtual].getSenha());
+        txtConfirmarSenha.setText(msDados.getUsuarios()[usuAtual].getSenha());
+        SelecionarPerfil.setSelectedIndex(msDados.getUsuarios()[usuAtual].getPerfil());
         
     }
     

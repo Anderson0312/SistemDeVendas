@@ -1,4 +1,4 @@
-1|carne|23.4|0|qualquercoisa
-2|arroz|54.0|1|awdawdawd
-3|biscoito|12.0|2|dawdawdaw
-4|guarana|15.0|2|awdawdawda
+1|Cerveja|23.4|0|qualquercoisa
+2|Refrigerante|54.0|1|awdawdawd
+3|Pizza|12.0|2|dawdawdaw
+4|Suco|15.0|2|awdawdawda
