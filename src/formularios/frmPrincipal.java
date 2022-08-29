@@ -16,7 +16,7 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-
+import  java.util.Timer;
 
 
 /**
@@ -54,6 +54,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     
     public frmPrincipal() {
         initComponents();
+        timer1.start();
     }
 
     /**
@@ -65,6 +66,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        timer1 = new org.netbeans.examples.lib.timerbean.Timer();
         dpnDesk = new BackGround();
         jPanel1 = new javax.swing.JPanel();
         btnPizza = new javax.swing.JButton();
@@ -83,7 +85,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDetalhesVenda = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
+        txtObservacao = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -120,6 +122,12 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuAjuda = new javax.swing.JMenu();
         mnuAjudaSobre = new javax.swing.JMenuItem();
         mnuAjudaAjuda = new javax.swing.JMenuItem();
+
+        timer1.addTimerListener(new org.netbeans.examples.lib.timerbean.TimerListener() {
+            public void onTime(java.awt.event.ActionEvent evt) {
+                timer1OnTime(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de vendas");
@@ -334,7 +342,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -363,7 +371,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel3)
                         .addComponent(jLabel4)))
                 .addGap(23, 23, 23)
@@ -715,7 +723,8 @@ public class frmPrincipal extends javax.swing.JFrame {
         
         TabelaVenda();
         txtOperador.setText(usuario);   
-        txtData.setText(Utilidades.getDate());
+        
+        txtData.setText(Utilidades.getDataHora());
         int numFatura = msDados.getNumeroFatura();
         System.out.println("formularios.frmPrincipal.formWindowOpened()" + numFatura);
         txtNNota.setText("" + numFatura);
@@ -905,8 +914,12 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
-        int numFatura = msDados.getNumeroFatura()+1;
+        
     }//GEN-LAST:event_btnFinalizarActionPerformed
+
+    private void timer1OnTime(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timer1OnTime
+        txtData.setText(Utilidades.getDataHora());
+    }//GEN-LAST:event_timer1OnTime
 
     //Cria os titulos da tabela de venda 
     private void TabelaVenda(){
@@ -1017,7 +1030,6 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JMenu mnuAjuda;
     private javax.swing.JMenuItem mnuAjudaAjuda;
     private javax.swing.JMenuItem mnuAjudaSobre;
@@ -1035,8 +1047,10 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel panelPrincipla;
     private javax.swing.JPanel panelRefriger;
     private javax.swing.JTable tblDetalhesVenda;
+    private org.netbeans.examples.lib.timerbean.Timer timer1;
     private javax.swing.JLabel txtData;
     private javax.swing.JLabel txtNNota;
+    private javax.swing.JTextField txtObservacao;
     private javax.swing.JLabel txtOperador;
     private javax.swing.JLabel txtValorTot;
     // End of variables declaration//GEN-END:variables
