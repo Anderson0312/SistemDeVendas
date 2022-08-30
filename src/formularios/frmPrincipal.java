@@ -781,6 +781,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         panelRefriger.setVisible(false);
         panelPizza.setVisible(true);
 
+        for (int i = 0; i< 50; i++) {
+            if (!msDados.getProdutos()[i].getIdProduto().equals("")){
+                JButton jbuttons[] = new JButton[i];
+            }
+        }
         // cria a lista de butoes de acordo com a quantidade preordenada
         JButton jbuttons[] = new JButton[10];
         
@@ -794,6 +799,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             jbuttons[i].setBackground(new java.awt.Color(204, 204, 204));
             jbuttons[i].setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
             jbuttons[i].setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+            //cria um evento diferente para cada butão do for
             jbuttons[i].addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 String registro[] = new String[4];
