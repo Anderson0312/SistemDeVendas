@@ -781,11 +781,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         panelRefriger.setVisible(false);
         panelPizza.setVisible(true);
 
-        for (int i = 0; i< 50; i++) {
-            if (!msDados.getProdutos()[i].getIdProduto().equals("")){
-                JButton jbuttons[] = new JButton[i];
-            }
-        }
+//        for (int i = 0; i< 50; i++) {
+//            if (!msDados.getProdutos()[i].getIdProduto().equals("")){
+//                JButton jbuttons[] = new JButton[i];
+//            }
+//        }
         // cria a lista de butoes de acordo com a quantidade preordenada
         JButton jbuttons[] = new JButton[10];
         
