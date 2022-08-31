@@ -301,6 +301,7 @@ public class frmFinal extends javax.swing.JFrame {
         });
     }
     
+    
     public void totalFinal() {
         double sV = 0;
         sV = frmPrincipal.totaisReturn();
