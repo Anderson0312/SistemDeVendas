@@ -727,7 +727,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         
         int numFatura = msDados.getNumeroFatura();
      
-        txtNNota.setText("" + numFatura);
+        txtNNota.setText("" + (numFatura + 1));
         
     }//GEN-LAST:event_formWindowOpened
     
@@ -781,45 +781,42 @@ public class frmPrincipal extends javax.swing.JFrame {
         panelRefriger.setVisible(false);
         panelPizza.setVisible(true);
 
-//        for (int i = 0; i< 50; i++) {
-//            if (!msDados.getProdutos()[i].getIdProduto().equals("")){
-//                JButton jbuttons[] = new JButton[i];
-//            }
-//        }
+        for (int i = 1; i< 50; i++) {
+            if (!msDados.getProdutos()[i].getIdProduto().equals("")){
+                JButton jbuttons[] = new JButton[i];
+            
         // cria a lista de butoes de acordo com a quantidade preordenada
-        JButton jbuttons[] = new JButton[10];
+        //JButton jbuttons[] = new JButton[10];
         
         panelPizza.removeAll();
-       
         
-        for(int i = 0; i < jbuttons.length; i++) {
+        for(int a = 0; i < jbuttons.length; i++) {
             
-            jbuttons[i] = new JButton("Pizza" + i);
-            jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
-            jbuttons[i].setBackground(new java.awt.Color(204, 204, 204));
-            jbuttons[i].setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-            jbuttons[i].setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+            jbuttons[a] = new JButton("Pizza" + i);
+            jbuttons[a].setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+            jbuttons[a].setBackground(new java.awt.Color(204, 204, 204));
+            jbuttons[a].setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            jbuttons[a].setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
             //cria um evento diferente para cada butão do for
-            jbuttons[i].addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                String registro[] = new String[4];
-
-                                registro[0] = msDados.getProdutos()[2].getIdProduto();
-                                registro[1] = msDados.getProdutos()[2].getDescircao();
-                                registro[2] = "" + msDados.getProdutos()[2].getPreco();
-                                registro[3] = msDados.getProdutos()[2].getAnotacao(); 
-
-
-                                mTablela.addRow(registro);
-                                tblDetalhesVenda.setModel(mTablela);
-                                totais();
-                            }
-                        });
+            jbuttons[a].addActionListener((java.awt.event.ActionEvent evt1) -> {
+                String registro[] = new String[4];
+                
+                registro[0] = msDados.getProdutos()[2].getIdProduto();
+                registro[1] = msDados.getProdutos()[2].getDescircao();
+                registro[2] = "" + msDados.getProdutos()[2].getPreco();
+                registro[3] = msDados.getProdutos()[2].getAnotacao();
+                
+                
+                mTablela.addRow(registro);
+                tblDetalhesVenda.setModel(mTablela);
+                totais();
+            });
             panelPizza.add(jbuttons[i]);
             
 
         }
-        
+        }
+        }
         panelPizza.validate();
         panelPizza.repaint();
         
