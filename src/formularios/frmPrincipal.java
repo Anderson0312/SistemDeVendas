@@ -781,24 +781,26 @@ public class frmPrincipal extends javax.swing.JFrame {
         panelRefriger.setVisible(false);
         panelPizza.setVisible(true);
 
-        for (int i = 1; i< 50; i++) {
-            if (!msDados.getProdutos()[i].getIdProduto().equals("")){
+        for (int i = 0; i< 40; i++) {
+            if (msDados.getProdutos()[i].getCategoria() == 1){
                 JButton jbuttons[] = new JButton[i];
-            
+                System.out.println( msDados.getProdutos()[i].getCategoria());
+            }
+        }
         // cria a lista de butoes de acordo com a quantidade preordenada
-        //JButton jbuttons[] = new JButton[10];
+        JButton jbuttons[] = new JButton[10];
         
         panelPizza.removeAll();
         
-        for(int a = 0; i < jbuttons.length; i++) {
+        for(int i = 0; i < jbuttons.length; i++) {
             
-            jbuttons[a] = new JButton("Pizza" + i);
-            jbuttons[a].setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
-            jbuttons[a].setBackground(new java.awt.Color(204, 204, 204));
-            jbuttons[a].setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-            jbuttons[a].setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+            jbuttons[i] = new JButton("Pizza" + i);
+            jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+            jbuttons[i].setBackground(new java.awt.Color(204, 204, 204));
+            jbuttons[i].setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            jbuttons[i].setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
             //cria um evento diferente para cada butão do for
-            jbuttons[a].addActionListener((java.awt.event.ActionEvent evt1) -> {
+            jbuttons[i].addActionListener((java.awt.event.ActionEvent evt1) -> {
                 String registro[] = new String[4];
                 
                 registro[0] = msDados.getProdutos()[2].getIdProduto();
@@ -815,8 +817,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             
 
         }
-        }
-        }
+        
         panelPizza.validate();
         panelPizza.repaint();
         
@@ -826,14 +827,15 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void addProdForm(int i){
             String registro[] = new String[4];
 
-            registro[0] = msDados.getProdutos()[1].getIdProduto();
-            registro[1] = msDados.getProdutos()[1].getDescircao();
-            registro[2] = "" + msDados.getProdutos()[1].getPreco();
-            registro[3] = msDados.getProdutos()[1].getAnotacao(); 
+            registro[0] = msDados.getProdutos()[i].getIdProduto();
+            registro[1] = msDados.getProdutos()[i].getDescircao();
+            registro[2] = "" + msDados.getProdutos()[i].getPreco();
+            registro[3] = msDados.getProdutos()[i].getAnotacao(); 
 
             
             mTablela.addRow(registro);
             tblDetalhesVenda.setModel(mTablela);
+            totais();
     }
     
     private void btnRefriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefriActionPerformed

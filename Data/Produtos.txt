@@ -1,4 +1,22 @@
-1|Cerveja|23.4|0|qualquercoisa
-2|Refrigerante|54.0|1|awdawdawd
-3|Pizza|12.0|2|dawdawdaw
-4|Suco|15.0|2|awdawdawda
+1|Cerveja|23.4|4|Antartica
+20|Coca Cola|54.0|2|Refrigerante
+21|Fanta laranja|54.0|2|Refrigerante
+22|Fanta uva|54.0|2|Refrigerante
+23|fanta guarana|54.0|2|Refrigerante
+24|Sprite|54.0|2|Refrigerante
+25|Coca Cola|54.0|2|Refrigerante
+26|Coca Cola|54.0|2|Refrigerante
+27|Coca Cola|54.0|2|Refrigerante
+28|Coca Cola|54.0|2|Refrigerante
+29|Coca Cola|54.0|2|Refrigerante
+30|Pizza|12.0|1|Calabresa
+31|Pizza|12.0|1|Calabresa
+32|Pizza|12.0|1|Calabresa
+33|Pizza|12.0|1|Calabresa
+34|Pizza|12.0|1|Calabresa
+35|Pizza|12.0|1|Calabresa
+36|Pizza|12.0|1|Calabresa
+37|Pizza|12.0|1|Calabresa
+38|Pizza|12.0|1|Calabresa
+39|Pizza|12.0|1|Calabresa
+40|Suco|15.0|3|suco de laranja
