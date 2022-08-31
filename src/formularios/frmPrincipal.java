@@ -927,8 +927,9 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
-        frmFinal mF = new frmFinal();
-        mF.setVisible(true);
+        frmFinal mFinal = new frmFinal(this, rootPaneCheckingEnabled);
+        mFinal.setLocationRelativeTo(null);
+        mFinal.setVisible(rootPaneCheckingEnabled);   
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
     //calsse para atualizar setar a hora e atualizar auto
