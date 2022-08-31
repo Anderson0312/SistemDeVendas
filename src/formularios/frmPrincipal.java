@@ -2,6 +2,7 @@
 package formularios;
 
 import classes.BackGround;
+
 import classes.Dados;
 import classes.Dados_DB;
 import classes.Utilidades;
@@ -24,6 +25,10 @@ import javax.swing.table.DefaultTableModel;
  * @author AndersoNMN
  */
 public class frmPrincipal extends javax.swing.JFrame {
+
+    static double totaisReturn() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     private int perfil;
     private String senha;
     private String usuario;
@@ -781,11 +786,13 @@ public class frmPrincipal extends javax.swing.JFrame {
         panelRefriger.setVisible(false);
         panelPizza.setVisible(true);
 
+        /*
         for (int i = 0; i< 50; i++) {
             if (!msDados.getProdutos()[i].getIdProduto().equals("")){
                 JButton jbuttons[] = new JButton[i];
             }
         }
+        */
         // cria a lista de butoes de acordo com a quantidade preordenada
         JButton jbuttons[] = new JButton[10];
         
@@ -920,7 +927,8 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
-        
+        frmFinal mF = new frmFinal();
+        mF.setVisible(true);
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
     //calsse para atualizar setar a hora e atualizar auto
@@ -945,9 +953,9 @@ public class frmPrincipal extends javax.swing.JFrame {
     
     
     //Para fazer a soma do valor total e quantidade toda de produtos
-    private void totais() {
+    public void totais() {
         int num = tblDetalhesVenda.getRowCount();
-        int somaQuant = 0, somaVal=0;
+        double somaQuant = 0, somaVal=0;
         for (int i = 0; i<num; i++) {
             //somaQuant += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 3));
             somaVal += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 2));
@@ -955,8 +963,15 @@ public class frmPrincipal extends javax.swing.JFrame {
         
         //txtValorTot.setText("" + somaQuant);
         txtValorTot.setText("R$ " + somaVal);
-
+        
+        totaisReturn(somaVal);
     }
+    
+    /* @param somaVal
+     * @return*/
+    public double totaisReturn(double somaVal){
+            return somaVal;
+        }
     
     public void limparTablea(){
         try {
