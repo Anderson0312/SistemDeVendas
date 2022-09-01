@@ -1,15 +1,28 @@
-1|Cerveja|23.4|4|Antartica
-20|Coca Cola|54.0|2|Refrigerante
-21|Fanta laranja|54.0|2|Refrigerante
-22|Fanta uva|54.0|2|Refrigerante
-23|fanta guarana|54.0|2|Refrigerante
-24|Sprite|54.0|2|Refrigerante
-25|Coca Cola|54.0|2|Refrigerante
-26|Coca Cola|54.0|2|Refrigerante
-27|Coca Cola|54.0|2|Refrigerante
-28|Coca Cola|54.0|2|Refrigerante
-29|Coca Cola|54.0|2|Refrigerante
-30|Pizza|12.0|1|Calabresa
+1|Antartica|23.4|4|Cerveja
+2|Brahma|23.4|4|Cerveja
+3|Glacial|23.4|4|Cerveja
+4|Hineken|23.4|4|Cerveja
+5|Skol|23.4|4|Cerveja
+6|Istela|23.4|4|Cerveja
+7|Amstel|23.4|4|Cerveja
+8|Itaipava|23.4|4|Cerveja
+20|suco de Laranja|15.0|3|suco
+21|suco de Uva|15.0|3|suco
+22|suco de Limão|15.0|3|suco
+23|suco de Morango|15.0|3|suco
+24|suco de Pessego|15.0|3|suco
+25|suco de Maracuja|15.0|3|suco
+26|suco de Caju|15.0|3|suco
+30|Coca Cola|54.0|2|Refrigerante
+31|Fanta laranja|54.0|2|Refrigerante
+32|Fanta uva|54.0|2|Refrigerante
+33|fanta guarana|54.0|2|Refrigerante
+34|Sprite|54.0|2|Refrigerante
+35|Coca Cola|54.0|2|Refrigerante
+36|Sukita|54.0|2|Refrigerante
+37|Pepsi|54.0|2|Refrigerante
+28|Guarana Antartica|54.0|2|Refrigerante
+|Pizza|12.0|1|Calabresa
 31|Pizza|12.0|1|Calabresa
 32|Pizza|12.0|1|Calabresa
 33|Pizza|12.0|1|Calabresa
@@ -19,4 +32,4 @@
 37|Pizza|12.0|1|Calabresa
 38|Pizza|12.0|1|Calabresa
 39|Pizza|12.0|1|Calabresa
-40|Suco|15.0|3|suco de laranja
+

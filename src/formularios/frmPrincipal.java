@@ -780,15 +780,21 @@ public class frmPrincipal extends javax.swing.JFrame {
         //habilita o painel com todas opções de pizzas  
         panelRefriger.setVisible(false);
         panelPizza.setVisible(true);
+        
+        //colocar a quantidade de produtos que tem no banco qui
+        int numProdutos = 21; 
+        int but =0;
+       
+        for (int i = 0; i< numProdutos; i++) {
+            int quanti = msDados.getProdutos()[i].getCategoria();
+            System.out.println(quanti);
+            if (quanti == 1)
+                but +=1;   
+            
+        }   
 
-        for (int i = 0; i< 40; i++) {
-            if (msDados.getProdutos()[i].getCategoria() == 1){
-                JButton jbuttons[] = new JButton[i];
-                System.out.println( msDados.getProdutos()[i].getCategoria());
-            }
-        }
         // cria a lista de butoes de acordo com a quantidade preordenada
-        JButton jbuttons[] = new JButton[10];
+        JButton jbuttons[] = new JButton[but];
         
         panelPizza.removeAll();
         
