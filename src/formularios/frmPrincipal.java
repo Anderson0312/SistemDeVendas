@@ -954,7 +954,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     //Para fazer a soma do valor total e quantidade toda de produtos
     private void totais() {
         int num = tblDetalhesVenda.getRowCount();
-        int somaQuant = 0, somaVal=0;
+        double somaQuant = 0, somaVal=0;
         for (int i = 0; i<num; i++) {
             //somaQuant += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 3));
             somaVal += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 3));
