@@ -789,14 +789,12 @@ public class frmPrincipal extends javax.swing.JFrame {
             if (quanti == 1)
                 but +=1;             
         }   
-        System.err.println(but);
         // cria a lista de butoes de acordo com a quantidade preordenada
         JButton jbuttons[] = new JButton[but];
         
         panelPizza.removeAll();
         
         for(int i = 24; i < jbuttons.length; i++) {
-            System.out.println(i);
             jbuttons[i] = new JButton(msDados.getProdutos()[i].getDescircao());
             final Integer valor = Integer.valueOf(i);
             jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
@@ -808,10 +806,9 @@ public class frmPrincipal extends javax.swing.JFrame {
                 String registro[] = new String[4];
                 
                 registro[0] = msDados.getProdutos()[valor].getIdProduto();
-                registro[1] = msDados.getProdutos()[valor].getDescircao();
-                registro[2] = "" + msDados.getProdutos()[valor].getPreco();
-                registro[3] = msDados.getProdutos()[valor].getAnotacao();
-                
+                registro[1] = msDados.getProdutos()[valor].getAnotacao();
+                registro[2] = msDados.getProdutos()[valor].getDescircao();
+                registro[3] = "" + msDados.getProdutos()[valor].getPreco();
                 
                 mTablela.addRow(registro);
                 tblDetalhesVenda.setModel(mTablela);
@@ -831,10 +828,11 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void addProdForm(int i){
             String registro[] = new String[4];
 
-            registro[0] = msDados.getProdutos()[i].getIdProduto();
-            registro[1] = msDados.getProdutos()[i].getDescircao();
-            registro[2] = "" + msDados.getProdutos()[i].getPreco();
-            registro[3] = msDados.getProdutos()[i].getAnotacao(); 
+                registro[0] = msDados.getProdutos()[i].getIdProduto();
+                registro[1] = msDados.getProdutos()[i].getAnotacao();
+                registro[2] = msDados.getProdutos()[i].getDescircao();
+                registro[3] = "" + msDados.getProdutos()[i].getPreco();
+                
 
             
             mTablela.addRow(registro);
@@ -850,10 +848,10 @@ public class frmPrincipal extends javax.swing.JFrame {
         int but = 15;
         for (int i = 0; i< numProdutos; i++) {
             int quanti = msDados.getProdutos()[i].getCategoria();
+            // se a categoria for 2 que é igual a refrigerante some mais 1
             if (quanti == 2)
                 but +=1;             
         }   
-        System.err.println(but);
         // cria a lista de butoes de acordo com a quantidade preordenada
         JButton jbuttons[] = new JButton[but];
         
@@ -872,9 +870,10 @@ public class frmPrincipal extends javax.swing.JFrame {
                 String registro[] = new String[4];
                 
                 registro[0] = msDados.getProdutos()[valor].getIdProduto();
-                registro[1] = msDados.getProdutos()[valor].getDescircao();
-                registro[2] = "" + msDados.getProdutos()[valor].getPreco();
-                registro[3] = msDados.getProdutos()[valor].getAnotacao();
+                registro[1] = msDados.getProdutos()[valor].getAnotacao();
+                registro[2] = msDados.getProdutos()[valor].getDescircao();
+                registro[3] = "" + msDados.getProdutos()[valor].getPreco();
+                
                 
                 
                 mTablela.addRow(registro);
@@ -921,7 +920,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_panelRefrigerComponentRemoved
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        String titulos[] =  {"ID Produto", "Nome", "Preço", "Descrição"};
+        String titulos[] =  {"ID Produto", "Descrição","Nome", "Preço"};
 
         mTablela = new DefaultTableModel(null, titulos);
         tblDetalhesVenda.setModel(mTablela);
@@ -939,7 +938,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     //Cria os titulos da tabela de venda 
     private void TabelaVenda(){
-        String titulos[] =  {"ID Produto", "Nome", "Preço", "Descrição"};
+        String titulos[] =  {"ID Produto", "Descrição","Nome", "Preço"};
 
         mTablela = new DefaultTableModel(null, titulos);
 
@@ -959,7 +958,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         int somaQuant = 0, somaVal=0;
         for (int i = 0; i<num; i++) {
             //somaQuant += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 3));
-            somaVal += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 2));
+            somaVal += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 3));
         }
         
         //txtValorTot.setText("" + somaQuant);
