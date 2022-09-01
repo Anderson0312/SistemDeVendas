@@ -1,4 +1,4 @@
-1|Antartica|23.4|4|Cerveja
+0|Antartica|23.4|4|Cerveja
 2|Brahma|23.4|4|Cerveja
 3|Glacial|23.4|4|Cerveja
 4|Hineken|23.4|4|Cerveja
@@ -22,14 +22,14 @@
 36|Sukita|54.0|2|Refrigerante
 37|Pepsi|54.0|2|Refrigerante
 28|Guarana Antartica|54.0|2|Refrigerante
-|Pizza|12.0|1|Calabresa
-31|Pizza|12.0|1|Calabresa
-32|Pizza|12.0|1|Calabresa
-33|Pizza|12.0|1|Calabresa
-34|Pizza|12.0|1|Calabresa
-35|Pizza|12.0|1|Calabresa
-36|Pizza|12.0|1|Calabresa
-37|Pizza|12.0|1|Calabresa
-38|Pizza|12.0|1|Calabresa
-39|Pizza|12.0|1|Calabresa
+40|Pizza|12.0|1|Calabresa
+41|Pizza|12.0|1|Calabresa
+42|Pizza|12.0|1|Calabresa
+43|Pizza|12.0|1|Calabresa
+44|Pizza|12.0|1|Calabresa
+45|Pizza|12.0|1|Calabresa
+46|Pizza|12.0|1|Calabresa
+47|Pizza|12.0|1|Calabresa
+48|Pizza|12.0|1|Calabresa
+49|Pizza|12.0|1|Calabresa
 

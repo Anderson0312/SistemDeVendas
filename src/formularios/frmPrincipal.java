@@ -782,7 +782,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         panelPizza.setVisible(true);
         
         //colocar a quantidade de produtos que tem no banco qui
-        int numProdutos = 21; 
+        int numProdutos = 33; 
         int but =0;
        
         for (int i = 0; i< numProdutos; i++) {
