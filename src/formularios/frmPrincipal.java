@@ -858,7 +858,6 @@ public class frmPrincipal extends javax.swing.JFrame {
         panelRefriger.removeAll();
         
         for(int i = 15; i < jbuttons.length; i++) {
-            System.out.println(i);
             jbuttons[i] = new JButton(msDados.getProdutos()[i].getDescircao());
             final Integer valor = Integer.valueOf(i);
             jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
