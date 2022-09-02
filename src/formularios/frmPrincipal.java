@@ -1157,10 +1157,6 @@ public class frmPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
-    public double sendValue(double soma){
-        return soma;
-    }
-    
     //calsse para atualizar setar a hora e atualizar auto
     private void timer1OnTime(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timer1OnTime
         txtData.setText(Utilidades.getDataHora());
@@ -1217,7 +1213,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     //Para fazer a soma do valor total e quantidade toda de produtos
     public void totais() {
         int num = tblDetalhesVenda.getRowCount();
-        double somaQuant = 0, somaVal=0;
+        float somaQuant = 0, somaVal=0;
         for (int i = 0; i<num; i++) {
             //somaQuant += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 3));
             somaVal += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 3));
@@ -1225,7 +1221,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         
         DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
         //txtValorTot.setText("" + somaQuant);
-        txtValorTot.setText("R$ " + decimalFormat.format(somaVal));
+        txtValorTot.setText("" + decimalFormat.format(somaVal));
 
     }
     

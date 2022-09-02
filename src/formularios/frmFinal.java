@@ -352,7 +352,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
 
           float subtotal = Float.valueOf(total).floatValue();
           
-          txtSubtotal.setText("" +subtotal);
+          txtSubtotal.setText("" + subtotal);
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void descontoFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descontoFinalActionPerformed
