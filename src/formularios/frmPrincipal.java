@@ -2,6 +2,7 @@
 package formularios;
 
 import classes.BackGround;
+
 import classes.Dados;
 import classes.Dados_DB;
 import classes.Utilidades;
@@ -28,6 +29,8 @@ import javax.swing.table.DefaultTableModel;
  * @author AndersoNMN
  */
 public class frmPrincipal extends javax.swing.JFrame {
+
+
     private int perfil;
     private String senha;
     private String usuario;
@@ -35,6 +38,8 @@ public class frmPrincipal extends javax.swing.JFrame {
     private DefaultTableModel mTablela;
     //colocar a quantidade de produtos que tem no banco qui
     private int numProdutos = 40;
+    
+    public static String total;
     
     private Dados_DB msDados_DB;
     
@@ -89,6 +94,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         txtData = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         txtValorTot = new javax.swing.JLabel();
+        R$ = new javax.swing.JLabel();
         btnFinalizar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -162,7 +168,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         dpnDesk.setBackground(new java.awt.Color(204, 204, 255));
         dpnDesk.setPreferredSize(new java.awt.Dimension(1380, 720));
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 102));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 255));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
         btnPizza.setBackground(new java.awt.Color(204, 204, 204));
@@ -252,7 +258,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addGap(48, 48, 48))
         );
 
-        jPanel2.setBackground(new java.awt.Color(0, 51, 153));
+        jPanel2.setBackground(new java.awt.Color(0, 102, 255));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -281,20 +287,32 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         txtValorTot.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         txtValorTot.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtValorTot.setText("R$ 0,00");
+        txtValorTot.setText("0,00");
         txtValorTot.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        R$.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        R$.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        R$.setText("R$");
+        R$.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtValorTot, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(R$, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtValorTot, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(117, 117, 117))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtValorTot, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtValorTot, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                    .addComponent(R$, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -379,7 +397,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addGap(0, 33, Short.MAX_VALUE)
+                                .addGap(0, 42, Short.MAX_VALUE)
                                 .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnFinalizar))
@@ -1128,13 +1146,21 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         mTablela = new DefaultTableModel(null, titulos);
         tblDetalhesVenda.setModel(mTablela);
-        txtValorTot.setText("R$ 0,00");
+        txtValorTot.setText("0,00");
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
+        frmFinal mFinal = new frmFinal();
+        total = txtValorTot.getText();
+        dpnDesk.add(mFinal);   
+        mFinal.show();
         
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
+    public double sendValue(double soma){
+        return soma;
+    }
+    
     //calsse para atualizar setar a hora e atualizar auto
     private void timer1OnTime(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timer1OnTime
         txtData.setText(Utilidades.getDataHora());
@@ -1189,7 +1215,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     
     
     //Para fazer a soma do valor total e quantidade toda de produtos
-    private void totais() {
+    public void totais() {
         int num = tblDetalhesVenda.getRowCount();
         double somaQuant = 0, somaVal=0;
         for (int i = 0; i<num; i++) {
@@ -1248,6 +1274,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel R$;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnCerveja;
     private javax.swing.JButton btnFinalizar;
@@ -1320,5 +1347,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel txtValorTot;
     // End of variables declaration//GEN-END:variables
 
+   
+    
     
 }
