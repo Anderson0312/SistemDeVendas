@@ -17,7 +17,7 @@ public class frmAjuda extends javax.swing.JPanel {
      */
     public frmAjuda() {
         initComponents();
-        ((BackGround)dpnDesk).setImage("/images/background.jpg");
+//        ((BackGround)dpnDesk).setImage("/images/background.jpg");
     }
 
     /**

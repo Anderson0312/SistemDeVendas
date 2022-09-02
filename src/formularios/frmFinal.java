@@ -440,7 +440,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
         double desconto = Double.valueOf(descontoFinal.getText()).doubleValue();
         double subtotal = Double.valueOf(txtSubtotal.getText()).doubleValue();
 
-        double totalFinal = subtotal - (entrega + ((desconto / 100)*subtotal));
+        double totalFinal = entrega + (subtotal - ((desconto / 100)*subtotal));
 
         DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
         //txtValorTot.setText("" + somaQuant);
