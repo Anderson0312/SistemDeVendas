@@ -6,6 +6,9 @@ import classes.Dados;
 import classes.Dados_DB;
 import classes.Utilidades;
 import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
@@ -59,6 +62,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         initComponents();
         //metodo para atualizar o componente de hora automaticamente
         timer1.start();
+        //centralizarContainer(panelPrincipla ,panelPizza);
     }
 
     /**
@@ -156,7 +160,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         });
 
         dpnDesk.setBackground(new java.awt.Color(204, 204, 255));
-        dpnDesk.setPreferredSize(new java.awt.Dimension(1300, 650));
+        dpnDesk.setPreferredSize(new java.awt.Dimension(1380, 720));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 102));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -407,6 +411,8 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLayeredPane1.setPreferredSize(new java.awt.Dimension(1200, 900));
+
         panelPrincipla.setBackground(new java.awt.Color(0, 153, 255));
         panelPrincipla.setDoubleBuffered(false);
         panelPrincipla.setInheritsPopupMenu(true);
@@ -523,7 +529,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnPizza12.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelRefriger.add(btnPizza12);
 
-        panelPrincipla.add(panelRefriger, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 10, 690, 620));
+        panelPrincipla.add(panelRefriger, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 10, 690, 650));
 
         panelSuco.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         panelSuco.addContainerListener(new java.awt.event.ContainerAdapter() {
@@ -579,7 +585,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnPizza18.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelSuco.add(btnPizza18);
 
-        panelPrincipla.add(panelSuco, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 690, 630));
+        panelPrincipla.add(panelSuco, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 690, 650));
 
         panelCerveja.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         panelCerveja.setPreferredSize(new java.awt.Dimension(500, 76));
@@ -636,7 +642,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnPizza24.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelCerveja.add(btnPizza24);
 
-        panelPrincipla.add(panelCerveja, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 690, 620));
+        panelPrincipla.add(panelCerveja, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 690, 650));
 
         jLayeredPane1.setLayer(panelPrincipla, javax.swing.JLayeredPane.MODAL_LAYER);
 
@@ -668,7 +674,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             .addGroup(dpnDeskLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLayeredPane1)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -678,7 +684,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(dpnDeskLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLayeredPane1)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -815,6 +821,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void mnuArquivoUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivoUsuariosActionPerformed
         frmUsuarios mUsuarios = new frmUsuarios();
         mUsuarios.setDados(msDados);
@@ -1024,14 +1031,6 @@ public class frmPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnRefriActionPerformed
 
-    private void panelPizzaComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_panelPizzaComponentRemoved
-
-    }//GEN-LAST:event_panelPizzaComponentRemoved
-
-    private void btnPizza1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizza1ActionPerformed
-
-    }//GEN-LAST:event_btnPizza1ActionPerformed
-
     private void btnSucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSucoActionPerformed
         panelPizza.setVisible(false);
         panelRefriger.setVisible(false);
@@ -1124,14 +1123,6 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnCervejaActionPerformed
 
-    private void btnPizza4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizza4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPizza4ActionPerformed
-
-    private void panelRefrigerComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_panelRefrigerComponentRemoved
-
-    }//GEN-LAST:event_panelRefrigerComponentRemoved
-
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         String titulos[] =  {"ID Produto", "Descrição","Nome", "Preço"};
 
@@ -1149,21 +1140,37 @@ public class frmPrincipal extends javax.swing.JFrame {
         txtData.setText(Utilidades.getDataHora());
     }//GEN-LAST:event_timer1OnTime
 
-    private void btnPizza13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizza13ActionPerformed
+    private void panelCervejaComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_panelCervejaComponentRemoved
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnPizza13ActionPerformed
-
-    private void panelSucoComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_panelSucoComponentRemoved
-
-    }//GEN-LAST:event_panelSucoComponentRemoved
+    }//GEN-LAST:event_panelCervejaComponentRemoved
 
     private void btnPizza19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizza19ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPizza19ActionPerformed
 
-    private void panelCervejaComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_panelCervejaComponentRemoved
+    private void panelSucoComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_panelSucoComponentRemoved
+
+    }//GEN-LAST:event_panelSucoComponentRemoved
+
+    private void btnPizza13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizza13ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_panelCervejaComponentRemoved
+    }//GEN-LAST:event_btnPizza13ActionPerformed
+
+    private void panelRefrigerComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_panelRefrigerComponentRemoved
+
+    }//GEN-LAST:event_panelRefrigerComponentRemoved
+
+    private void btnPizza4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizza4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPizza4ActionPerformed
+
+    private void panelPizzaComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_panelPizzaComponentRemoved
+
+    }//GEN-LAST:event_panelPizzaComponentRemoved
+
+    private void btnPizza1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizza1ActionPerformed
+
+    }//GEN-LAST:event_btnPizza1ActionPerformed
 
     //Cria os titulos da tabela de venda 
     private void TabelaVenda(){
@@ -1249,7 +1256,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnPizza10;
     private javax.swing.JButton btnPizza11;
     private javax.swing.JButton btnPizza12;
-    javax.swing.JButton btnPizza13;
+    private javax.swing.JButton btnPizza13;
     private javax.swing.JButton btnPizza14;
     private javax.swing.JButton btnPizza15;
     private javax.swing.JButton btnPizza16;
@@ -1263,7 +1270,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnPizza23;
     private javax.swing.JButton btnPizza24;
     private javax.swing.JButton btnPizza3;
-    javax.swing.JButton btnPizza4;
+    private javax.swing.JButton btnPizza4;
     private javax.swing.JButton btnPizza5;
     private javax.swing.JButton btnPizza6;
     private javax.swing.JButton btnPizza7;

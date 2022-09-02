@@ -25,6 +25,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
     
     public frmProdutos() {
         initComponents();
+        
     }
 
     /**
