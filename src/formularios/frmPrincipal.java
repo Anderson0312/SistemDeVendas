@@ -1221,7 +1221,8 @@ public class frmPrincipal extends javax.swing.JFrame {
         
         DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
         //txtValorTot.setText("" + somaQuant);
-        txtValorTot.setText("" + decimalFormat.format(somaVal));
+        var formatado = decimalFormat.format(somaVal);
+        txtValorTot.setText("" + somaVal);
 
     }
     
