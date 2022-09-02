@@ -146,7 +146,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         dpnDesk.setBackground(new java.awt.Color(204, 204, 255));
         dpnDesk.setPreferredSize(new java.awt.Dimension(1300, 650));
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 102));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 255));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
         btnPizza.setBackground(new java.awt.Color(204, 204, 204));
@@ -236,7 +236,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addGap(48, 48, 48))
         );
 
-        jPanel2.setBackground(new java.awt.Color(0, 51, 153));
+        jPanel2.setBackground(new java.awt.Color(0, 102, 255));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -395,7 +395,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panelPrincipla.setBackground(new java.awt.Color(0, 153, 255));
+        panelPrincipla.setBackground(new java.awt.Color(231, 0, 0));
         panelPrincipla.setDoubleBuffered(false);
         panelPrincipla.setInheritsPopupMenu(true);
         panelPrincipla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -927,11 +927,17 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
-        frmFinal mFinal = new frmFinal(this, rootPaneCheckingEnabled);
+        frmFinal1 mFinal = new frmFinal1(this, rootPaneCheckingEnabled);
         mFinal.setLocationRelativeTo(null);
         mFinal.setVisible(rootPaneCheckingEnabled);   
+        
+  
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
+    public double sendValue(double soma){
+        return soma;
+    }
+    
     //calsse para atualizar setar a hora e atualizar auto
     private void timer1OnTime(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timer1OnTime
         txtData.setText(Utilidades.getDataHora());
@@ -965,7 +971,8 @@ public class frmPrincipal extends javax.swing.JFrame {
         //txtValorTot.setText("" + somaQuant);
         txtValorTot.setText("R$ " + somaVal);
         
-        totaisReturn(somaVal);
+        if (somaVal > 0)sendValue(somaVal);
+        
     }
     
     /* @param somaVal
@@ -1077,5 +1084,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel txtValorTot;
     // End of variables declaration//GEN-END:variables
 
+   
+    
     
 }

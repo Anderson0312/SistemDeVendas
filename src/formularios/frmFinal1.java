@@ -1,23 +1,30 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package formularios;
+
+import classes.Dados;
+import java.awt.Color;
 
 /**
  *
- * @author 47127512021.1
+ * @author AndersoNMN
  */
-public class frmFinal extends javax.swing.JFrame {
+public class frmFinal1 extends javax.swing.JDialog {
+    
 
     
     /**
-     * Creates new form frmFinal
+     * Creates new form frmTrocarSenha
      */
-    public frmFinal() {
+    public frmFinal1(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
+        getContentPane().setBackground(Color.GRAY); // cor do background do form trocar senha
     }
 
+    frmFinal1() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,9 +34,9 @@ public class frmFinal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        subtotalFinal = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -40,51 +47,71 @@ public class frmFinal extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         entregaFinal = new javax.swing.JTextField();
+        subTotalFinal = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Finalizar Venda");
+        setBackground(new java.awt.Color(102, 102, 102));
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(null));
+        jButton2.setBackground(new java.awt.Color(0, 102, 255));
+        jButton2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Finalizar");
+        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(0, 102, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Subtotal:");
 
-        subtotalFinal.setText("Total q vai vir");
-
+        jLabel3.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("R$");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Entrega");
 
+        jLabel6.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("R$");
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Total a pagar:");
 
+        totalFinal.setForeground(new java.awt.Color(255, 255, 255));
         totalFinal.setText("Total total");
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("R$");
 
-        descontoFinal.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        descontoFinal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         descontoFinal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 descontoFinalActionPerformed(evt);
             }
         });
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Desconto");
 
+        jLabel11.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("%");
 
-        entregaFinal.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        entregaFinal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         entregaFinal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 entregaFinalActionPerformed(evt);
@@ -111,19 +138,20 @@ public class frmFinal extends javax.swing.JFrame {
                             .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(descontoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(subtotalFinal))
+                                .addGap(27, 27, 27)
+                                .addComponent(descontoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel11))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(totalFinal)
-                                    .addComponent(entregaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(entregaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(subTotalFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(25, 25, 25))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -133,8 +161,8 @@ public class frmFinal extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(subtotalFinal)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(subTotalFinal))
                 .addGap(30, 30, 30)
                 .addComponent(jLabel10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,26 +188,42 @@ public class frmFinal extends javax.swing.JFrame {
                 .addGap(31, 31, 31))
         );
 
-        jPanel2.setBackground(new java.awt.Color(51, 255, 153));
-        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(null));
+        jPanel2.setBackground(new java.awt.Color(204, 51, 0));
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        jButton3.setBackground(new java.awt.Color(0, 102, 255));
+        jButton3.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Cartão de Débito");
+        jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
 
+        jButton5.setBackground(new java.awt.Color(0, 102, 255));
+        jButton5.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Dinheiro");
+        jButton5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        jButton6.setBackground(new java.awt.Color(0, 102, 255));
+        jButton6.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Pix");
+        jButton6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
 
+        jButton4.setBackground(new java.awt.Color(0, 102, 255));
+        jButton4.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Cartão de Crédito");
+        jButton4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -210,11 +254,11 @@ public class frmFinal extends javax.swing.JFrame {
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
+        jButton1.setBackground(new java.awt.Color(0, 102, 255));
+        jButton1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Voltar");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(null));
-
-        jButton2.setText("Finalizar");
-        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(null));
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -223,7 +267,7 @@ public class frmFinal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -240,7 +284,7 @@ public class frmFinal extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 36, Short.MAX_VALUE)
+                        .addGap(18, 18, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -250,14 +294,6 @@ public class frmFinal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void descontoFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descontoFinalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_descontoFinalActionPerformed
@@ -265,6 +301,14 @@ public class frmFinal extends javax.swing.JFrame {
     private void entregaFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entregaFinalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_entregaFinalActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -283,34 +327,31 @@ public class frmFinal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmFinal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmFinal1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmFinal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmFinal1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmFinal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmFinal1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmFinal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmFinal1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmFinal().setVisible(true);
+                frmFinal1 dialog = new frmFinal1(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
-    
-    
-    public void totalFinal() {
-        double sV = 0;
-        sV = frmPrincipal.totaisReturn();
-        System.out.print(sV);
-        
-        
-
-    }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField descontoFinal;
@@ -331,7 +372,7 @@ public class frmFinal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel subtotalFinal;
+    public javax.swing.JLabel subTotalFinal;
     private javax.swing.JLabel totalFinal;
     // End of variables declaration//GEN-END:variables
 }
