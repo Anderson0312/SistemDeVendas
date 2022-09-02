@@ -407,14 +407,14 @@ public class frmFinal extends javax.swing.JInternalFrame {
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         Opcoes opc = new Opcoes("andersonmoura812@gmail.com", "Selecione um cliente");
         cmbCliente.addItem(opc.toString());
-        System.err.println(msDados.numeroClientes());
-        for (int i = 0; i<msDados.numeroClientes(); i++) {
-            opc = new Opcoes(
-                  msDados.getClientes()[i].getIdCliente(),
-                  msDados.getClientes()[i].getNome() +""+
-                  msDados.getClientes()[i].getSobreNome());
-                  cmbCliente.addItem(opc.toString());
-        }        
+
+//        for (int i = 0; i<msDados.numeroClientes(); i++) {
+//            opc = new Opcoes(
+//                  msDados.getClientes()[i].getIdCliente(),
+//                  msDados.getClientes()[i].getNome() +""+
+//                  msDados.getClientes()[i].getSobreNome());
+//                  cmbCliente.addItem(opc.toString());
+//        }        
          
         txtSubtotal.setText("" + total);
           
