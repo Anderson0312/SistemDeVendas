@@ -1152,6 +1152,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
         frmFinal mFinal = new frmFinal();
         total = txtValorTot.getText();
+        mFinal.setDados(msDados);
         dpnDesk.add(mFinal);   
 
         mFinal.show();
