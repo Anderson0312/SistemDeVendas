@@ -350,9 +350,12 @@ public class frmFinal extends javax.swing.JInternalFrame {
 //        
 //        preencherTabelaVenda();
 
-          float subtotal = Float.valueOf(total).floatValue();
           
-          txtSubtotal.setText("" + subtotal);
+         
+          txtSubtotal.setText("" + total);
+          
+          //double subtotal = Double.valueOf(txtSubtotal.getText()).doubleValue();
+          
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void descontoFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descontoFinalActionPerformed

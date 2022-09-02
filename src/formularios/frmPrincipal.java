@@ -300,11 +300,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(89, Short.MAX_VALUE)
                 .addComponent(R$, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtValorTot, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(117, 117, 117))
+                .addComponent(txtValorTot, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(101, 101, 101))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -431,7 +431,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         jLayeredPane1.setPreferredSize(new java.awt.Dimension(1200, 900));
 
-        panelPrincipla.setBackground(new java.awt.Color(0, 153, 255));
+        panelPrincipla.setBackground(new java.awt.Color(231, 0, 0));
         panelPrincipla.setDoubleBuffered(false);
         panelPrincipla.setInheritsPopupMenu(true);
         panelPrincipla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -692,7 +692,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             .addGroup(dpnDeskLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 764, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -1213,7 +1213,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     //Para fazer a soma do valor total e quantidade toda de produtos
     public void totais() {
         int num = tblDetalhesVenda.getRowCount();
-        float somaQuant = 0, somaVal=0;
+        double somaQuant = 0, somaVal=0;
         for (int i = 0; i<num; i++) {
             //somaQuant += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 3));
             somaVal += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 3));
@@ -1279,7 +1279,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnPizza10;
     private javax.swing.JButton btnPizza11;
     private javax.swing.JButton btnPizza12;
-    private javax.swing.JButton btnPizza13;
+    javax.swing.JButton btnPizza13;
     private javax.swing.JButton btnPizza14;
     private javax.swing.JButton btnPizza15;
     private javax.swing.JButton btnPizza16;
@@ -1293,7 +1293,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnPizza23;
     private javax.swing.JButton btnPizza24;
     private javax.swing.JButton btnPizza3;
-    private javax.swing.JButton btnPizza4;
+    javax.swing.JButton btnPizza4;
     private javax.swing.JButton btnPizza5;
     private javax.swing.JButton btnPizza6;
     private javax.swing.JButton btnPizza7;
