@@ -26,14 +26,14 @@ import javax.swing.table.DefaultTableModel;
  */
 public class frmPrincipal extends javax.swing.JFrame {
 
-    static double totaisReturn() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+
     private int perfil;
     private String senha;
     private String usuario;
     private Dados msDados;
     private DefaultTableModel mTablela;
+    
+    public static String total;
     
     private Dados_DB msDados_DB;
     
@@ -923,15 +923,15 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         mTablela = new DefaultTableModel(null, titulos);
         tblDetalhesVenda.setModel(mTablela);
-        txtValorTot.setText("R$ 0,00");
+        txtValorTot.setText("0,00");
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
-        frmFinal1 mFinal = new frmFinal1(this, rootPaneCheckingEnabled);
-        mFinal.setLocationRelativeTo(null);
-        mFinal.setVisible(rootPaneCheckingEnabled);   
+        frmFinal mFinal = new frmFinal();
+        total = txtValorTot.getText();
+        dpnDesk.add(mFinal);   
+        mFinal.show();
         
-  
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
     public double sendValue(double soma){
@@ -962,24 +962,16 @@ public class frmPrincipal extends javax.swing.JFrame {
     //Para fazer a soma do valor total e quantidade toda de produtos
     public void totais() {
         int num = tblDetalhesVenda.getRowCount();
-        double somaQuant = 0, somaVal=0;
+        float somaQuant = 0, somaVal=0;
         for (int i = 0; i<num; i++) {
             //somaQuant += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 3));
             somaVal += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 2));
         }
         
         //txtValorTot.setText("" + somaQuant);
-        txtValorTot.setText("R$ " + somaVal);
-        
-        if (somaVal > 0)sendValue(somaVal);
+        txtValorTot.setText("" + somaVal);
         
     }
-    
-    /* @param somaVal
-     * @return*/
-    public double totaisReturn(double somaVal){
-            return somaVal;
-        }
     
     public void limparTablea(){
         try {
