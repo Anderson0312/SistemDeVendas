@@ -224,7 +224,7 @@ public class Dados_DB {
                     +mProduto.getIdProduto()+"','"
                     +mProduto.getDescircao()+"','"
                     +mProduto.getPreco()+ ","
-                    +mProduto.getImposto()+",'"
+                    +mProduto.getCategoria()+",'"
                     +mProduto.getAnotacao()+"')";
             Statement st;
             st = cnn.createStatement();
@@ -245,7 +245,7 @@ public class Dados_DB {
             String sql = "update usuarios set "
                     +"descricao = "+mProduto.getDescircao()+"', "
                     +"preco = "+mProduto.getPreco()+", "
-                    +"imposto = "+mProduto.getImposto()+", "
+                    +"imposto = "+mProduto.getCategoria()+", "
                     +"anotacao = '" + mProduto.getAnotacao() + "',"
                     +"where idUsuario = '"+mProduto.getIdProduto()+"'";
             Statement st;

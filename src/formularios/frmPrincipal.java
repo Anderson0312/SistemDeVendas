@@ -2,12 +2,17 @@
 package formularios;
 
 import classes.BackGround;
+
 import classes.Dados;
 import classes.Dados_DB;
 import classes.Utilidades;
 import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
@@ -24,11 +29,17 @@ import javax.swing.table.DefaultTableModel;
  * @author AndersoNMN
  */
 public class frmPrincipal extends javax.swing.JFrame {
+
+
     private int perfil;
     private String senha;
     private String usuario;
     private Dados msDados;
     private DefaultTableModel mTablela;
+    //colocar a quantidade de produtos que tem no banco qui
+    private int numProdutos = 40;
+    
+    public static String total;
     
     private Dados_DB msDados_DB;
     
@@ -56,6 +67,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         initComponents();
         //metodo para atualizar o componente de hora automaticamente
         timer1.start();
+        //centralizarContainer(panelPrincipla ,panelPizza);
     }
 
     /**
@@ -82,6 +94,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         txtData = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         txtValorTot = new javax.swing.JLabel();
+        R$ = new javax.swing.JLabel();
         btnFinalizar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -107,6 +120,20 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnPizza10 = new javax.swing.JButton();
         btnPizza11 = new javax.swing.JButton();
         btnPizza12 = new javax.swing.JButton();
+        panelSuco = new javax.swing.JPanel();
+        btnPizza13 = new javax.swing.JButton();
+        btnPizza14 = new javax.swing.JButton();
+        btnPizza15 = new javax.swing.JButton();
+        btnPizza16 = new javax.swing.JButton();
+        btnPizza17 = new javax.swing.JButton();
+        btnPizza18 = new javax.swing.JButton();
+        panelCerveja = new javax.swing.JPanel();
+        btnPizza19 = new javax.swing.JButton();
+        btnPizza20 = new javax.swing.JButton();
+        btnPizza21 = new javax.swing.JButton();
+        btnPizza22 = new javax.swing.JButton();
+        btnPizza23 = new javax.swing.JButton();
+        btnPizza24 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuArquivo = new javax.swing.JMenu();
         mnuArquivoClientes = new javax.swing.JMenuItem();
@@ -139,9 +166,9 @@ public class frmPrincipal extends javax.swing.JFrame {
         });
 
         dpnDesk.setBackground(new java.awt.Color(204, 204, 255));
-        dpnDesk.setPreferredSize(new java.awt.Dimension(1300, 650));
+        dpnDesk.setPreferredSize(new java.awt.Dimension(1380, 720));
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 102));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 255));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
         btnPizza.setBackground(new java.awt.Color(204, 204, 204));
@@ -231,7 +258,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addGap(48, 48, 48))
         );
 
-        jPanel2.setBackground(new java.awt.Color(0, 51, 153));
+        jPanel2.setBackground(new java.awt.Color(0, 102, 255));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -260,20 +287,32 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         txtValorTot.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         txtValorTot.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtValorTot.setText("R$ 0,00");
+        txtValorTot.setText("0,00");
         txtValorTot.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        R$.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        R$.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        R$.setText("R$");
+        R$.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtValorTot, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(89, Short.MAX_VALUE)
+                .addComponent(R$, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtValorTot, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(101, 101, 101))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtValorTot, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtValorTot, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                    .addComponent(R$, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -358,7 +397,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addGap(0, 33, Short.MAX_VALUE)
+                                .addGap(0, 42, Short.MAX_VALUE)
                                 .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnFinalizar))
@@ -390,7 +429,9 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panelPrincipla.setBackground(new java.awt.Color(0, 153, 255));
+        jLayeredPane1.setPreferredSize(new java.awt.Dimension(1200, 900));
+
+        panelPrincipla.setBackground(new java.awt.Color(231, 0, 0));
         panelPrincipla.setDoubleBuffered(false);
         panelPrincipla.setInheritsPopupMenu(true);
         panelPrincipla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -506,7 +547,120 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnPizza12.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelRefriger.add(btnPizza12);
 
-        panelPrincipla.add(panelRefriger, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 10, 690, 620));
+        panelPrincipla.add(panelRefriger, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 10, 690, 650));
+
+        panelSuco.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        panelSuco.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentRemoved(java.awt.event.ContainerEvent evt) {
+                panelSucoComponentRemoved(evt);
+            }
+        });
+
+        btnPizza13.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza13.setText("Refrigerante");
+        btnPizza13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza13.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnPizza13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPizza13ActionPerformed(evt);
+            }
+        });
+        panelSuco.add(btnPizza13);
+
+        btnPizza14.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza14.setText("Refrigerante");
+        btnPizza14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza14.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelSuco.add(btnPizza14);
+
+        btnPizza15.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza15.setText("Refrigerante");
+        btnPizza15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza15.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelSuco.add(btnPizza15);
+
+        btnPizza16.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza16.setText("Refrigerante");
+        btnPizza16.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza16.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelSuco.add(btnPizza16);
+
+        btnPizza17.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza17.setText("Refrigerante");
+        btnPizza17.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza17.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelSuco.add(btnPizza17);
+
+        btnPizza18.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza18.setText("Refrigerante");
+        btnPizza18.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza18.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelSuco.add(btnPizza18);
+
+        panelPrincipla.add(panelSuco, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 690, 650));
+
+        panelCerveja.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        panelCerveja.setPreferredSize(new java.awt.Dimension(500, 76));
+        panelCerveja.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentRemoved(java.awt.event.ContainerEvent evt) {
+                panelCervejaComponentRemoved(evt);
+            }
+        });
+
+        btnPizza19.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza19.setText("Pizzas");
+        btnPizza19.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza19.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnPizza19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPizza19ActionPerformed(evt);
+            }
+        });
+        panelCerveja.add(btnPizza19);
+
+        btnPizza20.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza20.setText("Pizzas");
+        btnPizza20.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza20.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelCerveja.add(btnPizza20);
+
+        btnPizza21.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza21.setText("Pizzas");
+        btnPizza21.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza21.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelCerveja.add(btnPizza21);
+
+        btnPizza22.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza22.setText("Pizzas");
+        btnPizza22.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza22.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelCerveja.add(btnPizza22);
+
+        btnPizza23.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza23.setText("Pizzas");
+        btnPizza23.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza23.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelCerveja.add(btnPizza23);
+
+        btnPizza24.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza24.setText("Pizzas");
+        btnPizza24.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza24.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelCerveja.add(btnPizza24);
+
+        panelPrincipla.add(panelCerveja, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 690, 650));
 
         jLayeredPane1.setLayer(panelPrincipla, javax.swing.JLayeredPane.MODAL_LAYER);
 
@@ -538,7 +692,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             .addGroup(dpnDeskLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLayeredPane1)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 764, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -548,7 +702,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(dpnDeskLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLayeredPane1)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -685,6 +839,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void mnuArquivoUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivoUsuariosActionPerformed
         frmUsuarios mUsuarios = new frmUsuarios();
         mUsuarios.setDados(msDados);
@@ -713,6 +868,8 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         panelPizza.setVisible(false);
         panelRefriger.setVisible(false);
+        panelSuco.setVisible(false);
+        panelCerveja.setVisible(false);
         
         ((BackGround)dpnDesk).setImage("/images/background.jpg"); // setando a imagagem de fundo do formulario principal
         if (perfil == 2) { // verificação do usuario(usuario comum não pode acessar todas areas)
@@ -727,7 +884,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         
         int numFatura = msDados.getNumeroFatura();
      
-        txtNNota.setText("" + numFatura);
+        txtNNota.setText("" + (numFatura + 1));
         
     }//GEN-LAST:event_formWindowOpened
     
@@ -779,42 +936,41 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void btnPizzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizzaActionPerformed
         //habilita o painel com todas opções de pizzas  
         panelRefriger.setVisible(false);
+        panelSuco.setVisible(false);
         panelPizza.setVisible(true);
-
-        for (int i = 0; i< 50; i++) {
-            if (!msDados.getProdutos()[i].getIdProduto().equals("")){
-                JButton jbuttons[] = new JButton[i];
-            }
-        }
+        panelCerveja.setVisible(false);
+        
+        int but = 24;
+        for (int i = 0; i< numProdutos; i++) {
+            int quanti = msDados.getProdutos()[i].getCategoria();
+            if (quanti == 1)
+                but +=1;             
+        }   
         // cria a lista de butoes de acordo com a quantidade preordenada
-        JButton jbuttons[] = new JButton[10];
+        JButton jbuttons[] = new JButton[but];
         
         panelPizza.removeAll();
-       
         
-        for(int i = 0; i < jbuttons.length; i++) {
-            
-            jbuttons[i] = new JButton("Pizza" + i);
+        for(int i = 24; i < jbuttons.length; i++) {
+            jbuttons[i] = new JButton(msDados.getProdutos()[i].getDescircao());
+            final Integer valor = Integer.valueOf(i);
             jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
             jbuttons[i].setBackground(new java.awt.Color(204, 204, 204));
             jbuttons[i].setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
             jbuttons[i].setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
             //cria um evento diferente para cada butão do for
-            jbuttons[i].addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                String registro[] = new String[4];
-
-                                registro[0] = msDados.getProdutos()[2].getIdProduto();
-                                registro[1] = msDados.getProdutos()[2].getDescircao();
-                                registro[2] = "" + msDados.getProdutos()[2].getPreco();
-                                registro[3] = msDados.getProdutos()[2].getAnotacao(); 
-
-
-                                mTablela.addRow(registro);
-                                tblDetalhesVenda.setModel(mTablela);
-                                totais();
-                            }
-                        });
+            jbuttons[i].addActionListener((java.awt.event.ActionEvent evt1) -> {
+                String registro[] = new String[4];
+                
+                registro[0] = msDados.getProdutos()[valor].getIdProduto();
+                registro[1] = msDados.getProdutos()[valor].getAnotacao();
+                registro[2] = msDados.getProdutos()[valor].getDescircao();
+                registro[3] = "" + msDados.getProdutos()[valor].getPreco();
+                
+                mTablela.addRow(registro);
+                tblDetalhesVenda.setModel(mTablela);
+                totais();
+            });
             panelPizza.add(jbuttons[i]);
             
 
@@ -829,60 +985,207 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void addProdForm(int i){
             String registro[] = new String[4];
 
-            registro[0] = msDados.getProdutos()[1].getIdProduto();
-            registro[1] = msDados.getProdutos()[1].getDescircao();
-            registro[2] = "" + msDados.getProdutos()[1].getPreco();
-            registro[3] = msDados.getProdutos()[1].getAnotacao(); 
+                registro[0] = msDados.getProdutos()[i].getIdProduto();
+                registro[1] = msDados.getProdutos()[i].getAnotacao();
+                registro[2] = msDados.getProdutos()[i].getDescircao();
+                registro[3] = "" + msDados.getProdutos()[i].getPreco();
+                
 
             
             mTablela.addRow(registro);
             tblDetalhesVenda.setModel(mTablela);
+            totais();
     }
     
     private void btnRefriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefriActionPerformed
         //habilita o painel com todas opções de pizzas 
-        panelPizza.setVisible(false);   
+        panelPizza.setVisible(false);
+        panelSuco.setVisible(false);
         panelRefriger.setVisible(true);
-        
-
+        panelCerveja.setVisible(false);
+        int but = 15;
+        for (int i = 0; i< numProdutos; i++) {
+            int quanti = msDados.getProdutos()[i].getCategoria();
+            // se a categoria for 2 que é igual a refrigerante some mais 1
+            if (quanti == 2)
+                but +=1;             
+        }   
         // cria a lista de butoes de acordo com a quantidade preordenada
-        JButton jbuttons[] = new JButton[10];
+        JButton jbuttons[] = new JButton[but];
         
         panelRefriger.removeAll();
-       
         
-        for(int i = 0; i < jbuttons.length; i++) {
-            
-            jbuttons[i] = new JButton("Refrigerante" + i);
+        for(int i = 15; i < jbuttons.length; i++) {
+            jbuttons[i] = new JButton(msDados.getProdutos()[i].getDescircao());
+            final Integer valor = Integer.valueOf(i);
             jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
             jbuttons[i].setBackground(new java.awt.Color(204, 204, 204));
             jbuttons[i].setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
             jbuttons[i].setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-            jbuttons[i].addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                String registro[] = new String[4];
-
-                                registro[0] = msDados.getProdutos()[1].getIdProduto();
-                                registro[1] = msDados.getProdutos()[1].getDescircao();
-                                registro[2] = "" + msDados.getProdutos()[1].getPreco();
-                                registro[3] = msDados.getProdutos()[1].getAnotacao(); 
-
-
-                                mTablela.addRow(registro);
-                                tblDetalhesVenda.setModel(mTablela);
-                                totais();
-                            }
-                        });
-            
+            //cria um evento diferente para cada butão do for
+            jbuttons[i].addActionListener((java.awt.event.ActionEvent evt1) -> {
+                String registro[] = new String[4];
+                
+                registro[0] = msDados.getProdutos()[valor].getIdProduto();
+                registro[1] = msDados.getProdutos()[valor].getAnotacao();
+                registro[2] = msDados.getProdutos()[valor].getDescircao();
+                registro[3] = "" + msDados.getProdutos()[valor].getPreco();
+                
+                
+                
+                mTablela.addRow(registro);
+                tblDetalhesVenda.setModel(mTablela);
+                totais();
+            });
             panelRefriger.add(jbuttons[i]);
+            
 
         }
         
         panelRefriger.validate();
         panelRefriger.repaint();
+
         
         
     }//GEN-LAST:event_btnRefriActionPerformed
+
+    private void btnSucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSucoActionPerformed
+        panelPizza.setVisible(false);
+        panelRefriger.setVisible(false);
+        panelSuco.setVisible(true);
+        panelCerveja.setVisible(false);
+        int but = 8;
+        for (int i = 0; i< numProdutos; i++) {
+            int quanti = msDados.getProdutos()[i].getCategoria();
+            if (quanti == 3)
+                but +=1;             
+        }   
+        // cria a lista de butoes de acordo com a quantidade preordenada
+        JButton jbuttons[] = new JButton[but];
+        
+        panelSuco.removeAll();
+        
+        for(int i = 8; i < jbuttons.length; i++) {
+            jbuttons[i] = new JButton(msDados.getProdutos()[i].getDescircao());
+            final Integer valor = Integer.valueOf(i);
+            jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-sumo-de-laranja-40.png"))); // NOI18N
+            jbuttons[i].setBackground(new java.awt.Color(204, 204, 204));
+            jbuttons[i].setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            jbuttons[i].setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+            //cria um evento diferente para cada butão do for
+            jbuttons[i].addActionListener((java.awt.event.ActionEvent evt1) -> {
+                String registro[] = new String[4];
+                
+                registro[0] = msDados.getProdutos()[valor].getIdProduto();
+                registro[1] = msDados.getProdutos()[valor].getAnotacao();
+                registro[2] = msDados.getProdutos()[valor].getDescircao();
+                registro[3] = "" + msDados.getProdutos()[valor].getPreco();
+                
+                mTablela.addRow(registro);
+                tblDetalhesVenda.setModel(mTablela);
+                totais();
+            });
+            panelSuco.add(jbuttons[i]);
+            
+
+        }
+        
+        panelSuco.validate();
+        panelSuco.repaint();
+    }//GEN-LAST:event_btnSucoActionPerformed
+
+    private void btnCervejaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCervejaActionPerformed
+        panelPizza.setVisible(false);
+        panelRefriger.setVisible(false);
+        panelSuco.setVisible(false);
+        panelCerveja.setVisible(true);
+        
+        int but = 0;
+        for (int i = 0; i< numProdutos; i++) {
+            int quanti = msDados.getProdutos()[i].getCategoria();
+            if (quanti == 4)
+                but +=1;             
+        }   
+        // cria a lista de butoes de acordo com a quantidade preordenada
+        JButton jbuttons[] = new JButton[but];
+        
+        panelCerveja.removeAll();
+        
+        for(int i = 0; i < jbuttons.length; i++) {
+            jbuttons[i] = new JButton(msDados.getProdutos()[i].getDescircao());
+            final Integer valor = Integer.valueOf(i);
+            jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-cerveja-40.png"))); // NOI18N
+            jbuttons[i].setBackground(new java.awt.Color(204, 204, 204));
+            jbuttons[i].setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            jbuttons[i].setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+            //cria um evento diferente para cada butão do for
+            jbuttons[i].addActionListener((java.awt.event.ActionEvent evt1) -> {
+                String registro[] = new String[4];
+                
+                registro[0] = msDados.getProdutos()[valor].getIdProduto();
+                registro[1] = msDados.getProdutos()[valor].getAnotacao();
+                registro[2] = msDados.getProdutos()[valor].getDescircao();
+                registro[3] = "" + msDados.getProdutos()[valor].getPreco();
+                
+                mTablela.addRow(registro);
+                tblDetalhesVenda.setModel(mTablela);
+                totais();
+            });
+            panelCerveja.add(jbuttons[i]);
+            
+
+        }
+        
+        panelCerveja.validate();
+        panelCerveja.repaint();
+
+    }//GEN-LAST:event_btnCervejaActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        String titulos[] =  {"ID Produto", "Descrição","Nome", "Preço"};
+
+        mTablela = new DefaultTableModel(null, titulos);
+        tblDetalhesVenda.setModel(mTablela);
+        txtValorTot.setText("0,00");
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
+        frmFinal mFinal = new frmFinal();
+        total = txtValorTot.getText();
+        dpnDesk.add(mFinal);   
+
+        mFinal.show();
+
+    }//GEN-LAST:event_btnFinalizarActionPerformed
+
+    //calsse para atualizar setar a hora e atualizar auto
+    private void timer1OnTime(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timer1OnTime
+        txtData.setText(Utilidades.getDataHora());
+    }//GEN-LAST:event_timer1OnTime
+
+    private void panelCervejaComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_panelCervejaComponentRemoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelCervejaComponentRemoved
+
+    private void btnPizza19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizza19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPizza19ActionPerformed
+
+    private void panelSucoComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_panelSucoComponentRemoved
+
+    }//GEN-LAST:event_panelSucoComponentRemoved
+
+    private void btnPizza13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizza13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPizza13ActionPerformed
+
+    private void panelRefrigerComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_panelRefrigerComponentRemoved
+
+    }//GEN-LAST:event_panelRefrigerComponentRemoved
+
+    private void btnPizza4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizza4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPizza4ActionPerformed
 
     private void panelPizzaComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_panelPizzaComponentRemoved
 
@@ -892,45 +1195,9 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnPizza1ActionPerformed
 
-    private void btnSucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSucoActionPerformed
-        panelPizza.setVisible(false);
-        panelRefriger.setVisible(false);
-    }//GEN-LAST:event_btnSucoActionPerformed
-
-    private void btnCervejaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCervejaActionPerformed
-        panelPizza.setVisible(false);
-        panelRefriger.setVisible(false);
-
-    }//GEN-LAST:event_btnCervejaActionPerformed
-
-    private void btnPizza4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizza4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPizza4ActionPerformed
-
-    private void panelRefrigerComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_panelRefrigerComponentRemoved
-
-    }//GEN-LAST:event_panelRefrigerComponentRemoved
-
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        String titulos[] =  {"ID Produto", "Nome", "Preço", "Descrição"};
-
-        mTablela = new DefaultTableModel(null, titulos);
-        tblDetalhesVenda.setModel(mTablela);
-        txtValorTot.setText("R$ 0,00");
-    }//GEN-LAST:event_btnCancelarActionPerformed
-
-    private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
-        
-    }//GEN-LAST:event_btnFinalizarActionPerformed
-
-    //calsse para atualizar setar a hora e atualizar auto
-    private void timer1OnTime(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timer1OnTime
-        txtData.setText(Utilidades.getDataHora());
-    }//GEN-LAST:event_timer1OnTime
-
     //Cria os titulos da tabela de venda 
     private void TabelaVenda(){
-        String titulos[] =  {"ID Produto", "Nome", "Preço", "Descrição"};
+        String titulos[] =  {"ID Produto", "Descrição","Nome", "Preço"};
 
         mTablela = new DefaultTableModel(null, titulos);
 
@@ -945,16 +1212,18 @@ public class frmPrincipal extends javax.swing.JFrame {
     
     
     //Para fazer a soma do valor total e quantidade toda de produtos
-    private void totais() {
+    public void totais() {
         int num = tblDetalhesVenda.getRowCount();
-        int somaQuant = 0, somaVal=0;
+        double somaQuant = 0, somaVal=0;
         for (int i = 0; i<num; i++) {
             //somaQuant += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 3));
-            somaVal += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 2));
+            somaVal += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 3));
         }
         
+        DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
         //txtValorTot.setText("" + somaQuant);
-        txtValorTot.setText("R$ " + somaVal);
+        var formatado = decimalFormat.format(somaVal);
+        txtValorTot.setText("" + somaVal);
 
     }
     
@@ -1003,6 +1272,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel R$;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnCerveja;
     private javax.swing.JButton btnFinalizar;
@@ -1011,7 +1281,19 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnPizza10;
     private javax.swing.JButton btnPizza11;
     private javax.swing.JButton btnPizza12;
+    javax.swing.JButton btnPizza13;
+    private javax.swing.JButton btnPizza14;
+    private javax.swing.JButton btnPizza15;
+    private javax.swing.JButton btnPizza16;
+    private javax.swing.JButton btnPizza17;
+    private javax.swing.JButton btnPizza18;
+    private javax.swing.JButton btnPizza19;
     private javax.swing.JButton btnPizza2;
+    private javax.swing.JButton btnPizza20;
+    private javax.swing.JButton btnPizza21;
+    private javax.swing.JButton btnPizza22;
+    private javax.swing.JButton btnPizza23;
+    private javax.swing.JButton btnPizza24;
     private javax.swing.JButton btnPizza3;
     javax.swing.JButton btnPizza4;
     private javax.swing.JButton btnPizza5;
@@ -1032,7 +1314,6 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
@@ -1050,9 +1331,11 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu mnuMoviment;
     private javax.swing.JMenuItem mnuMovimentNvVenda;
     private javax.swing.JMenuItem mnuMovimentRlVenda;
+    private javax.swing.JPanel panelCerveja;
     private javax.swing.JPanel panelPizza;
     private javax.swing.JPanel panelPrincipla;
     private javax.swing.JPanel panelRefriger;
+    private javax.swing.JPanel panelSuco;
     private javax.swing.JTable tblDetalhesVenda;
     private org.netbeans.examples.lib.timerbean.Timer timer1;
     private javax.swing.JLabel txtData;
@@ -1062,5 +1345,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel txtValorTot;
     // End of variables declaration//GEN-END:variables
 
+   
+    
     
 }

@@ -44,7 +44,7 @@ public class Produto {
         this.preco = preco;
     }
 
-    public int getImposto() {
+    public int getCategoria() {
         return imposto;
     }
 

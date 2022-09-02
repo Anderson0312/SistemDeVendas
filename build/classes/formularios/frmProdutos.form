@@ -50,7 +50,7 @@
                                       <Component id="btnSalvarCadastro" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="btnExcluirCadastro" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="18" max="32767" attributes="0"/>
+                                      <EmptySpace pref="29" max="32767" attributes="0"/>
                                       <Component id="btnCancelarCadastro" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="btnPesquisarCadastro" min="-2" max="-2" attributes="0"/>
@@ -213,7 +213,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Imposto"/>
+        <Property name="text" type="java.lang.String" value="Categoria"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="impImposto">
@@ -222,10 +222,12 @@
           <Font name="Segoe UI" size="14" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
-            <StringItem index="0" value="Desconto%"/>
-            <StringItem index="1" value="0%"/>
-            <StringItem index="2" value="10%"/>
+          <StringArray count="5">
+            <StringItem index="0" value="Escolha a categoria"/>
+            <StringItem index="1" value="Pizza"/>
+            <StringItem index="2" value="Refrigerante"/>
+            <StringItem index="3" value="Suco"/>
+            <StringItem index="4" value="Cervejas"/>
           </StringArray>
         </Property>
         <Property name="enabled" type="boolean" value="false"/>

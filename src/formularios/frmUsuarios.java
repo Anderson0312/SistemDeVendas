@@ -445,15 +445,15 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
             return;
         }
         
-       
+       int pos = msDados.posicaoUsuario(txtIDUsuario.getText());
        if(novo){
-            if(msDados_DB.existeUsuario(txtIDUsuario.getText())){
+            if(pos != -1){
                 JOptionPane.showMessageDialog(rootPane,"Este usuario já existe!");
                 txtIDUsuario.requestFocusInWindow();
                 return;
             }
        } else {
-           if (msDados_DB.existeUsuario(txtIDUsuario.getText())) {
+           if (pos == -1) {
                JOptionPane.showMessageDialog(rootPane,"Este usuario ainda não existe!");
                 txtIDUsuario.requestFocusInWindow();
                 return;
@@ -466,9 +466,9 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         
         String msg;
         if(novo){
-            msg = msDados_DB.adicionarUsuario(mUsuario);
+            msg = msDados.adicionarUsuario(mUsuario);
         } else {
-            msg = msDados_DB.editarUsuario(mUsuario);
+            msg = msDados.editarUsuario(mUsuario, pos);
         }    
             JOptionPane.showMessageDialog(rootPane, msg);
         
@@ -501,7 +501,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         }
         
         String msg;
-        msg = msDados_DB.deletarUsuario(txtIDUsuario.getText());
+        msg = msDados.deletarUsuario(usuAtual);
         JOptionPane.showMessageDialog(rootPane,msg);
         usuAtual= 0;
         mostrarCadastros();
@@ -542,28 +542,17 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
 
     private void preencherTabela(){
             String titulos[] =  {"ID Usuario", "Nome", "Sobre nome", "Perfil"};
-            String registro[] = new String[4];
-            mTablela = new DefaultTableModel(null, titulos);
-        try {
+        String registro[] = new String[4];
+        mTablela = new DefaultTableModel(null, titulos);
+        for(int i =0; i < msDados.numeroUsuarios(); i++) {
+            registro[0] = msDados.getUsuarios()[i].getIdUsuario();
+            registro[1] = msDados.getUsuarios()[i].getNome();
+            registro[2] = msDados.getUsuarios()[i].getSobreNome();
+            registro[3] = perfil(msDados.getUsuarios()[i].getPerfil());
+            mTablela.addRow(registro);
             
-            ResultSet rs = msDados_DB.getUsuarios();
-            if (!rs.isBeforeFirst()) {
-                System.out.println("Não há registros."); 
-            } else {
-                System.out.println("há registros."); 
-            }
-            while(rs.isBeforeFirst()) {
-                registro[0] = rs.getString("idUsuario");
-                registro[1] = rs.getString("nome");
-                registro[2] = rs.getString("sobreNome");
-                registro[3] = perfil(rs.getInt("idPerfil"));
-                mTablela.addRow(registro);
-                
-            }
-            tblTabela.setModel(mTablela);
-        } catch (SQLException ex) {
-            Logger.getLogger(frmUsuarios.class.getName()).log(Level.SEVERE, null, ex);
         }
+        tblTabela.setModel(mTablela);
     }
                              
     public String perfil(int idPerfil){
