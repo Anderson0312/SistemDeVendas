@@ -96,6 +96,11 @@ public class frmFaturamento extends javax.swing.JInternalFrame {
 
         txtData.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtData.setEnabled(false);
+        txtData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDataActionPerformed(evt);
+            }
+        });
 
         txtQuanti.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
@@ -493,6 +498,10 @@ public class frmFaturamento extends javax.swing.JInternalFrame {
         //        }
             
     }//GEN-LAST:event_btnPesquisarProdActionPerformed
+
+    private void txtDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDataActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntPesquisarClient;

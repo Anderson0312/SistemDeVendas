@@ -2,8 +2,12 @@ package formularios;
 
 import classes.Dados;
 import classes.Opcoes;
+import classes.Utilidades;
 import static formularios.frmPrincipal.total;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.text.DecimalFormat;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -36,7 +40,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jButton7 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnFinalizarNota = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -63,6 +67,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         bntPesquisarClient1 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        txtData = new javax.swing.JLabel();
 
         jButton7.setText("jButton7");
 
@@ -87,11 +92,16 @@ public class frmFinal extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(0, 102, 255));
-        jButton2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Finalizar");
-        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnFinalizarNota.setBackground(new java.awt.Color(0, 102, 255));
+        btnFinalizarNota.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        btnFinalizarNota.setForeground(new java.awt.Color(255, 255, 255));
+        btnFinalizarNota.setText("Finalizar");
+        btnFinalizarNota.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnFinalizarNota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinalizarNotaActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -169,7 +179,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
                             .addComponent(jLabel1))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 144, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(51, 51, 51)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -189,7 +199,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
                                         .addComponent(jLabel11)
                                         .addGap(18, 18, 18)
                                         .addComponent(descontoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addContainerGap(50, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -370,6 +380,9 @@ public class frmFinal extends javax.swing.JInternalFrame {
             }
         });
 
+        txtData.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        txtData.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -383,20 +396,26 @@ public class frmFinal extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnFinalizarNota, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(359, 359, 359))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addContainerGap()
+                .addComponent(txtData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnFinalizarNota, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(21, 21, 21))
         );
@@ -416,6 +435,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
                   cmbCliente.addItem(opc.toString());
         }        
          
+        txtData.setText(Utilidades.getDate());
         txtSubtotal.setText("" + total);
           
         //double subtotal = Double.valueOf(txtSubtotal.getText()).doubleValue();
@@ -483,17 +503,69 @@ public class frmFinal extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void btnFinalizarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarNotaActionPerformed
+        if(cmbCliente.getSelectedIndex()==0) {
+            JOptionPane.showMessageDialog(rootPane,"Favor Selecionar um cliente!");
+            cmbCliente.requestFocusInWindow();
+            return;
+        }
+        
+        int resposta = JOptionPane.showConfirmDialog(rootPane,"Deseja realizar a venda?");
+        if (resposta != 0) {
+            return;
+        }
+        
+        int numFatura = msDados.getNumeroFatura()+1;
+        
+        FileWriter fw = null;
+        PrintWriter pw = null;
+            try {
+                fw = new FileWriter("Data/Fatura.txt", true);
+                pw = new PrintWriter(fw);
+                
+                var opcItemVal = (cmbCliente.getSelectedItem().toString());
+                //System.out.println("360 ---->" + opcItemVal);
+                
+                var auxiliar = numFatura + "|"
+                        +opcItemVal +"|"
+                        +txtTotalFinal.getText()+"|"
+                        +txtData.getText();
+                
+                
+                pw.println("----------------------------");                      
+                pw.println(auxiliar);
+                pw.println("----------------------------");
+             
+
+            } catch (Exception e1) {
+                e1.printStackTrace();
+                
+            } finally{
+                try {
+                    if(fw != null) {
+                        fw.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+            }
+            
+            JOptionPane.showMessageDialog(rootPane,"Venda " + numFatura+ " REALIZADA COM SUCESSO!");
+            msDados.setNumeroFatura(numFatura);
+            cmbCliente.setSelectedIndex(0);
+    }//GEN-LAST:event_btnFinalizarNotaActionPerformed
+
         
         
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntPesquisarClient;
     private javax.swing.JButton bntPesquisarClient1;
     private javax.swing.JButton btnAplicarTotal;
+    private javax.swing.JButton btnFinalizarNota;
     private javax.swing.JComboBox<String> cmbCliente;
     private javax.swing.JTextField descontoFinal;
     private javax.swing.JTextField entregaFinal;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -511,7 +583,8 @@ public class frmFinal extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel subTotalFinal;
+    public javax.swing.JLabel subTotalFinal;
+    private javax.swing.JLabel txtData;
     private javax.swing.JLabel txtSubtotal;
     private javax.swing.JLabel txtTotalFinal;
     // End of variables declaration//GEN-END:variables
