@@ -19,7 +19,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
 
     private Dados msDados;
     
-    //private Dados_DB msDados_DB;
+    private Dados_DB msDados_DB;
     
     public int usuAtual = 0;
     private boolean novo = false;
