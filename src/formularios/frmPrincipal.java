@@ -87,6 +87,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         txtData = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         txtValorTot = new javax.swing.JLabel();
+        R$ = new javax.swing.JLabel();
         btnFinalizar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -265,20 +266,32 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         txtValorTot.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         txtValorTot.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtValorTot.setText("R$ 0,00");
+        txtValorTot.setText("0,00");
         txtValorTot.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        R$.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        R$.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        R$.setText("R$");
+        R$.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtValorTot, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(R$, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtValorTot, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(117, 117, 117))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtValorTot, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtValorTot, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                    .addComponent(R$, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -363,7 +376,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addGap(0, 33, Short.MAX_VALUE)
+                                .addGap(0, 42, Short.MAX_VALUE)
                                 .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnFinalizar))
@@ -1018,6 +1031,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel R$;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnCerveja;
     private javax.swing.JButton btnFinalizar;
