@@ -1153,8 +1153,9 @@ public class frmPrincipal extends javax.swing.JFrame {
         frmFinal mFinal = new frmFinal();
         total = txtValorTot.getText();
         dpnDesk.add(mFinal);   
+
         mFinal.show();
-        
+
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
     //calsse para atualizar setar a hora e atualizar auto
