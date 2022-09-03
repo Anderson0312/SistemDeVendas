@@ -287,7 +287,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         txtValorTot.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         txtValorTot.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtValorTot.setText("0,00");
+        txtValorTot.setText("00,00");
         txtValorTot.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         R$.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
