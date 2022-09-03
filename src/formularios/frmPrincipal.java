@@ -919,11 +919,11 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuAjudaSobreActionPerformed
 
     private void mnuAjudaAjudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAjudaAjudaActionPerformed
-        frmAjuda mAjuda = new frmAjuda();
-        //mAjuda.setLocationRelativeTo(this);
-        mAjuda.setVisible(true);
+        frmAjuda mAjuda = new frmAjuda(this, rootPaneCheckingEnabled);
+        mAjuda.setLocationRelativeTo(this);
+        mAjuda.setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_mnuAjudaAjudaActionPerformed
-
+    
     private void mnuMovimentNvVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMovimentNvVendaActionPerformed
         frmFaturamento MVenda = new frmFaturamento();
         
