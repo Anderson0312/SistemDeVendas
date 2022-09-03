@@ -106,13 +106,6 @@ public class frmPrincipal extends javax.swing.JFrame {
         txtNNota = new javax.swing.JLabel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         panelPrincipla = new javax.swing.JPanel();
-        panelPizza = new javax.swing.JPanel();
-        btnPizza1 = new javax.swing.JButton();
-        btnPizza6 = new javax.swing.JButton();
-        btnPizza3 = new javax.swing.JButton();
-        btnPizza7 = new javax.swing.JButton();
-        btnPizza2 = new javax.swing.JButton();
-        btnPizza5 = new javax.swing.JButton();
         panelRefriger = new javax.swing.JPanel();
         btnPizza4 = new javax.swing.JButton();
         btnPizza8 = new javax.swing.JButton();
@@ -120,6 +113,13 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnPizza10 = new javax.swing.JButton();
         btnPizza11 = new javax.swing.JButton();
         btnPizza12 = new javax.swing.JButton();
+        panelPizza = new javax.swing.JPanel();
+        btnPizza1 = new javax.swing.JButton();
+        btnPizza6 = new javax.swing.JButton();
+        btnPizza3 = new javax.swing.JButton();
+        btnPizza7 = new javax.swing.JButton();
+        btnPizza2 = new javax.swing.JButton();
+        btnPizza5 = new javax.swing.JButton();
         panelSuco = new javax.swing.JPanel();
         btnPizza13 = new javax.swing.JButton();
         btnPizza14 = new javax.swing.JButton();
@@ -168,7 +168,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         dpnDesk.setBackground(new java.awt.Color(204, 204, 255));
         dpnDesk.setPreferredSize(new java.awt.Dimension(1380, 720));
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 255));
+        jPanel1.setBackground(new java.awt.Color(42, 101, 158));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
         btnPizza.setBackground(new java.awt.Color(204, 204, 204));
@@ -251,14 +251,14 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addComponent(btnSuco, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCerveja, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 265, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtOperador, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48))
         );
 
-        jPanel2.setBackground(new java.awt.Color(0, 102, 255));
+        jPanel2.setBackground(new java.awt.Color(42, 101, 158));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -300,7 +300,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(89, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(R$, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtValorTot, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -397,7 +397,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addGap(0, 42, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnFinalizar))
@@ -431,10 +431,64 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         jLayeredPane1.setPreferredSize(new java.awt.Dimension(1200, 900));
 
-        panelPrincipla.setBackground(new java.awt.Color(231, 0, 0));
+        panelPrincipla.setBackground(new java.awt.Color(197, 36, 43));
         panelPrincipla.setDoubleBuffered(false);
         panelPrincipla.setInheritsPopupMenu(true);
         panelPrincipla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelRefriger.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        panelRefriger.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentRemoved(java.awt.event.ContainerEvent evt) {
+                panelRefrigerComponentRemoved(evt);
+            }
+        });
+
+        btnPizza4.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza4.setText("Refrigerante");
+        btnPizza4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnPizza4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPizza4ActionPerformed(evt);
+            }
+        });
+        panelRefriger.add(btnPizza4);
+
+        btnPizza8.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza8.setText("Refrigerante");
+        btnPizza8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelRefriger.add(btnPizza8);
+
+        btnPizza9.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza9.setText("Refrigerante");
+        btnPizza9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza9.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelRefriger.add(btnPizza9);
+
+        btnPizza10.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza10.setText("Refrigerante");
+        btnPizza10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza10.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelRefriger.add(btnPizza10);
+
+        btnPizza11.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza11.setText("Refrigerante");
+        btnPizza11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza11.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelRefriger.add(btnPizza11);
+
+        btnPizza12.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza12.setText("Refrigerante");
+        btnPizza12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza12.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelRefriger.add(btnPizza12);
 
         panelPizza.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         panelPizza.setPreferredSize(new java.awt.Dimension(500, 76));
@@ -491,61 +545,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnPizza5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         panelPizza.add(btnPizza5);
 
-        panelPrincipla.add(panelPizza, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 690, 650));
-
-        panelRefriger.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        panelRefriger.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentRemoved(java.awt.event.ContainerEvent evt) {
-                panelRefrigerComponentRemoved(evt);
-            }
-        });
-
-        btnPizza4.setBackground(new java.awt.Color(204, 204, 204));
-        btnPizza4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
-        btnPizza4.setText("Refrigerante");
-        btnPizza4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnPizza4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnPizza4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPizza4ActionPerformed(evt);
-            }
-        });
-        panelRefriger.add(btnPizza4);
-
-        btnPizza8.setBackground(new java.awt.Color(204, 204, 204));
-        btnPizza8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
-        btnPizza8.setText("Refrigerante");
-        btnPizza8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnPizza8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panelRefriger.add(btnPizza8);
-
-        btnPizza9.setBackground(new java.awt.Color(204, 204, 204));
-        btnPizza9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
-        btnPizza9.setText("Refrigerante");
-        btnPizza9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnPizza9.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panelRefriger.add(btnPizza9);
-
-        btnPizza10.setBackground(new java.awt.Color(204, 204, 204));
-        btnPizza10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
-        btnPizza10.setText("Refrigerante");
-        btnPizza10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnPizza10.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panelRefriger.add(btnPizza10);
-
-        btnPizza11.setBackground(new java.awt.Color(204, 204, 204));
-        btnPizza11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
-        btnPizza11.setText("Refrigerante");
-        btnPizza11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnPizza11.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panelRefriger.add(btnPizza11);
-
-        btnPizza12.setBackground(new java.awt.Color(204, 204, 204));
-        btnPizza12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
-        btnPizza12.setText("Refrigerante");
-        btnPizza12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnPizza12.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        panelRefriger.add(btnPizza12);
+        panelRefriger.add(panelPizza);
 
         panelPrincipla.add(panelRefriger, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 10, 690, 650));
 
@@ -692,7 +692,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             .addGroup(dpnDeskLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 764, Short.MAX_VALUE)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 737, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -702,7 +702,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(dpnDeskLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
