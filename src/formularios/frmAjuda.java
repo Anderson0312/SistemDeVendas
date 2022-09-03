@@ -30,31 +30,43 @@ public class frmAjuda extends javax.swing.JDialog {
     private void initComponents() {
 
         dpnDesk = new javax.swing.JDesktopPane();
-        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Sobre nós");
 
         dpnDesk.setPreferredSize(new java.awt.Dimension(779, 445));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logopizza300.png"))); // NOI18N
-
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel3.setText("Gostaria de reportar algum erro? Fale com o nosso suporte:");
 
-        jButton1.setText("Leia nossos termos de serviço e licensa");
+        jButton1.setText("Leia nossos termos de serviço e uso");
+        jButton1.setActionCommand("Leia nossos termos de serviço e uso");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Home - www.senacpizza.com.br");
+        jButton2.setText("www.senacpizza.com.br");
+        jButton2.setActionCommand("www.senacpizza.com.br");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -65,52 +77,143 @@ public class frmAjuda extends javax.swing.JDialog {
 
         jLabel14.setText("Senac's Pizzaria Software v.3.0.1 (64-bit) ");
 
-        dpnDesk.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLabel5.setText("GNU General Public License");
+
+        jLabel6.setText("This program is free software; you can redistribute it and/or modify it ");
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logopizza100.png"))); // NOI18N
+
+        jLabel1.setText("as published by the Free Software Foundation; either version 3 of the License,");
+
+        jLabel8.setText("This program is distributed in the hope that it will be useful, ");
+
+        jLabel9.setText("but WITHOUT ANY WARRANTY; without even the implied warranty of ");
+
+        jLabel10.setText("See the GNU General Public License for more details. ");
+
+        jLabel11.setText("You should have received a copy of the GNU General Public License along with this program.");
+
+        jLabel12.setText("If not, see https://www.gnu.org/licenses/");
+
+        jLabel13.setText("MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.");
+
+        jLabel15.setText("under the terms of the GNU General Public License ");
+
+        jLabel16.setText(" or at your option any later version.");
+
         dpnDesk.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
         dpnDesk.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         dpnDesk.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         dpnDesk.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         dpnDesk.setLayer(jLabel14, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dpnDesk.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dpnDesk.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dpnDesk.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dpnDesk.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dpnDesk.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dpnDesk.setLayer(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dpnDesk.setLayer(jLabel9, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dpnDesk.setLayer(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dpnDesk.setLayer(jLabel11, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dpnDesk.setLayer(jLabel12, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dpnDesk.setLayer(jLabel13, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dpnDesk.setLayer(jLabel15, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dpnDesk.setLayer(jLabel16, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout dpnDeskLayout = new javax.swing.GroupLayout(dpnDesk);
         dpnDesk.setLayout(dpnDeskLayout);
         dpnDeskLayout.setHorizontalGroup(
             dpnDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dpnDeskLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(dpnDeskLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(dpnDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel3)
-                    .addGroup(dpnDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(33, 33, 33))
+                    .addGroup(dpnDeskLayout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(jLabel7)
+                        .addGroup(dpnDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(dpnDeskLayout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addGroup(dpnDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(dpnDeskLayout.createSequentialGroup()
+                                        .addComponent(jButton2)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButton1)
+                                        .addGap(30, 30, 30))))
+                            .addGroup(dpnDeskLayout.createSequentialGroup()
+                                .addGap(137, 137, 137)
+                                .addComponent(jLabel14)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(dpnDeskLayout.createSequentialGroup()
+                        .addGroup(dpnDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(dpnDeskLayout.createSequentialGroup()
+                                .addGap(135, 135, 135)
+                                .addGroup(dpnDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel13)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jLabel16)
+                                    .addComponent(jLabel6)
+                                    .addGroup(dpnDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel1)))
+                                .addGap(457, 457, 457)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(dpnDeskLayout.createSequentialGroup()
+                                .addGap(77, 77, 77)
+                                .addComponent(jLabel2)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         dpnDeskLayout.setVerticalGroup(
             dpnDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dpnDeskLayout.createSequentialGroup()
                 .addGroup(dpnDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(dpnDeskLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1))
-                    .addGroup(dpnDeskLayout.createSequentialGroup()
-                        .addGap(56, 56, 56)
+                        .addGap(58, 58, 58)
                         .addComponent(jLabel14)
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel3)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
+                        .addComponent(jLabel3))
+                    .addGroup(dpnDeskLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(dpnDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
+                .addGroup(dpnDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dpnDeskLayout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(jLabel4))
+                    .addGroup(dpnDeskLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel5)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
+                        .addComponent(jLabel6)
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9)
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel13)
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel12)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addGap(21, 21, 21))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -131,13 +234,13 @@ public class frmAjuda extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try { Runtime.getRuntime().exec("cmd.exe /C start " + "http://www.google.com"); } catch (IOException ex) { System.out.println(ex.getMessage()); }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,8 +292,20 @@ public class frmAjuda extends javax.swing.JDialog {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }
