@@ -185,19 +185,21 @@ public class frmFinal extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnAplicarTotal)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel4))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel10)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel11))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel6)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(28, 28, 28)
                                         .addComponent(entregaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jLabel11)
-                                        .addGap(18, 18, 18)
+                                        .addGap(30, 30, 30)
                                         .addComponent(descontoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -451,31 +453,8 @@ public class frmFinal extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
-
-    private void btnAplicarTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarTotalActionPerformed
-
-        double entrega = Double.valueOf(entregaFinal.getText()).doubleValue();
-        double desconto = Double.valueOf(descontoFinal.getText()).doubleValue();
-        double subtotal = Double.valueOf(txtSubtotal.getText()).doubleValue();
-
-        double totalFinal = entrega + (subtotal - ((desconto / 100) * subtotal));
-
-        DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
-        //txtValorTot.setText("" + somaQuant);
-        var formatadoValFinal = decimalFormat.format(totalFinal);
-
-        txtTotalFinal.setText("" + formatadoValFinal);
-    }//GEN-LAST:event_btnAplicarTotalActionPerformed
-
-    private void entregaFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entregaFinalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_entregaFinalActionPerformed
-
-    private void descontoFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descontoFinalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_descontoFinalActionPerformed
 
     private void bntPesquisarClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntPesquisarClientActionPerformed
 
@@ -573,8 +552,30 @@ public class frmFinal extends javax.swing.JInternalFrame {
             msDados.setNumeroFatura(numFatura);
             cmbCliente.setSelectedIndex(0);
             this.dispose();
-            System.err.println("576frmfinal"+numFatura);
     }//GEN-LAST:event_btnFinalizarNotaActionPerformed
+
+    private void btnAplicarTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarTotalActionPerformed
+
+        double entrega = Double.valueOf(entregaFinal.getText()).doubleValue();
+        double desconto = Double.valueOf(descontoFinal.getText()).doubleValue();
+        double subtotal = Double.valueOf(txtSubtotal.getText()).doubleValue();
+
+        double totalFinal = entrega + (subtotal - ((desconto / 100) * subtotal));
+
+        DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+        //txtValorTot.setText("" + somaQuant);
+        var formatadoValFinal = decimalFormat.format(totalFinal);
+
+        txtTotalFinal.setText("" + formatadoValFinal);
+    }//GEN-LAST:event_btnAplicarTotalActionPerformed
+
+    private void entregaFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entregaFinalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_entregaFinalActionPerformed
+
+    private void descontoFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descontoFinalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_descontoFinalActionPerformed
 
         
         
@@ -604,7 +605,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
-    public javax.swing.JLabel subTotalFinal;
+    private javax.swing.JLabel subTotalFinal;
     private javax.swing.JLabel txtData;
     private javax.swing.JLabel txtSubtotal;
     private javax.swing.JLabel txtTotalFinal;
