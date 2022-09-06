@@ -438,7 +438,15 @@ public class frmFinal extends javax.swing.JInternalFrame {
         }        
          
         txtData.setText(Utilidades.getDate());
-        txtSubtotal.setText("" + total);
+        
+        char c[] = total.toCharArray();
+        int size = total.length();
+        for(int i = 1; i < size; i++)
+        {
+            if (c[i] == ',') c[i] = '.';
+        }
+        String str = String.valueOf(c);
+        txtSubtotal.setText("" + str);
           
         //double subtotal = Double.valueOf(txtSubtotal.getText()).doubleValue();
           
