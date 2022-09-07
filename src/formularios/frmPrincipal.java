@@ -175,7 +175,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         dpnDesk.setBackground(new java.awt.Color(204, 204, 255));
         dpnDesk.setPreferredSize(new java.awt.Dimension(1380, 720));
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 255));
+        jPanel1.setBackground(new java.awt.Color(42, 101, 158));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
         btnPizza.setBackground(new java.awt.Color(204, 204, 204));
@@ -258,14 +258,14 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addComponent(btnSuco, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCerveja, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 259, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtOperador, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48))
         );
 
-        jPanel2.setBackground(new java.awt.Color(0, 102, 255));
+        jPanel2.setBackground(new java.awt.Color(42, 101, 158));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -434,7 +434,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         jLayeredPane1.setPreferredSize(new java.awt.Dimension(1200, 900));
 
-        panelPrincipla.setBackground(new java.awt.Color(231, 0, 0));
+        panelPrincipla.setBackground(new java.awt.Color(197, 36, 43));
         panelPrincipla.setDoubleBuffered(false);
         panelPrincipla.setInheritsPopupMenu(true);
         panelPrincipla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -918,9 +918,9 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuAjudaSobreActionPerformed
 
     private void mnuAjudaAjudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAjudaAjudaActionPerformed
-        frmAjuda mAjuda = new frmAjuda();
-        //mAjuda.setLocationRelativeTo(this);
-        mAjuda.setVisible(true);
+        frmAjuda mAjuda = new frmAjuda(this, rootPaneCheckingEnabled);
+        mAjuda.setLocationRelativeTo(this);
+        mAjuda.setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_mnuAjudaAjudaActionPerformed
 
     private void mnuMovimentNvVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMovimentNvVendaActionPerformed

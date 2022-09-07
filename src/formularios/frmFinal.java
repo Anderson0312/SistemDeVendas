@@ -4,6 +4,7 @@ import classes.Dados;
 import classes.Opcoes;
 import classes.Utilidades;
 import static formularios.frmPrincipal.total;
+import java.awt.Color;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
@@ -28,6 +29,8 @@ public class frmFinal extends javax.swing.JInternalFrame {
      */
     public frmFinal() {
         initComponents();
+        Color minhaCor = new Color (223,223,223);
+        getContentPane().setBackground(minhaCor); // cor do form de login do sistema
     }
 
     /**
@@ -92,7 +95,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
             }
         });
 
-        btnFinalizarNota.setBackground(new java.awt.Color(0, 102, 255));
+        btnFinalizarNota.setBackground(new java.awt.Color(42, 101, 158));
         btnFinalizarNota.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         btnFinalizarNota.setForeground(new java.awt.Color(255, 255, 255));
         btnFinalizarNota.setText("Finalizar");
@@ -103,7 +106,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 255));
+        jPanel1.setBackground(new java.awt.Color(42, 101, 158));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -257,10 +260,10 @@ public class frmFinal extends javax.swing.JInternalFrame {
                 .addGap(31, 31, 31))
         );
 
-        jPanel2.setBackground(new java.awt.Color(204, 51, 0));
+        jPanel2.setBackground(new java.awt.Color(197, 36, 43));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jButton3.setBackground(new java.awt.Color(0, 102, 255));
+        jButton3.setBackground(new java.awt.Color(42, 101, 158));
         jButton3.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Cartão de Débito");
@@ -271,7 +274,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(0, 102, 255));
+        jButton5.setBackground(new java.awt.Color(42, 101, 158));
         jButton5.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Dinheiro");
@@ -282,7 +285,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(0, 102, 255));
+        jButton6.setBackground(new java.awt.Color(42, 101, 158));
         jButton6.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Pix");
@@ -293,7 +296,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(0, 102, 255));
+        jButton4.setBackground(new java.awt.Color(42, 101, 158));
         jButton4.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Cartão de Crédito");
@@ -371,7 +374,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
                 .addGap(14, 14, 14))
         );
 
-        btnVoltar.setBackground(new java.awt.Color(0, 102, 255));
+        btnVoltar.setBackground(new java.awt.Color(42, 101, 158));
         btnVoltar.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
         btnVoltar.setText("Voltar");
@@ -630,7 +633,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel subTotalFinal;
+    public javax.swing.JLabel subTotalFinal;
     private javax.swing.JLabel txtData;
     private javax.swing.JLabel txtSubtotal;
     private javax.swing.JLabel txtTotalFinal;
