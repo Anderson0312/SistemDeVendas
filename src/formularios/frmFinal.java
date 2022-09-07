@@ -582,7 +582,18 @@ public class frmFinal extends javax.swing.JInternalFrame {
     }
     
     private void btnAplicarTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarTotalActionPerformed
-
+        if(descontoFinal.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane,"Favor adicione um valor de desconto ou 0!");
+            descontoFinal.requestFocusInWindow();
+            return;
+        }
+        
+        if(entregaFinal.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane,"Favor adicione uma valor de entrega ou 0!");
+            entregaFinal.requestFocusInWindow();
+            return;
+        }
+        
         String entrega = entregaFinal.getText();
         double entregaD = fixMoney(entrega);
         double desconto = Double.valueOf(descontoFinal.getText()).doubleValue();

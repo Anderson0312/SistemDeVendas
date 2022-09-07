@@ -64,5 +64,20 @@ public class Utilidades {
         return Str;
     }
     
+    //Função pega string e transforma em double, substituindo vírgulas por ponto
+    public double fixMoney(String s){
+        char c[] = s.toCharArray();
+        int size = s.length();
+        for(int i = 1; i < size; i++)
+        {
+            if (c[i] == ',') c[i] = '.';
+        }
+        String str = String.valueOf(c);
+        
+        double d = Double.parseDouble(str);
+              
+        return d;
+    }
+    
     
 }
