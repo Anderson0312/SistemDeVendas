@@ -438,20 +438,21 @@ public class frmFinal extends javax.swing.JInternalFrame {
         }        
          
         txtData.setText(Utilidades.getDate());
-        
+                
         char c[] = total.toCharArray();
         int size = total.length();
         for(int i = 1; i < size; i++)
         {
             if (c[i] == ',') c[i] = '.';
         }
-        String str = String.valueOf(c);
-        txtSubtotal.setText("" + str);
+        String totalClean = String.valueOf(c);
+        
+        txtSubtotal.setText("" + totalClean);
           
         //double subtotal = Double.valueOf(txtSubtotal.getText()).doubleValue();
           
     }//GEN-LAST:event_formInternalFrameOpened
-
+    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -562,14 +563,30 @@ public class frmFinal extends javax.swing.JInternalFrame {
             this.dispose();
     }//GEN-LAST:event_btnFinalizarNotaActionPerformed
 
+    //Função pega string e transforma em double, substituindo vírgulas por ponto
+    public double fixMoney(String s){
+        char c[] = s.toCharArray();
+        int size = s.length();
+        for(int i = 1; i < size; i++)
+        {
+            if (c[i] == ',') c[i] = '.';
+        }
+        String str = String.valueOf(c);
+        
+        double d = Double.parseDouble(str);
+              
+        return d;
+    }
+    
     private void btnAplicarTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarTotalActionPerformed
 
-        double entrega = Double.valueOf(entregaFinal.getText()).doubleValue();
+        String entrega = entregaFinal.getText();
+        double entregaD = fixMoney(entrega);
         double desconto = Double.valueOf(descontoFinal.getText()).doubleValue();
         double subtotal = Double.valueOf(txtSubtotal.getText()).doubleValue();
-
-        double totalFinal = entrega + (subtotal - ((desconto / 100) * subtotal));
-
+        
+        double totalFinal = entregaD + (subtotal - ((desconto / 100) * subtotal));
+        
         DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
         //txtValorTot.setText("" + somaQuant);
         var formatadoValFinal = decimalFormat.format(totalFinal);

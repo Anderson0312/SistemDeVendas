@@ -1198,7 +1198,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void timer2OnTime(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timer2OnTime
         int numFatura = msDados.getNumeroFatura();
         txtNNota.setText("" + (numFatura+1));
-        
+                       
     }//GEN-LAST:event_timer2OnTime
 
     //Cria os titulos da tabela de venda 
