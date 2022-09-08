@@ -19,6 +19,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
     
     private Dados msDados;
     private DefaultTableModel mTablela; 
+    public String tipoPagamento; 
     
     public void setDados(Dados msDados) {
         this.msDados = msDados;
@@ -30,7 +31,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
     public frmFinal() {
         initComponents();
         Color minhaCor = new Color (223,223,223);
-        getContentPane().setBackground(minhaCor); // cor do form de login do sistema
+        getContentPane().setBackground(minhaCor); // cor do form de Finalizar do sistema
     }
 
     /**
@@ -61,10 +62,10 @@ public class frmFinal extends javax.swing.JInternalFrame {
         btnAplicarTotal = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jPanel2 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnDebito = new javax.swing.JButton();
+        btnDinheiro = new javax.swing.JButton();
+        btnPix = new javax.swing.JButton();
+        btnCredito = new javax.swing.JButton();
         cmbCliente = new javax.swing.JComboBox<>();
         bntPesquisarClient = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -263,44 +264,49 @@ public class frmFinal extends javax.swing.JInternalFrame {
         jPanel2.setBackground(new java.awt.Color(197, 36, 43));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jButton3.setBackground(new java.awt.Color(42, 101, 158));
-        jButton3.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Cartão de Débito");
-        jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnDebito.setBackground(new java.awt.Color(42, 101, 158));
+        btnDebito.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        btnDebito.setForeground(new java.awt.Color(255, 255, 255));
+        btnDebito.setText("Cartão de Débito");
+        btnDebito.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDebito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnDebitoActionPerformed(evt);
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(42, 101, 158));
-        jButton5.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Dinheiro");
-        jButton5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnDinheiro.setBackground(new java.awt.Color(42, 101, 158));
+        btnDinheiro.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        btnDinheiro.setForeground(new java.awt.Color(255, 255, 255));
+        btnDinheiro.setText("Dinheiro");
+        btnDinheiro.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDinheiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnDinheiroActionPerformed(evt);
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(42, 101, 158));
-        jButton6.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Pix");
-        jButton6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnPix.setBackground(new java.awt.Color(42, 101, 158));
+        btnPix.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        btnPix.setForeground(new java.awt.Color(255, 255, 255));
+        btnPix.setText("Pix");
+        btnPix.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnPix.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnPixActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(42, 101, 158));
-        jButton4.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Cartão de Crédito");
-        jButton4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCredito.setBackground(new java.awt.Color(42, 101, 158));
+        btnCredito.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        btnCredito.setForeground(new java.awt.Color(255, 255, 255));
+        btnCredito.setText("Cartão de Crédito");
+        btnCredito.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCredito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreditoActionPerformed(evt);
+            }
+        });
 
         cmbCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
@@ -338,15 +344,15 @@ public class frmFinal extends javax.swing.JInternalFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnPix, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(140, 140, 140)
                 .addComponent(bntPesquisarClient)
                 .addContainerGap())
@@ -365,12 +371,12 @@ public class frmFinal extends javax.swing.JInternalFrame {
                                 .addComponent(cmbCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnDinheiro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPix, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14))
         );
 
@@ -456,13 +462,13 @@ public class frmFinal extends javax.swing.JInternalFrame {
           
     }//GEN-LAST:event_formInternalFrameOpened
     
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void btnDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDebitoActionPerformed
+       tipoPagamento = "Cartão debito";
+    }//GEN-LAST:event_btnDebitoActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void btnPixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPixActionPerformed
+        tipoPagamento = "Pix";
+    }//GEN-LAST:event_btnPixActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         this.dispose();
@@ -490,9 +496,9 @@ public class frmFinal extends javax.swing.JInternalFrame {
             //        }
     }//GEN-LAST:event_bntPesquisarClient1ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void btnDinheiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDinheiroActionPerformed
+        tipoPagamento = "Dinheiro";
+    }//GEN-LAST:event_btnDinheiroActionPerformed
 
     private void btnFinalizarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarNotaActionPerformed
         if(cmbCliente.getSelectedIndex()==0) {
@@ -539,6 +545,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
                         +numFatura + "|"
                         +opcItemVal +"|"
                         +txtTotalFinal.getText()+"|"
+                        +tipoPagamento+"|"
                         +txtData.getText();
                 
                 
@@ -616,21 +623,25 @@ public class frmFinal extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_descontoFinalActionPerformed
 
+    private void btnCreditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreditoActionPerformed
+        tipoPagamento = "Cartão Credito";
+    }//GEN-LAST:event_btnCreditoActionPerformed
+
         
         
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntPesquisarClient;
     private javax.swing.JButton bntPesquisarClient1;
     private javax.swing.JButton btnAplicarTotal;
+    private javax.swing.JButton btnCredito;
+    private javax.swing.JButton btnDebito;
+    private javax.swing.JButton btnDinheiro;
     private javax.swing.JButton btnFinalizarNota;
+    private javax.swing.JButton btnPix;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JComboBox<String> cmbCliente;
     private javax.swing.JTextField descontoFinal;
     private javax.swing.JTextField entregaFinal;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
