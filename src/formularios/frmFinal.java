@@ -532,6 +532,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
         
         int numFatura = msDados.getNumeroFatura()+1;
         
+        
         FileWriter fw = null;
         PrintWriter pw = null;
             try {
@@ -541,16 +542,42 @@ public class frmFinal extends javax.swing.JInternalFrame {
                 var opcItemVal = (cmbCliente.getSelectedItem().toString());
                 //System.out.println("360 ---->" + opcItemVal);
                 
-                var auxiliar = "1|"
+                var auxiliar = "CUPOM:"
                         +numFatura + "|"
                         +opcItemVal +"|"
                         +txtTotalFinal.getText()+"|"
-                        +tipoPagamento+"|"
+                        +tipoPagamento+"DATA VENDA:"
                         +txtData.getText();
                 
+                var auxiliar1 = "CUPOM: "
+                        +numFatura + "\nDATA VENDA: "
+                        +txtData.getText();
                 
-                pw.println("----------------------------");                      
-                pw.println(auxiliar);
+                var auxiliar2 = "TOTAL DOS PRODUTOS: "
+                        +subTotalFinal.getText()+"\nTAXA DE ENTREGA: "
+                        +entregaFinal.getText()+ "\nTOTAL GERAL: "
+                        +txtTotalFinal.getText();
+                
+                var auxiliar3 = tipoPagamento +":"+txtTotalFinal.getText();
+                
+                var auxiliar4 = "TOTAL PAGO: "+txtTotalFinal.getText();
+                
+                
+                pw.println("----------------------------");  
+                pw.println("           Pizzaria         "); 
+                pw.println("   CNPJ;                    ");  
+                pw.println("   Local;                   "); 
+                pw.println("   Telefone;                ");  
+                pw.println("                            ");  
+                pw.println("----------------------------");
+                pw.println(auxiliar1);
+                pw.println("----------------------------");
+                pw.println(auxiliar2);
+                pw.println("----------------------------");
+                pw.println("    *FORMA DE PAGAMENTO*    "); 
+                pw.println(auxiliar3);
+                pw.println("----------------------------");
+                pw.println(auxiliar4);
                 pw.println("----------------------------");
              
 
@@ -571,6 +598,8 @@ public class frmFinal extends javax.swing.JInternalFrame {
             msDados.setNumeroFatura(numFatura);
             cmbCliente.setSelectedIndex(0);
             this.dispose();
+            
+
     }//GEN-LAST:event_btnFinalizarNotaActionPerformed
 
     //Função pega string e transforma em double, substituindo vírgulas por ponto

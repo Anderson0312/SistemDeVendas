@@ -1113,10 +1113,12 @@ public class frmPrincipal extends javax.swing.JFrame {
         for(int i = 0; i < jbuttons.length; i++) {
             jbuttons[i] = new JButton(msDados.getProdutos()[i].getDescircao());
             final Integer valor = Integer.valueOf(i);
+            jbuttons[i].setSize(300 , 300);
             jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-cerveja-40.png"))); // NOI18N
             jbuttons[i].setBackground(new java.awt.Color(204, 204, 204));
             jbuttons[i].setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
             jbuttons[i].setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
             //cria um evento diferente para cada butão do for
             jbuttons[i].addActionListener((java.awt.event.ActionEvent evt1) -> {
                 String registro[] = new String[4];
@@ -1245,6 +1247,9 @@ public class frmPrincipal extends javax.swing.JFrame {
     }
     
     
+
+    
+    
     
     /**
      * @param args the command line arguments
@@ -1348,7 +1353,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private org.netbeans.examples.lib.timerbean.Timer timer1;
     private org.netbeans.examples.lib.timerbean.Timer timer2;
     private javax.swing.JLabel txtData;
-    private javax.swing.JLabel txtNNota;
+    public javax.swing.JLabel txtNNota;
     private javax.swing.JLabel txtOperador;
     private javax.swing.JLabel txtValorTot;
     // End of variables declaration//GEN-END:variables
