@@ -5,10 +5,14 @@ import classes.Opcoes;
 import classes.Utilidades;
 import static formularios.frmPrincipal.total;
 import java.awt.Color;
+import java.awt.Graphics;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JToggleButton;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -463,11 +467,13 @@ public class frmFinal extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formInternalFrameOpened
     
     private void btnDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDebitoActionPerformed
-       tipoPagamento = "Cartão debito";
+       tipoPagamento = "Cartão Debito";
+       btnColor();
     }//GEN-LAST:event_btnDebitoActionPerformed
 
     private void btnPixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPixActionPerformed
         tipoPagamento = "Pix";
+        btnColor();
     }//GEN-LAST:event_btnPixActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
@@ -498,8 +504,46 @@ public class frmFinal extends javax.swing.JInternalFrame {
 
     private void btnDinheiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDinheiroActionPerformed
         tipoPagamento = "Dinheiro";
+        btnColor();
     }//GEN-LAST:event_btnDinheiroActionPerformed
 
+    public void btnColor(){
+        Color corSelect = new Color (223,223,223);
+        Color corDeselect = new Color (42,101,158);
+        if (null != tipoPagamento)switch (tipoPagamento) {
+            case "Dinheiro" -> {
+                btnDinheiro.setBackground(corSelect);
+                btnDebito.setBackground(corDeselect);
+                btnPix.setBackground(corDeselect);
+                btnCredito.setBackground(corDeselect);
+            }
+            case "Cartão Debito" -> {
+                btnDinheiro.setBackground(corDeselect);
+                btnDebito.setBackground(corSelect);
+                btnPix.setBackground(corDeselect);
+                btnCredito.setBackground(corDeselect);
+            }
+            case "Pix" -> {
+                btnDinheiro.setBackground(corDeselect);
+                btnDebito.setBackground(corDeselect);
+                btnPix.setBackground(corSelect);
+                btnCredito.setBackground(corDeselect);
+            }
+            case "Cartão Credito" -> {
+                btnDinheiro.setBackground(corDeselect);
+                btnDebito.setBackground(corDeselect);
+                btnPix.setBackground(corDeselect);
+                btnCredito.setBackground(corSelect);
+            }
+            default -> {
+                btnDinheiro.setBackground(corDeselect);
+                btnDebito.setBackground(corDeselect);
+                btnPix.setBackground(corDeselect);
+                btnDinheiro.setBackground(corDeselect);
+            }
+        }
+    }
+    
     private void btnFinalizarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarNotaActionPerformed
         if(cmbCliente.getSelectedIndex()==0) {
             JOptionPane.showMessageDialog(rootPane,"Favor Selecionar um cliente!");
@@ -567,6 +611,8 @@ public class frmFinal extends javax.swing.JInternalFrame {
                 }
             }
             
+            
+                     
             JOptionPane.showMessageDialog(rootPane,"Venda " + numFatura+ " REALIZADA COM SUCESSO!");
             msDados.setNumeroFatura(numFatura);
             cmbCliente.setSelectedIndex(0);
@@ -625,6 +671,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
 
     private void btnCreditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreditoActionPerformed
         tipoPagamento = "Cartão Credito";
+        btnColor();
     }//GEN-LAST:event_btnCreditoActionPerformed
 
         
