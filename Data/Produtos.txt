@@ -21,7 +21,7 @@
 35|Coca Cola|54.0|2|Refrigerante
 36|Sukita|54.0|2|Refrigerante
 37|Pepsi|54.0|2|Refrigerante
-28|Guarana Antartica|54.0|2|Refrigerante
+38|Guarana Antartica|54.0|2|Refrigerante
 40|Calabresa|12.0|1|Pizza
 41|Portuguesa|12.0|1|Pizza
 42|Frango Com Catupiri|12.0|1|Pizza
@@ -31,7 +31,7 @@
 46|Quatro queijo|12.0|1|Pizza
 47|Pepperoni|12.0|1|Pizza
 48|Atum|12.0|1|Pizza
-49|Peperone|12.0|1|Pizza
+49|ChocolateMorango|12.0|1|Pizza
 50|Prestígio|12.0|1|Pizza
 51|Sorvete|12.0|1|Pizza
 52|Romeu e Julieta|12.0|1|Pizza
