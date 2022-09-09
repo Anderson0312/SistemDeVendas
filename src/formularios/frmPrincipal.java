@@ -1,3 +1,4 @@
+
 package formularios;
 
 import classes.BackGround;
@@ -21,11 +22,14 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
+
+
 /**
  *
  * @author AndersoNMN
  */
 public class frmPrincipal extends javax.swing.JFrame {
+
 
     private int perfil;
     private String senha;
@@ -34,31 +38,31 @@ public class frmPrincipal extends javax.swing.JFrame {
     private DefaultTableModel mTablela;
     //colocar a quantidade de produtos que tem no banco qui
     private int numProdutos = 40;
-
+    
     public static String total;
-
+    
     private Dados_DB msDados_DB;
-
+    
     public void setDados(Dados msDados) {
         this.msDados = msDados;
     }
-
+    
     public void setDados_DB(Dados_DB msDados_DB) {
         this.msDados_DB = msDados_DB;
     }
-
-    public void setSenha(String senha) {
+    
+    public void setSenha (String senha) {
         this.senha = senha;
     }
-
-    public void setUsuario(String usuario) {
+    
+    public void setUsuario (String usuario) {
         this.usuario = usuario;
     }
-
-    public void setPerfil(int perfil) {
+    
+    public void  setPerfil(int perfil){
         this.perfil = perfil;
     }
-
+    
     public frmPrincipal() {
         initComponents();
         //metodo para atualizar o componente de hora automaticamente
@@ -838,7 +842,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
+    
     private void mnuArquivoUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivoUsuariosActionPerformed
         frmUsuarios mUsuarios = new frmUsuarios();
         mUsuarios.setDados(msDados);
@@ -857,8 +861,8 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         frmClientes mClientes = new frmClientes();
         mClientes.setDados(msDados);
-        dpnDesk.add(mClientes);
-
+        dpnDesk.add(mClientes);   
+        
         mClientes.show();
 
     }//GEN-LAST:event_mnuArquivoClientesActionPerformed
@@ -869,20 +873,20 @@ public class frmPrincipal extends javax.swing.JFrame {
         panelRefriger.setVisible(false);
         panelSuco.setVisible(false);
         panelCerveja.setVisible(false);
-
-        ((BackGround) dpnDesk).setImage("/images/background.jpg"); // setando a imagagem de fundo do formulario principal
+        
+        ((BackGround)dpnDesk).setImage("/images/background.jpg"); // setando a imagagem de fundo do formulario principal
         if (perfil == 2) { // verificação do usuario(usuario comum não pode acessar todas areas)
             mnuArquivoClientes.setEnabled(false);
             mnuArquivoProdutos.setEnabled(false);
             mnuArquivoUsuarios.setEnabled(false);
             mnuMovimentRlVenda.setEnabled(false);
         }
-
+        
         TabelaVenda();
-        txtOperador.setText(usuario);
+        txtOperador.setText(usuario);   
         txtNNota.setText("1");
     }//GEN-LAST:event_formWindowOpened
-
+    
     // botão para sair do sistema
     private void mnuArquivoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivoSairActionPerformed
         msDados.salvarDados();
@@ -921,33 +925,32 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     private void mnuMovimentNvVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMovimentNvVendaActionPerformed
         frmFaturamento MVenda = new frmFaturamento();
-
+        
         MVenda.setDados(msDados);
-        dpnDesk.add(MVenda);
-
+        dpnDesk.add(MVenda);   
+        
         MVenda.show();
     }//GEN-LAST:event_mnuMovimentNvVendaActionPerformed
-
+       
     private void btnPizzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizzaActionPerformed
         //habilita o painel com todas opções de pizzas  
         panelRefriger.setVisible(false);
         panelSuco.setVisible(false);
         panelPizza.setVisible(true);
         panelCerveja.setVisible(false);
-
+        
         int but = 24;
-        for (int i = 0; i < numProdutos; i++) {
+        for (int i = 0; i< numProdutos; i++) {
             int quanti = msDados.getProdutos()[i].getCategoria();
-            if (quanti == 1) {
-                but += 1;
-            }
-        }
+            if (quanti == 1)
+                but +=1;             
+        }   
         // cria a lista de butoes de acordo com a quantidade preordenada
         JButton jbuttons[] = new JButton[but];
-
+        
         panelPizza.removeAll();
-
-        for (int i = 24; i < jbuttons.length; i++) {
+        
+        for(int i = 24; i < jbuttons.length; i++) {
             jbuttons[i] = new JButton(msDados.getProdutos()[i].getDescircao());
             final Integer valor = Integer.valueOf(i);
             jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
@@ -957,39 +960,42 @@ public class frmPrincipal extends javax.swing.JFrame {
             //cria um evento diferente para cada butão do for
             jbuttons[i].addActionListener((java.awt.event.ActionEvent evt1) -> {
                 String registro[] = new String[4];
-
+                
                 registro[0] = msDados.getProdutos()[valor].getIdProduto();
                 registro[1] = msDados.getProdutos()[valor].getAnotacao();
                 registro[2] = msDados.getProdutos()[valor].getDescircao();
                 registro[3] = "" + msDados.getProdutos()[valor].getPreco();
-
+                
                 mTablela.addRow(registro);
                 tblDetalhesVenda.setModel(mTablela);
                 totais();
             });
             panelPizza.add(jbuttons[i]);
+            
 
         }
-
+        
         panelPizza.validate();
         panelPizza.repaint();
-
+        
     }//GEN-LAST:event_btnPizzaActionPerformed
 
     //função para adicionar um produto no formulario
-    private void addProdForm(int i) {
-        String registro[] = new String[4];
+    private void addProdForm(int i){
+            String registro[] = new String[4];
 
-        registro[0] = msDados.getProdutos()[i].getIdProduto();
-        registro[1] = msDados.getProdutos()[i].getAnotacao();
-        registro[2] = msDados.getProdutos()[i].getDescircao();
-        registro[3] = "" + msDados.getProdutos()[i].getPreco();
+                registro[0] = msDados.getProdutos()[i].getIdProduto();
+                registro[1] = msDados.getProdutos()[i].getAnotacao();
+                registro[2] = msDados.getProdutos()[i].getDescircao();
+                registro[3] = "" + msDados.getProdutos()[i].getPreco();
+                
 
-        mTablela.addRow(registro);
-        tblDetalhesVenda.setModel(mTablela);
-        totais();
+            
+            mTablela.addRow(registro);
+            tblDetalhesVenda.setModel(mTablela);
+            totais();
     }
-
+    
     private void btnRefriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefriActionPerformed
         //habilita o painel com todas opções de pizzas 
         panelPizza.setVisible(false);
@@ -997,19 +1003,18 @@ public class frmPrincipal extends javax.swing.JFrame {
         panelRefriger.setVisible(true);
         panelCerveja.setVisible(false);
         int but = 15;
-        for (int i = 0; i < numProdutos; i++) {
+        for (int i = 0; i< numProdutos; i++) {
             int quanti = msDados.getProdutos()[i].getCategoria();
             // se a categoria for 2 que é igual a refrigerante some mais 1
-            if (quanti == 2) {
-                but += 1;
-            }
-        }
+            if (quanti == 2)
+                but +=1;             
+        }   
         // cria a lista de butoes de acordo com a quantidade preordenada
         JButton jbuttons[] = new JButton[but];
-
+        
         panelRefriger.removeAll();
-
-        for (int i = 15; i < jbuttons.length; i++) {
+        
+        for(int i = 15; i < jbuttons.length; i++) {
             jbuttons[i] = new JButton(msDados.getProdutos()[i].getDescircao());
             final Integer valor = Integer.valueOf(i);
             jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
@@ -1019,24 +1024,28 @@ public class frmPrincipal extends javax.swing.JFrame {
             //cria um evento diferente para cada butão do for
             jbuttons[i].addActionListener((java.awt.event.ActionEvent evt1) -> {
                 String registro[] = new String[4];
-
+                
                 registro[0] = msDados.getProdutos()[valor].getIdProduto();
                 registro[1] = msDados.getProdutos()[valor].getAnotacao();
                 registro[2] = msDados.getProdutos()[valor].getDescircao();
                 registro[3] = "" + msDados.getProdutos()[valor].getPreco();
-
+                
+                
+                
                 mTablela.addRow(registro);
                 tblDetalhesVenda.setModel(mTablela);
                 totais();
             });
             panelRefriger.add(jbuttons[i]);
+            
 
         }
-
+        
         panelRefriger.validate();
         panelRefriger.repaint();
 
-
+        
+        
     }//GEN-LAST:event_btnRefriActionPerformed
 
     private void btnSucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSucoActionPerformed
@@ -1045,18 +1054,17 @@ public class frmPrincipal extends javax.swing.JFrame {
         panelSuco.setVisible(true);
         panelCerveja.setVisible(false);
         int but = 8;
-        for (int i = 0; i < numProdutos; i++) {
+        for (int i = 0; i< numProdutos; i++) {
             int quanti = msDados.getProdutos()[i].getCategoria();
-            if (quanti == 3) {
-                but += 1;
-            }
-        }
+            if (quanti == 3)
+                but +=1;             
+        }   
         // cria a lista de butoes de acordo com a quantidade preordenada
         JButton jbuttons[] = new JButton[but];
-
+        
         panelSuco.removeAll();
-
-        for (int i = 8; i < jbuttons.length; i++) {
+        
+        for(int i = 8; i < jbuttons.length; i++) {
             jbuttons[i] = new JButton(msDados.getProdutos()[i].getDescircao());
             final Integer valor = Integer.valueOf(i);
             jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-sumo-de-laranja-40.png"))); // NOI18N
@@ -1066,20 +1074,21 @@ public class frmPrincipal extends javax.swing.JFrame {
             //cria um evento diferente para cada butão do for
             jbuttons[i].addActionListener((java.awt.event.ActionEvent evt1) -> {
                 String registro[] = new String[4];
-
+                
                 registro[0] = msDados.getProdutos()[valor].getIdProduto();
                 registro[1] = msDados.getProdutos()[valor].getAnotacao();
                 registro[2] = msDados.getProdutos()[valor].getDescircao();
                 registro[3] = "" + msDados.getProdutos()[valor].getPreco();
-
+                
                 mTablela.addRow(registro);
                 tblDetalhesVenda.setModel(mTablela);
                 totais();
             });
             panelSuco.add(jbuttons[i]);
+            
 
         }
-
+        
         panelSuco.validate();
         panelSuco.repaint();
     }//GEN-LAST:event_btnSucoActionPerformed
@@ -1089,50 +1098,52 @@ public class frmPrincipal extends javax.swing.JFrame {
         panelRefriger.setVisible(false);
         panelSuco.setVisible(false);
         panelCerveja.setVisible(true);
-
+        
         int but = 0;
-        for (int i = 0; i < numProdutos; i++) {
+        for (int i = 0; i< numProdutos; i++) {
             int quanti = msDados.getProdutos()[i].getCategoria();
-            if (quanti == 4) {
-                but += 1;
-            }
-        }
+            if (quanti == 4)
+                but +=1;             
+        }   
         // cria a lista de butoes de acordo com a quantidade preordenada
         JButton jbuttons[] = new JButton[but];
-
+        
         panelCerveja.removeAll();
-
-        for (int i = 0; i < jbuttons.length; i++) {
+        
+        for(int i = 0; i < jbuttons.length; i++) {
             jbuttons[i] = new JButton(msDados.getProdutos()[i].getDescircao());
             final Integer valor = Integer.valueOf(i);
+            jbuttons[i].setSize(300 , 300);
             jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-cerveja-40.png"))); // NOI18N
             jbuttons[i].setBackground(new java.awt.Color(204, 204, 204));
             jbuttons[i].setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
             jbuttons[i].setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
             //cria um evento diferente para cada butão do for
             jbuttons[i].addActionListener((java.awt.event.ActionEvent evt1) -> {
                 String registro[] = new String[4];
-
+                
                 registro[0] = msDados.getProdutos()[valor].getIdProduto();
                 registro[1] = msDados.getProdutos()[valor].getAnotacao();
                 registro[2] = msDados.getProdutos()[valor].getDescircao();
                 registro[3] = "" + msDados.getProdutos()[valor].getPreco();
-
+                
                 mTablela.addRow(registro);
                 tblDetalhesVenda.setModel(mTablela);
                 totais();
             });
             panelCerveja.add(jbuttons[i]);
+            
 
         }
-
+        
         panelCerveja.validate();
         panelCerveja.repaint();
 
     }//GEN-LAST:event_btnCervejaActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        String titulos[] = {"ID Produto", "Descrição", "Nome", "Preço"};
+        String titulos[] =  {"ID Produto", "Descrição","Nome", "Preço"};
 
         mTablela = new DefaultTableModel(null, titulos);
         tblDetalhesVenda.setModel(mTablela);
@@ -1143,8 +1154,8 @@ public class frmPrincipal extends javax.swing.JFrame {
         frmFinal mFinal = new frmFinal();
         total = txtValorTot.getText();
         mFinal.setDados(msDados);
-        dpnDesk.add(mFinal);
-                               
+        dpnDesk.add(mFinal);   
+
         mFinal.show();
 
     }//GEN-LAST:event_btnFinalizarActionPerformed
@@ -1188,57 +1199,58 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     private void timer2OnTime(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timer2OnTime
         int numFatura = msDados.getNumeroFatura();
-        int numNota = Integer.parseInt(txtNNota.getText());
-        if ((numFatura + 1) != numNota)limparTablea();
-        txtNNota.setText("" + (numFatura + 1));
-      
+        txtNNota.setText("" + (numFatura+1));
+              
     }//GEN-LAST:event_timer2OnTime
 
     //Cria os titulos da tabela de venda 
-    private void TabelaVenda() {
-        String titulos[] = {"ID Produto", "Descrição", "Nome", "Preço"};
+    private void TabelaVenda(){
+        String titulos[] =  {"ID Produto", "Descrição","Nome", "Preço"};
 
         mTablela = new DefaultTableModel(null, titulos);
 
         tblDetalhesVenda.setModel(mTablela);
-
+        
         DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();
         dtcr.setHorizontalAlignment(SwingConstants.RIGHT); // Metodo para alinha os item a direita
         tblDetalhesVenda.getColumnModel().getColumn(1).setCellRenderer(dtcr);
         tblDetalhesVenda.getColumnModel().getColumn(2).setCellRenderer(dtcr);
         tblDetalhesVenda.getColumnModel().getColumn(3).setCellRenderer(dtcr);
     }
-
+    
+    
     //Para fazer a soma do valor total e quantidade toda de produtos
     public void totais() {
         int num = tblDetalhesVenda.getRowCount();
-        double somaQuant = 0, somaVal = 0;
-        for (int i = 0; i < num; i++) {
+        double somaQuant = 0, somaVal=0;
+        for (int i = 0; i<num; i++) {
             //somaQuant += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 3));
             somaVal += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 3));
         }
-
+        
         DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
         //txtValorTot.setText("" + somaQuant);
         var formatado = decimalFormat.format(somaVal);
         txtValorTot.setText("" + formatado);
 
     }
-
-    public void limparTablea() {
+    
+    public void limparTablea(){
         try {
-            DefaultTableModel modelo = (DefaultTableModel) tblDetalhesVenda.getModel();
+            DefaultTableModel modelo = (DefaultTableModel)tblDetalhesVenda.getModel();
             int Linha = tblDetalhesVenda.getRowCount();
-            for (int i = 0; Linha > i; i++) {
+            for(int i = 0; Linha> i; i++){
                 modelo.removeRow(0);
             }
         } catch (Exception e) {
         }
-        txtValorTot.setText("0,00");
     }
-
+    
     
 
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -1341,9 +1353,12 @@ public class frmPrincipal extends javax.swing.JFrame {
     private org.netbeans.examples.lib.timerbean.Timer timer1;
     private org.netbeans.examples.lib.timerbean.Timer timer2;
     private javax.swing.JLabel txtData;
-    private javax.swing.JLabel txtNNota;
+    public javax.swing.JLabel txtNNota;
     private javax.swing.JLabel txtOperador;
     private javax.swing.JLabel txtValorTot;
     // End of variables declaration//GEN-END:variables
 
+   
+    
+    
 }
