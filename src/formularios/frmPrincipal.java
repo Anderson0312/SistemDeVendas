@@ -953,7 +953,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         for(int i = 24; i < jbuttons.length; i++) {
             jbuttons[i] = new JButton(msDados.getProdutos()[i].getDescircao());
             final Integer valor = Integer.valueOf(i);
-            jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+            jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgProdutos/"+(i+16)+".png"))); // NOI18N
             jbuttons[i].setBackground(new java.awt.Color(204, 204, 204));
             jbuttons[i].setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
             jbuttons[i].setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -1017,7 +1017,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         for(int i = 15; i < jbuttons.length; i++) {
             jbuttons[i] = new JButton(msDados.getProdutos()[i].getDescircao());
             final Integer valor = Integer.valueOf(i);
-            jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+            jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgProdutos/"+(i+15)+".png"))); // NOI18N
             jbuttons[i].setBackground(new java.awt.Color(204, 204, 204));
             jbuttons[i].setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
             jbuttons[i].setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -1067,7 +1067,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         for(int i = 8; i < jbuttons.length; i++) {
             jbuttons[i] = new JButton(msDados.getProdutos()[i].getDescircao());
             final Integer valor = Integer.valueOf(i);
-            jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-sumo-de-laranja-40.png"))); // NOI18N
+            jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgProdutos/"+(i+12)+".png"))); // NOI18N
             jbuttons[i].setBackground(new java.awt.Color(204, 204, 204));
             jbuttons[i].setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
             jbuttons[i].setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -1114,7 +1114,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             jbuttons[i] = new JButton(msDados.getProdutos()[i].getDescircao());
             final Integer valor = Integer.valueOf(i);
             jbuttons[i].setSize(300 , 300);
-            jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-cerveja-40.png"))); // NOI18N
+            jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgProdutos/"+(i+1)+".png"))); // NOI18N
             jbuttons[i].setBackground(new java.awt.Color(204, 204, 204));
             jbuttons[i].setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
             jbuttons[i].setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
