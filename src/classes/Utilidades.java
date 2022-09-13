@@ -31,6 +31,14 @@ public class Utilidades {
 		 return dataEmTexto;
     }
     
+    public static String getDataHora(){
+        Date dataHoraAtual = new Date();
+        String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
+        String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
+        
+        return hora;
+    }
+    
     public static int objectToInt(Object Obj) {
         int NumInt = Integer.parseInt(objectToString(Obj));
         return NumInt;
@@ -54,6 +62,21 @@ public class Utilidades {
             Str = Obj.toString();
         }
         return Str;
+    }
+    
+    //Função pega string e transforma em double, substituindo vírgulas por ponto
+    public double fixMoney(String s){
+        char c[] = s.toCharArray();
+        int size = s.length();
+        for(int i = 1; i < size; i++)
+        {
+            if (c[i] == ',') c[i] = '.';
+        }
+        String str = String.valueOf(c);
+        
+        double d = Double.parseDouble(str);
+              
+        return d;
     }
     
     

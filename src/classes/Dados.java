@@ -202,7 +202,7 @@ public class Dados {
         public String editarProduto(Produto mProduto, int pos) {
             mProdutos[pos].setDescircao(mProduto.getDescircao());
             mProdutos[pos].setPreco(mProduto.getPreco());
-            mProdutos[pos].setImposto(mProduto.getImposto());
+            mProdutos[pos].setImposto(mProduto.getCategoria());
             mProdutos[pos].setAnotacao(mProduto.getAnotacao());
             return "Produto Editado com sucesso!!";
         }

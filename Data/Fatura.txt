@@ -1,14 +1,19 @@
 ----------------------------
-1|1|andersonMoura|2022-07-27
+           Pizzaria         
+   CNPJ;                    
+   Local;                   
+   Telefone;                
+                            
 ----------------------------
-2|1|carne|23.4|3|70.19999999999999
-2|3|biscoito|12.0|4|48.0
+CUPOM: 1
+DATA VENDA: 2022-09-09
 ----------------------------
-1|2|viniciusgomes|2022-07-27
+TOTAL DOS PRODUTOS: 
+TAXA DE ENTREGA: 0
+TOTAL GERAL: 90,00
 ----------------------------
-2|1|carne|23.4|2|46.8
-2|4|guarana|15.0|4|60.0
+    *FORMA DE PAGAMENTO*    
+Dinheiro:90,00
 ----------------------------
-1|1|andersonMoura|2022-07-27
+TOTAL PAGO: 90,00
 ----------------------------
-2|2|arroz|54.0|3|162.0

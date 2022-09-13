@@ -25,6 +25,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
     
     public frmProdutos() {
         initComponents();
+        
     }
 
     /**
@@ -108,11 +109,16 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         txtPreco.setEnabled(false);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setText("Imposto");
+        jLabel5.setText("Categoria");
 
         impImposto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        impImposto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0%", "10%", "15%" }));
+        impImposto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolha a categoria", "Pizza", "Refrigerante", "Suco", "Cervejas" }));
         impImposto.setEnabled(false);
+        impImposto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                impImpostoActionPerformed(evt);
+            }
+        });
 
         btnCadastroAnterior.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnCadastroAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-anterior-36.png"))); // NOI18N
@@ -225,7 +231,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
                                         .addComponent(btnSalvarCadastro)
                                         .addGap(18, 18, 18)
                                         .addComponent(btnExcluirCadastro)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                                         .addComponent(btnCancelarCadastro)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(btnPesquisarCadastro))
@@ -310,7 +316,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         txtDescrcao.setText(msDados.getProdutos()[prodAtual].getDescircao());
         txtPreco.setText("" + msDados.getProdutos()[prodAtual].getPreco());
         txtAnotacao.setText(msDados.getProdutos()[prodAtual].getAnotacao());
-        impImposto.setSelectedIndex(msDados.getProdutos()[prodAtual].getImposto());
+        impImposto.setSelectedIndex(msDados.getProdutos()[prodAtual].getCategoria());
         
     }
     
@@ -518,8 +524,12 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_formInternalFrameOpened
 
+    private void impImpostoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_impImpostoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_impImpostoActionPerformed
+
     private void preencherTabela(){
-        String titulos[] =  {"ID Produto", "Nome", "Preço", "Imposto", "Anotação"};
+        String titulos[] =  {"ID Produto", "Nome", "Preço", "Descrição", "Categoria"};
         String registro[] = new String[5];
         mTablela = new DefaultTableModel(null, titulos);
         for(int i =0; i < msDados.numeroProdutos(); i++) {
@@ -527,7 +537,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
             registro[1] = msDados.getProdutos()[i].getDescircao();
             registro[2] = "" + msDados.getProdutos()[i].getPreco();
             registro[3] = msDados.getProdutos()[i].getAnotacao(); 
-            registro[4] = Imposto(msDados.getProdutos()[i].getImposto());
+            registro[4] = Categoria(msDados.getProdutos()[i].getCategoria());
             
             mTablela.addRow(registro);
             
@@ -535,16 +545,22 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         tblTabela.setModel(mTablela);
     }
                              
-    private String Imposto(int idImposto){
+    private String Categoria(int idImposto){
         switch (idImposto) {
             case 0:
-                return "0%";
+                return "";
             
             case 1:
-                return "10%";
+                return "Pizza";
             
             case 2:
-                return "15%";
+                return "Refrigerante";
+            
+            case 3:
+                return "Suco";
+            
+            case 4:
+                return "Cerveja";
             
             default:
                     return "Não definido";

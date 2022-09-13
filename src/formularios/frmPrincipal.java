@@ -2,20 +2,53 @@
 package formularios;
 
 import classes.BackGround;
+
 import classes.Dados;
+import classes.Dados_DB;
+import classes.Utilidades;
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+
+
 
 /**
  *
  * @author AndersoNMN
  */
 public class frmPrincipal extends javax.swing.JFrame {
+
+
     private int perfil;
     private String senha;
     private String usuario;
     private Dados msDados;
+    private DefaultTableModel mTablela;
+    //colocar a quantidade de produtos que tem no banco qui
+    private int numProdutos = 40;
+    
+    public static String total;
+    
+    private Dados_DB msDados_DB;
     
     public void setDados(Dados msDados) {
         this.msDados = msDados;
+    }
+    
+    public void setDados_DB(Dados_DB msDados_DB) {
+        this.msDados_DB = msDados_DB;
     }
     
     public void setSenha (String senha) {
@@ -32,6 +65,10 @@ public class frmPrincipal extends javax.swing.JFrame {
     
     public frmPrincipal() {
         initComponents();
+        //metodo para atualizar o componente de hora automaticamente
+        timer1.start();
+        timer2.start();
+        //centralizarContainer(panelPrincipla ,panelPizza);
     }
 
     /**
@@ -43,7 +80,61 @@ public class frmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        timer1 = new org.netbeans.examples.lib.timerbean.Timer();
+        timer2 = new org.netbeans.examples.lib.timerbean.Timer();
         dpnDesk = new BackGround();
+        jPanel1 = new javax.swing.JPanel();
+        btnPizza = new javax.swing.JButton();
+        btnSuco = new javax.swing.JButton();
+        btnRefri = new javax.swing.JButton();
+        btnCerveja = new javax.swing.JButton();
+        txtOperador = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        txtData = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        txtValorTot = new javax.swing.JLabel();
+        R$ = new javax.swing.JLabel();
+        btnFinalizar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblDetalhesVenda = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        txtNNota = new javax.swing.JLabel();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        panelPrincipla = new javax.swing.JPanel();
+        panelPizza = new javax.swing.JPanel();
+        btnPizza1 = new javax.swing.JButton();
+        btnPizza6 = new javax.swing.JButton();
+        btnPizza3 = new javax.swing.JButton();
+        btnPizza7 = new javax.swing.JButton();
+        btnPizza2 = new javax.swing.JButton();
+        btnPizza5 = new javax.swing.JButton();
+        panelRefriger = new javax.swing.JPanel();
+        btnPizza4 = new javax.swing.JButton();
+        btnPizza8 = new javax.swing.JButton();
+        btnPizza9 = new javax.swing.JButton();
+        btnPizza10 = new javax.swing.JButton();
+        btnPizza11 = new javax.swing.JButton();
+        btnPizza12 = new javax.swing.JButton();
+        panelSuco = new javax.swing.JPanel();
+        btnPizza13 = new javax.swing.JButton();
+        btnPizza14 = new javax.swing.JButton();
+        btnPizza15 = new javax.swing.JButton();
+        btnPizza16 = new javax.swing.JButton();
+        btnPizza17 = new javax.swing.JButton();
+        btnPizza18 = new javax.swing.JButton();
+        panelCerveja = new javax.swing.JPanel();
+        btnPizza19 = new javax.swing.JButton();
+        btnPizza20 = new javax.swing.JButton();
+        btnPizza21 = new javax.swing.JButton();
+        btnPizza22 = new javax.swing.JButton();
+        btnPizza23 = new javax.swing.JButton();
+        btnPizza24 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuArquivo = new javax.swing.JMenu();
         mnuArquivoClientes = new javax.swing.JMenuItem();
@@ -55,11 +146,22 @@ public class frmPrincipal extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         mnuArquivoSair = new javax.swing.JMenuItem();
         mnuMoviment = new javax.swing.JMenu();
-        mnuMovimentNvVenda = new javax.swing.JMenuItem();
         mnuMovimentRlVenda = new javax.swing.JMenuItem();
         mnuAjuda = new javax.swing.JMenu();
         mnuAjudaSobre = new javax.swing.JMenuItem();
         mnuAjudaAjuda = new javax.swing.JMenuItem();
+
+        timer1.addTimerListener(new org.netbeans.examples.lib.timerbean.TimerListener() {
+            public void onTime(java.awt.event.ActionEvent evt) {
+                timer1OnTime(evt);
+            }
+        });
+
+        timer2.addTimerListener(new org.netbeans.examples.lib.timerbean.TimerListener() {
+            public void onTime(java.awt.event.ActionEvent evt) {
+                timer2OnTime(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de vendas");
@@ -70,16 +172,540 @@ public class frmPrincipal extends javax.swing.JFrame {
         });
 
         dpnDesk.setBackground(new java.awt.Color(204, 204, 255));
+        dpnDesk.setPreferredSize(new java.awt.Dimension(1380, 720));
+
+        jPanel1.setBackground(new java.awt.Color(42, 101, 158));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+
+        btnPizza.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza.setText("Pizzas");
+        btnPizza.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnPizza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPizzaActionPerformed(evt);
+            }
+        });
+
+        btnSuco.setBackground(new java.awt.Color(204, 204, 204));
+        btnSuco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-sumo-de-laranja-40.png"))); // NOI18N
+        btnSuco.setText("Suco");
+        btnSuco.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnSuco.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnSuco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSucoActionPerformed(evt);
+            }
+        });
+
+        btnRefri.setBackground(new java.awt.Color(204, 204, 204));
+        btnRefri.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnRefri.setText("Refrigerante");
+        btnRefri.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnRefri.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnRefri.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefriActionPerformed(evt);
+            }
+        });
+
+        btnCerveja.setBackground(new java.awt.Color(204, 204, 204));
+        btnCerveja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-cerveja-40.png"))); // NOI18N
+        btnCerveja.setText("Cerveja");
+        btnCerveja.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCerveja.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnCerveja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCervejaActionPerformed(evt);
+            }
+        });
+
+        txtOperador.setBackground(new java.awt.Color(255, 255, 255));
+        txtOperador.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Operador:");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtOperador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCerveja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnSuco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnRefri, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                            .addComponent(btnPizza, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(btnPizza, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnRefri, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSuco, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnCerveja, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 259, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtOperador, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
+        );
+
+        jPanel2.setBackground(new java.awt.Color(42, 101, 158));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("TOTAL:");
+
+        txtData.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        txtData.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txtData, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txtData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        txtValorTot.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        txtValorTot.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtValorTot.setText("00,00");
+        txtValorTot.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        R$.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        R$.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        R$.setText("R$");
+        R$.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(R$, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtValorTot, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(101, 101, 101))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtValorTot, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                    .addComponent(R$, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        btnFinalizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-salvar-e-fechar-36.png"))); // NOI18N
+        btnFinalizar.setText("FInalizar");
+        btnFinalizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinalizarActionPerformed(evt);
+            }
+        });
+
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-remove-properties-36.png"))); // NOI18N
+        btnCancelar.setText("Limpar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+
+        tblDetalhesVenda.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblDetalhesVenda);
+
+        jLabel3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Pizzaria SENAC");
+
+        jLabel4.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Nota N°");
+
+        txtNNota.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        txtNNota.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtNNota.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txtNNota, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txtNNota, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(145, 145, 145)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnFinalizar))
+                            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(17, 17, 17))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel4)))
+                .addGap(23, 23, 23)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnFinalizar)
+                    .addComponent(btnCancelar))
+                .addContainerGap(130, Short.MAX_VALUE))
+        );
+
+        jLayeredPane1.setPreferredSize(new java.awt.Dimension(1200, 900));
+
+        panelPrincipla.setBackground(new java.awt.Color(197, 36, 43));
+        panelPrincipla.setDoubleBuffered(false);
+        panelPrincipla.setInheritsPopupMenu(true);
+        panelPrincipla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelPizza.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        panelPizza.setPreferredSize(new java.awt.Dimension(500, 76));
+        panelPizza.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentRemoved(java.awt.event.ContainerEvent evt) {
+                panelPizzaComponentRemoved(evt);
+            }
+        });
+
+        btnPizza1.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza1.setText("Pizzas");
+        btnPizza1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnPizza1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPizza1ActionPerformed(evt);
+            }
+        });
+        panelPizza.add(btnPizza1);
+
+        btnPizza6.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza6.setText("Pizzas");
+        btnPizza6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelPizza.add(btnPizza6);
+
+        btnPizza3.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza3.setText("Pizzas");
+        btnPizza3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelPizza.add(btnPizza3);
+
+        btnPizza7.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza7.setText("Pizzas");
+        btnPizza7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelPizza.add(btnPizza7);
+
+        btnPizza2.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza2.setText("Pizzas");
+        btnPizza2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelPizza.add(btnPizza2);
+
+        btnPizza5.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza5.setText("Pizzas");
+        btnPizza5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelPizza.add(btnPizza5);
+
+        panelPrincipla.add(panelPizza, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 690, 650));
+
+        panelRefriger.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        panelRefriger.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentRemoved(java.awt.event.ContainerEvent evt) {
+                panelRefrigerComponentRemoved(evt);
+            }
+        });
+
+        btnPizza4.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza4.setText("Refrigerante");
+        btnPizza4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnPizza4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPizza4ActionPerformed(evt);
+            }
+        });
+        panelRefriger.add(btnPizza4);
+
+        btnPizza8.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza8.setText("Refrigerante");
+        btnPizza8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelRefriger.add(btnPizza8);
+
+        btnPizza9.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza9.setText("Refrigerante");
+        btnPizza9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza9.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelRefriger.add(btnPizza9);
+
+        btnPizza10.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza10.setText("Refrigerante");
+        btnPizza10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza10.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelRefriger.add(btnPizza10);
+
+        btnPizza11.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza11.setText("Refrigerante");
+        btnPizza11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza11.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelRefriger.add(btnPizza11);
+
+        btnPizza12.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza12.setText("Refrigerante");
+        btnPizza12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza12.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelRefriger.add(btnPizza12);
+
+        panelPrincipla.add(panelRefriger, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 10, 690, 650));
+
+        panelSuco.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        panelSuco.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentRemoved(java.awt.event.ContainerEvent evt) {
+                panelSucoComponentRemoved(evt);
+            }
+        });
+
+        btnPizza13.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza13.setText("Refrigerante");
+        btnPizza13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza13.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnPizza13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPizza13ActionPerformed(evt);
+            }
+        });
+        panelSuco.add(btnPizza13);
+
+        btnPizza14.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza14.setText("Refrigerante");
+        btnPizza14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza14.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelSuco.add(btnPizza14);
+
+        btnPizza15.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza15.setText("Refrigerante");
+        btnPizza15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza15.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelSuco.add(btnPizza15);
+
+        btnPizza16.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza16.setText("Refrigerante");
+        btnPizza16.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza16.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelSuco.add(btnPizza16);
+
+        btnPizza17.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza17.setText("Refrigerante");
+        btnPizza17.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza17.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelSuco.add(btnPizza17);
+
+        btnPizza18.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-soda-can-40.png"))); // NOI18N
+        btnPizza18.setText("Refrigerante");
+        btnPizza18.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza18.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelSuco.add(btnPizza18);
+
+        panelPrincipla.add(panelSuco, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 690, 650));
+
+        panelCerveja.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        panelCerveja.setPreferredSize(new java.awt.Dimension(500, 76));
+        panelCerveja.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentRemoved(java.awt.event.ContainerEvent evt) {
+                panelCervejaComponentRemoved(evt);
+            }
+        });
+
+        btnPizza19.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza19.setText("Pizzas");
+        btnPizza19.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza19.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnPizza19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPizza19ActionPerformed(evt);
+            }
+        });
+        panelCerveja.add(btnPizza19);
+
+        btnPizza20.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza20.setText("Pizzas");
+        btnPizza20.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza20.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelCerveja.add(btnPizza20);
+
+        btnPizza21.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza21.setText("Pizzas");
+        btnPizza21.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza21.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelCerveja.add(btnPizza21);
+
+        btnPizza22.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza22.setText("Pizzas");
+        btnPizza22.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza22.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelCerveja.add(btnPizza22);
+
+        btnPizza23.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza23.setText("Pizzas");
+        btnPizza23.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza23.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelCerveja.add(btnPizza23);
+
+        btnPizza24.setBackground(new java.awt.Color(204, 204, 204));
+        btnPizza24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-pizza-40.png"))); // NOI18N
+        btnPizza24.setText("Pizzas");
+        btnPizza24.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPizza24.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        panelCerveja.add(btnPizza24);
+
+        panelPrincipla.add(panelCerveja, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 690, 650));
+
+        jLayeredPane1.setLayer(panelPrincipla, javax.swing.JLayeredPane.MODAL_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        jLayeredPane1.setLayout(jLayeredPane1Layout);
+        jLayeredPane1Layout.setHorizontalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelPrincipla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jLayeredPane1Layout.setVerticalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelPrincipla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        dpnDesk.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dpnDesk.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        dpnDesk.setLayer(jLayeredPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout dpnDeskLayout = new javax.swing.GroupLayout(dpnDesk);
         dpnDesk.setLayout(dpnDeskLayout);
         dpnDeskLayout.setHorizontalGroup(
             dpnDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 867, Short.MAX_VALUE)
+            .addGroup(dpnDeskLayout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 761, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         dpnDeskLayout.setVerticalGroup(
             dpnDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 530, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(dpnDeskLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         mnuArquivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/arquivosicon.png"))); // NOI18N
@@ -154,16 +780,6 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuMoviment.setText("Movimentos");
         mnuMoviment.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        mnuMovimentNvVenda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        mnuMovimentNvVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Product-sale.png"))); // NOI18N
-        mnuMovimentNvVenda.setText("Nova Venda");
-        mnuMovimentNvVenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuMovimentNvVendaActionPerformed(evt);
-            }
-        });
-        mnuMoviment.add(mnuMovimentNvVenda);
-
         mnuMovimentRlVenda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         mnuMovimentRlVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/analytics-36.png"))); // NOI18N
         mnuMovimentRlVenda.setText("Relatorio Venda");
@@ -204,17 +820,18 @@ public class frmPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(dpnDesk)
+                .addComponent(dpnDesk, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dpnDesk)
+            .addComponent(dpnDesk, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void mnuArquivoUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivoUsuariosActionPerformed
         frmUsuarios mUsuarios = new frmUsuarios();
         mUsuarios.setDados(msDados);
@@ -240,6 +857,12 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuArquivoClientesActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+
+        panelPizza.setVisible(false);
+        panelRefriger.setVisible(false);
+        panelSuco.setVisible(false);
+        panelCerveja.setVisible(false);
+        
         ((BackGround)dpnDesk).setImage("/images/background.jpg"); // setando a imagagem de fundo do formulario principal
         if (perfil == 2) { // verificação do usuario(usuario comum não pode acessar todas areas)
             mnuArquivoClientes.setEnabled(false);
@@ -247,6 +870,10 @@ public class frmPrincipal extends javax.swing.JFrame {
             mnuArquivoUsuarios.setEnabled(false);
             mnuMovimentRlVenda.setEnabled(false);
         }
+        
+        TabelaVenda();
+        txtOperador.setText(usuario);   
+        txtNNota.setText("1");
     }//GEN-LAST:event_formWindowOpened
     
     // botão para sair do sistema
@@ -284,16 +911,326 @@ public class frmPrincipal extends javax.swing.JFrame {
         mAjuda.setLocationRelativeTo(this);
         mAjuda.setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_mnuAjudaAjudaActionPerformed
-
-    private void mnuMovimentNvVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMovimentNvVendaActionPerformed
-        frmFaturamento MVenda = new frmFaturamento();
+       
+    private void btnPizzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizzaActionPerformed
+        //habilita o painel com todas opções de pizzas  
+        panelRefriger.setVisible(false);
+        panelSuco.setVisible(false);
+        panelPizza.setVisible(true);
+        panelCerveja.setVisible(false);
         
-        MVenda.setDados(msDados);
-        dpnDesk.add(MVenda);   
+        int but = 24;
+        for (int i = 0; i< numProdutos; i++) {
+            int quanti = msDados.getProdutos()[i].getCategoria();
+            if (quanti == 1)
+                but +=1;             
+        }   
+        // cria a lista de butoes de acordo com a quantidade preordenada
+        JButton jbuttons[] = new JButton[but];
         
-        MVenda.show();
-    }//GEN-LAST:event_mnuMovimentNvVendaActionPerformed
+        panelPizza.removeAll();
+        
+        for(int i = 24; i < jbuttons.length; i++) {
+            jbuttons[i] = new JButton(msDados.getProdutos()[i].getDescircao());
+            final Integer valor = Integer.valueOf(i);
+            jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgProdutos/"+(i+16)+".png"))); // NOI18N
+            jbuttons[i].setBackground(new java.awt.Color(204, 204, 204));
+            jbuttons[i].setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            jbuttons[i].setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+            //cria um evento diferente para cada butão do for
+            jbuttons[i].addActionListener((java.awt.event.ActionEvent evt1) -> {
+                String registro[] = new String[4];
+                
+                registro[0] = msDados.getProdutos()[valor].getIdProduto();
+                registro[1] = msDados.getProdutos()[valor].getAnotacao();
+                registro[2] = msDados.getProdutos()[valor].getDescircao();
+                registro[3] = "" + msDados.getProdutos()[valor].getPreco();
+                
+                mTablela.addRow(registro);
+                tblDetalhesVenda.setModel(mTablela);
+                totais();
+            });
+            panelPizza.add(jbuttons[i]);
+            
 
+        }
+        
+        panelPizza.validate();
+        panelPizza.repaint();
+        
+    }//GEN-LAST:event_btnPizzaActionPerformed
+
+    //função para adicionar um produto no formulario
+    private void addProdForm(int i){
+            String registro[] = new String[4];
+
+                registro[0] = msDados.getProdutos()[i].getIdProduto();
+                registro[1] = msDados.getProdutos()[i].getAnotacao();
+                registro[2] = msDados.getProdutos()[i].getDescircao();
+                registro[3] = "" + msDados.getProdutos()[i].getPreco();
+                
+
+            
+            mTablela.addRow(registro);
+            tblDetalhesVenda.setModel(mTablela);
+            totais();
+    }
+    
+    private void btnRefriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefriActionPerformed
+        //habilita o painel com todas opções de pizzas 
+        panelPizza.setVisible(false);
+        panelSuco.setVisible(false);
+        panelRefriger.setVisible(true);
+        panelCerveja.setVisible(false);
+        int but = 15;
+        for (int i = 0; i< numProdutos; i++) {
+            int quanti = msDados.getProdutos()[i].getCategoria();
+            // se a categoria for 2 que é igual a refrigerante some mais 1
+            if (quanti == 2)
+                but +=1;             
+        }   
+        // cria a lista de butoes de acordo com a quantidade preordenada
+        JButton jbuttons[] = new JButton[but];
+        
+        panelRefriger.removeAll();
+        
+        for(int i = 15; i < jbuttons.length; i++) {
+            jbuttons[i] = new JButton(msDados.getProdutos()[i].getDescircao());
+            final Integer valor = Integer.valueOf(i);
+            jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgProdutos/"+(i+15)+".png"))); // NOI18N
+            jbuttons[i].setBackground(new java.awt.Color(204, 204, 204));
+            jbuttons[i].setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            jbuttons[i].setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+            //cria um evento diferente para cada butão do for
+            jbuttons[i].addActionListener((java.awt.event.ActionEvent evt1) -> {
+                String registro[] = new String[4];
+                
+                registro[0] = msDados.getProdutos()[valor].getIdProduto();
+                registro[1] = msDados.getProdutos()[valor].getAnotacao();
+                registro[2] = msDados.getProdutos()[valor].getDescircao();
+                registro[3] = "" + msDados.getProdutos()[valor].getPreco();
+                
+                
+                
+                mTablela.addRow(registro);
+                tblDetalhesVenda.setModel(mTablela);
+                totais();
+            });
+            panelRefriger.add(jbuttons[i]);
+            
+
+        }
+        
+        panelRefriger.validate();
+        panelRefriger.repaint();
+
+        
+        
+    }//GEN-LAST:event_btnRefriActionPerformed
+
+    private void btnSucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSucoActionPerformed
+        panelPizza.setVisible(false);
+        panelRefriger.setVisible(false);
+        panelSuco.setVisible(true);
+        panelCerveja.setVisible(false);
+        int but = 8;
+        for (int i = 0; i< numProdutos; i++) {
+            int quanti = msDados.getProdutos()[i].getCategoria();
+            if (quanti == 3)
+                but +=1;             
+        }   
+        // cria a lista de butoes de acordo com a quantidade preordenada
+        JButton jbuttons[] = new JButton[but];
+        
+        panelSuco.removeAll();
+        
+        for(int i = 8; i < jbuttons.length; i++) {
+            jbuttons[i] = new JButton(msDados.getProdutos()[i].getDescircao());
+            final Integer valor = Integer.valueOf(i);
+            jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgProdutos/"+(i+12)+".png"))); // NOI18N
+            jbuttons[i].setBackground(new java.awt.Color(204, 204, 204));
+            jbuttons[i].setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            jbuttons[i].setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+            //cria um evento diferente para cada butão do for
+            jbuttons[i].addActionListener((java.awt.event.ActionEvent evt1) -> {
+                String registro[] = new String[4];
+                
+                registro[0] = msDados.getProdutos()[valor].getIdProduto();
+                registro[1] = msDados.getProdutos()[valor].getAnotacao();
+                registro[2] = msDados.getProdutos()[valor].getDescircao();
+                registro[3] = "" + msDados.getProdutos()[valor].getPreco();
+                
+                mTablela.addRow(registro);
+                tblDetalhesVenda.setModel(mTablela);
+                totais();
+            });
+            panelSuco.add(jbuttons[i]);
+            
+
+        }
+        
+        panelSuco.validate();
+        panelSuco.repaint();
+    }//GEN-LAST:event_btnSucoActionPerformed
+
+    private void btnCervejaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCervejaActionPerformed
+        panelPizza.setVisible(false);
+        panelRefriger.setVisible(false);
+        panelSuco.setVisible(false);
+        panelCerveja.setVisible(true);
+        
+        int but = 0;
+        for (int i = 0; i< numProdutos; i++) {
+            int quanti = msDados.getProdutos()[i].getCategoria();
+            if (quanti == 4)
+                but +=1;             
+        }   
+        // cria a lista de butoes de acordo com a quantidade preordenada
+        JButton jbuttons[] = new JButton[but];
+        
+        panelCerveja.removeAll();
+        
+        for(int i = 0; i < jbuttons.length; i++) {
+            jbuttons[i] = new JButton(msDados.getProdutos()[i].getDescircao());
+            final Integer valor = Integer.valueOf(i);
+            jbuttons[i].setSize(300 , 300);
+            jbuttons[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgProdutos/"+(i+1)+".png"))); // NOI18N
+            jbuttons[i].setBackground(new java.awt.Color(204, 204, 204));
+            jbuttons[i].setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            jbuttons[i].setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+            //cria um evento diferente para cada butão do for
+            jbuttons[i].addActionListener((java.awt.event.ActionEvent evt1) -> {
+                String registro[] = new String[4];
+                
+                registro[0] = msDados.getProdutos()[valor].getIdProduto();
+                registro[1] = msDados.getProdutos()[valor].getAnotacao();
+                registro[2] = msDados.getProdutos()[valor].getDescircao();
+                registro[3] = "" + msDados.getProdutos()[valor].getPreco();
+                
+                mTablela.addRow(registro);
+                tblDetalhesVenda.setModel(mTablela);
+                totais();
+            });
+            panelCerveja.add(jbuttons[i]);
+            
+
+        }
+        
+        panelCerveja.validate();
+        panelCerveja.repaint();
+
+    }//GEN-LAST:event_btnCervejaActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        String titulos[] =  {"ID Produto", "Descrição","Nome", "Preço"};
+
+        mTablela = new DefaultTableModel(null, titulos);
+        tblDetalhesVenda.setModel(mTablela);
+        txtValorTot.setText("0,00");
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
+        frmFinal mFinal = new frmFinal();
+        total = txtValorTot.getText();
+        mFinal.setDados(msDados);
+        dpnDesk.add(mFinal);   
+
+        mFinal.show();
+
+    }//GEN-LAST:event_btnFinalizarActionPerformed
+
+    //calsse para atualizar setar a hora e atualizar auto
+    private void timer1OnTime(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timer1OnTime
+        txtData.setText(Utilidades.getDataHora());
+    }//GEN-LAST:event_timer1OnTime
+
+    private void panelCervejaComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_panelCervejaComponentRemoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelCervejaComponentRemoved
+
+    private void btnPizza19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizza19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPizza19ActionPerformed
+
+    private void panelSucoComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_panelSucoComponentRemoved
+
+    }//GEN-LAST:event_panelSucoComponentRemoved
+
+    private void btnPizza13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizza13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPizza13ActionPerformed
+
+    private void panelRefrigerComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_panelRefrigerComponentRemoved
+
+    }//GEN-LAST:event_panelRefrigerComponentRemoved
+
+    private void btnPizza4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizza4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPizza4ActionPerformed
+
+    private void panelPizzaComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_panelPizzaComponentRemoved
+
+    }//GEN-LAST:event_panelPizzaComponentRemoved
+
+    private void btnPizza1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizza1ActionPerformed
+
+    }//GEN-LAST:event_btnPizza1ActionPerformed
+
+    private void timer2OnTime(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timer2OnTime
+        int numFatura = msDados.getNumeroFatura();
+        txtNNota.setText("" + (numFatura+1));
+              
+    }//GEN-LAST:event_timer2OnTime
+
+    //Cria os titulos da tabela de venda 
+    private void TabelaVenda(){
+        String titulos[] =  {"ID Produto", "Descrição","Nome", "Preço"};
+
+        mTablela = new DefaultTableModel(null, titulos);
+
+        tblDetalhesVenda.setModel(mTablela);
+        
+        DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();
+        dtcr.setHorizontalAlignment(SwingConstants.RIGHT); // Metodo para alinha os item a direita
+        tblDetalhesVenda.getColumnModel().getColumn(1).setCellRenderer(dtcr);
+        tblDetalhesVenda.getColumnModel().getColumn(2).setCellRenderer(dtcr);
+        tblDetalhesVenda.getColumnModel().getColumn(3).setCellRenderer(dtcr);
+    }
+    
+    
+    //Para fazer a soma do valor total e quantidade toda de produtos
+    public void totais() {
+        int num = tblDetalhesVenda.getRowCount();
+        double somaQuant = 0, somaVal=0;
+        for (int i = 0; i<num; i++) {
+            //somaQuant += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 3));
+            somaVal += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 3));
+        }
+        
+        DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+        //txtValorTot.setText("" + somaQuant);
+        var formatado = decimalFormat.format(somaVal);
+        txtValorTot.setText("" + formatado);
+
+    }
+    
+    public void limparTablea(){
+        try {
+            DefaultTableModel modelo = (DefaultTableModel)tblDetalhesVenda.getModel();
+            int Linha = tblDetalhesVenda.getRowCount();
+            for(int i = 0; Linha> i; i++){
+                modelo.removeRow(0);
+            }
+        } catch (Exception e) {
+        }
+    }
+    
+    
+
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -322,16 +1259,56 @@ public class frmPrincipal extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frmPrincipal().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new frmPrincipal().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel R$;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnCerveja;
+    private javax.swing.JButton btnFinalizar;
+    private javax.swing.JButton btnPizza;
+    private javax.swing.JButton btnPizza1;
+    private javax.swing.JButton btnPizza10;
+    private javax.swing.JButton btnPizza11;
+    private javax.swing.JButton btnPizza12;
+    javax.swing.JButton btnPizza13;
+    private javax.swing.JButton btnPizza14;
+    private javax.swing.JButton btnPizza15;
+    private javax.swing.JButton btnPizza16;
+    private javax.swing.JButton btnPizza17;
+    private javax.swing.JButton btnPizza18;
+    private javax.swing.JButton btnPizza19;
+    private javax.swing.JButton btnPizza2;
+    private javax.swing.JButton btnPizza20;
+    private javax.swing.JButton btnPizza21;
+    private javax.swing.JButton btnPizza22;
+    private javax.swing.JButton btnPizza23;
+    private javax.swing.JButton btnPizza24;
+    private javax.swing.JButton btnPizza3;
+    javax.swing.JButton btnPizza4;
+    private javax.swing.JButton btnPizza5;
+    private javax.swing.JButton btnPizza6;
+    private javax.swing.JButton btnPizza7;
+    private javax.swing.JButton btnPizza8;
+    private javax.swing.JButton btnPizza9;
+    private javax.swing.JButton btnRefri;
+    private javax.swing.JButton btnSuco;
     private javax.swing.JDesktopPane dpnDesk;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JMenu mnuAjuda;
@@ -345,9 +1322,22 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuArquivoTUsuario;
     private javax.swing.JMenuItem mnuArquivoUsuarios;
     private javax.swing.JMenu mnuMoviment;
-    private javax.swing.JMenuItem mnuMovimentNvVenda;
     private javax.swing.JMenuItem mnuMovimentRlVenda;
+    private javax.swing.JPanel panelCerveja;
+    private javax.swing.JPanel panelPizza;
+    private javax.swing.JPanel panelPrincipla;
+    private javax.swing.JPanel panelRefriger;
+    private javax.swing.JPanel panelSuco;
+    private javax.swing.JTable tblDetalhesVenda;
+    private org.netbeans.examples.lib.timerbean.Timer timer1;
+    private org.netbeans.examples.lib.timerbean.Timer timer2;
+    private javax.swing.JLabel txtData;
+    public javax.swing.JLabel txtNNota;
+    private javax.swing.JLabel txtOperador;
+    private javax.swing.JLabel txtValorTot;
     // End of variables declaration//GEN-END:variables
 
+   
+    
     
 }
