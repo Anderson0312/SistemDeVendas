@@ -4,7 +4,6 @@ package formularios;
 import classes.Dados;
 import classes.Dados_DB;
 import java.awt.Color;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -162,7 +161,7 @@ public class frmLogin1 extends javax.swing.JFrame {
         mPrincipal.setPerfil(msDados.getPerfil(txtUsuario.getText()));
         mPrincipal.setSenha(new String(txtSenha.getPassword()));
         mPrincipal.setUsuario(txtUsuario.getText());
-        mPrincipal.setLocationRelativeTo(null);
+        mPrincipal.setLocationRelativeTo(null); // // sete o frame no meio do windows
         //mPrincipal.setExtendedState(MAXIMIZED_BOTH); // seta o frame de formulario principal como tamanho maximo da tela
         mPrincipal.setVisible(true); // seta a visibilidade dele como true para mostrar na tela
 

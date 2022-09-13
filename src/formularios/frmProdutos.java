@@ -3,7 +3,6 @@ package formularios;
 
 import classes.Dados;
 import classes.Produto;
-import classes.Usuario;
 import classes.Utilidades;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;

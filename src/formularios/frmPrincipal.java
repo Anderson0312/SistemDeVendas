@@ -6,17 +6,7 @@ import classes.BackGround;
 import classes.Dados;
 import classes.Dados_DB;
 import classes.Utilidades;
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.text.DecimalFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -832,6 +822,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
+    
     private void mnuArquivoUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivoUsuariosActionPerformed
         frmUsuarios mUsuarios = new frmUsuarios();
         mUsuarios.setDados(msDados);
@@ -919,6 +910,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         panelPizza.setVisible(true);
         panelCerveja.setVisible(false);
         
+        // o BUT foi setado como esse numero pois o primeiro ID de pizza começa no 40 etão o for tem que varrer a lista ate chegar no 40
         int but = 24;
         for (int i = 0; i< numProdutos; i++) {
             int quanti = msDados.getProdutos()[i].getCategoria();
@@ -930,6 +922,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         
         panelPizza.removeAll();
         
+        // for para ordernar e criar os butoes dinamicamente de acordo com o tamanho da lista
         for(int i = 24; i < jbuttons.length; i++) {
             jbuttons[i] = new JButton(msDados.getProdutos()[i].getDescircao());
             final Integer valor = Integer.valueOf(i);
@@ -1122,6 +1115,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnCervejaActionPerformed
 
+    //Função para limpar a tabela de produtos , toda vez que e chamada remove todos itens e recria a tabela
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         String titulos[] =  {"ID Produto", "Descrição","Nome", "Preço"};
 
@@ -1130,6 +1124,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         txtValorTot.setText("0,00");
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    //Chama a tabela de finalizar pedido
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
         frmFinal mFinal = new frmFinal();
         total = txtValorTot.getText();
@@ -1177,6 +1172,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnPizza1ActionPerformed
 
+    //Função fica Verificando se de 1 em 1 segundo se ha atualização na nota fiscal, se tem ele altera no frmPrincipal 
     private void timer2OnTime(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timer2OnTime
         int numFatura = msDados.getNumeroFatura();
         txtNNota.setText("" + (numFatura+1));
@@ -1203,6 +1199,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     public void totais() {
         int num = tblDetalhesVenda.getRowCount();
         double somaQuant = 0, somaVal=0;
+        //varre toda tabela de produtos pegando o valor de todos os produtos 
         for (int i = 0; i<num; i++) {
             //somaQuant += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 3));
             somaVal += Utilidades.objectToDouble(tblDetalhesVenda.getValueAt(i, 3));
@@ -1215,6 +1212,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     }
     
+    //Função apra limpar tabela
     public void limparTablea(){
         try {
             DefaultTableModel modelo = (DefaultTableModel)tblDetalhesVenda.getModel();
