@@ -5,14 +5,10 @@ import classes.Opcoes;
 import classes.Utilidades;
 import static formularios.frmPrincipal.total;
 import java.awt.Color;
-import java.awt.Graphics;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.JToggleButton;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,16 +17,18 @@ import javax.swing.table.DefaultTableModel;
  */
 public class frmFinal extends javax.swing.JInternalFrame {
     
-    private Dados msDados;
-    private DefaultTableModel mTablela; 
-    public String tipoPagamento; 
+    private Dados msDados; //Banco de dados
+    //private DefaultTableModel mTablela; //Função não utilizada
+    public String tipoPagamento; //Define o método de pagamento
     
+    //Construct do Banco de Dados
     public void setDados(Dados msDados) {
         this.msDados = msDados;
     }
 
     /**
      * Creates new form frmFaturamento
+     * Criar e põe cor no formulario
      */
     public frmFinal() {
         initComponents();
@@ -438,7 +436,9 @@ public class frmFinal extends javax.swing.JInternalFrame {
         setBounds(0, 0, 780, 528);
     }// </editor-fold>//GEN-END:initComponents
 
+    //Função que lida com labels e menus do Form Final
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+        //Parte responsável pelo menu dropdown de clientes
         Opcoes opc = new Opcoes("andersonmoura812@gmail.com", "Selecione um cliente");
         cmbCliente.addItem(opc.toString());
 
@@ -450,8 +450,10 @@ public class frmFinal extends javax.swing.JInternalFrame {
                   cmbCliente.addItem(opc.toString());
         }        
          
+        //Determina data
         txtData.setText(Utilidades.getDate());
-                
+        
+        //Determina valor de subTotal
         char c[] = total.toCharArray();
         int size = total.length();
         for(int i = 1; i < size; i++)
@@ -466,16 +468,19 @@ public class frmFinal extends javax.swing.JInternalFrame {
           
     }//GEN-LAST:event_formInternalFrameOpened
     
+    //Botão que seta opção de - Método de pagamento
     private void btnDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDebitoActionPerformed
        tipoPagamento = "Cartão Debito";
        btnColor();
     }//GEN-LAST:event_btnDebitoActionPerformed
 
+    //Botão que seta opção de - Método de pagamento
     private void btnPixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPixActionPerformed
         tipoPagamento = "Pix";
         btnColor();
     }//GEN-LAST:event_btnPixActionPerformed
 
+    //Botão de voltar
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
@@ -484,6 +489,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_bntPesquisarClientActionPerformed
 
+    //Função que lida com pesquisa de cliente
     private void bntPesquisarClient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntPesquisarClient1ActionPerformed
         frmPesqClient mPesqCliente;
         mPesqCliente = new frmPesqClient(null, closable);
@@ -502,11 +508,13 @@ public class frmFinal extends javax.swing.JInternalFrame {
             //        }
     }//GEN-LAST:event_bntPesquisarClient1ActionPerformed
 
+    //Botão que seta opção de - Método de pagamento
     private void btnDinheiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDinheiroActionPerformed
         tipoPagamento = "Dinheiro";
         btnColor();
     }//GEN-LAST:event_btnDinheiroActionPerformed
 
+    //Quando um botão está selecionado ele fica com cor diferente. Deseleciona os outros.
     public void btnColor(){
         Color corSelect = new Color (223,223,223);
         Color corDeselect = new Color (42,101,158);
@@ -544,7 +552,9 @@ public class frmFinal extends javax.swing.JInternalFrame {
         }
     }
     
+    
     private void btnFinalizarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarNotaActionPerformed
+        //Mensagens de erro e feedback
         if(cmbCliente.getSelectedIndex()==0) {
             JOptionPane.showMessageDialog(rootPane,"Favor Selecionar um cliente!");
             cmbCliente.requestFocusInWindow();
@@ -576,7 +586,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
         
         int numFatura = msDados.getNumeroFatura()+1;
         
-        
+        //Imprime Nota
         FileWriter fw = null;
         PrintWriter pw = null;
             try {
@@ -664,6 +674,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
     }
     
     private void btnAplicarTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarTotalActionPerformed
+        //Mensagens de erros
         if(descontoFinal.getText().equals("")) {
             JOptionPane.showMessageDialog(rootPane,"Favor adicione um valor de desconto ou 0!");
             descontoFinal.requestFocusInWindow();
@@ -676,6 +687,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
             return;
         }
         
+        //Calcula o Total final da venda
         String entrega = entregaFinal.getText();
         double entregaD = fixMoney(entrega);
         double desconto = Double.valueOf(descontoFinal.getText()).doubleValue();
@@ -683,6 +695,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
         
         double totalFinal = entregaD + (subtotal - ((desconto / 100) * subtotal));
         
+        //Formata valor para dinheiro no padrão - R$00.00
         DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
         //txtValorTot.setText("" + somaQuant);
         var formatadoValFinal = decimalFormat.format(totalFinal);
@@ -698,6 +711,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_descontoFinalActionPerformed
 
+    //Botão que seta opção de - Método de pagamento
     private void btnCreditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreditoActionPerformed
         tipoPagamento = "Cartão Credito";
         btnColor();
@@ -739,7 +753,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
         
 
 //Cria os titulos da tabela de venda 
-    private void preencherTabelaVenda(){
+//   private void preencherTabelaVenda(){
 //        String titulos[] =  {"ID Produto", "Descrição", "Preço", "Quantidade", "Valor"};
 //        String registro[] = new String[5];
 //        mTablela = new DefaultTableModel(null, titulos);
@@ -750,11 +764,12 @@ public class frmFinal extends javax.swing.JInternalFrame {
 //        tblDetalhesVenda.getColumnModel().getColumn(2).setCellRenderer(dtcr);
 //        tblDetalhesVenda.getColumnModel().getColumn(3).setCellRenderer(dtcr);
 //        tblDetalhesVenda.getColumnModel().getColumn(4).setCellRenderer(dtcr);
-    }
+
+
+}
+   
+    
     
 
-    
-    
-}
 
 
