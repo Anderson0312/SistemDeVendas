@@ -146,7 +146,6 @@ public class frmPrincipal extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         mnuArquivoSair = new javax.swing.JMenuItem();
         mnuMoviment = new javax.swing.JMenu();
-        mnuMovimentNvVenda = new javax.swing.JMenuItem();
         mnuMovimentRlVenda = new javax.swing.JMenuItem();
         mnuAjuda = new javax.swing.JMenu();
         mnuAjudaSobre = new javax.swing.JMenuItem();
@@ -781,16 +780,6 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuMoviment.setText("Movimentos");
         mnuMoviment.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        mnuMovimentNvVenda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        mnuMovimentNvVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Product-sale.png"))); // NOI18N
-        mnuMovimentNvVenda.setText("Nova Venda");
-        mnuMovimentNvVenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuMovimentNvVendaActionPerformed(evt);
-            }
-        });
-        mnuMoviment.add(mnuMovimentNvVenda);
-
         mnuMovimentRlVenda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         mnuMovimentRlVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/analytics-36.png"))); // NOI18N
         mnuMovimentRlVenda.setText("Relatorio Venda");
@@ -922,15 +911,6 @@ public class frmPrincipal extends javax.swing.JFrame {
         mAjuda.setLocationRelativeTo(this);
         mAjuda.setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_mnuAjudaAjudaActionPerformed
-
-    private void mnuMovimentNvVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMovimentNvVendaActionPerformed
-        frmFaturamento MVenda = new frmFaturamento();
-        
-        MVenda.setDados(msDados);
-        dpnDesk.add(MVenda);   
-        
-        MVenda.show();
-    }//GEN-LAST:event_mnuMovimentNvVendaActionPerformed
        
     private void btnPizzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPizzaActionPerformed
         //habilita o painel com todas opções de pizzas  
@@ -1342,7 +1322,6 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuArquivoTUsuario;
     private javax.swing.JMenuItem mnuArquivoUsuarios;
     private javax.swing.JMenu mnuMoviment;
-    private javax.swing.JMenuItem mnuMovimentNvVenda;
     private javax.swing.JMenuItem mnuMovimentRlVenda;
     private javax.swing.JPanel panelCerveja;
     private javax.swing.JPanel panelPizza;
