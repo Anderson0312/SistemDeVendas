@@ -1,40 +1,40 @@
-1|Antartica|23.4|4|Cerveja
-2|Brahma|23.4|4|Cerveja
-3|Glacial|23.4|4|Cerveja
-4|Hineken|23.4|4|Cerveja
-5|Skol|23.4|4|Cerveja
-6|Istela|23.4|4|Cerveja
-7|Amstel|23.4|4|Cerveja
-8|Itaipava|23.4|4|Cerveja
-20|suco de Laranja|15.0|3|suco
-21|suco de Uva|15.0|3|suco
-22|suco de Limão|15.0|3|suco
-23|suco de Morango|15.0|3|suco
-24|suco de Pessego|15.0|3|suco
-25|suco de Maracuja|15.0|3|suco
-26|suco de Caju|15.0|3|suco
-30|Coca Cola|54.0|2|Refrigerante
-31|Fanta laranja|54.0|2|Refrigerante
-32|Fanta uva|54.0|2|Refrigerante
-33|fanta guarana|54.0|2|Refrigerante
-34|Sprite|54.0|2|Refrigerante
-35|Coca Cola|54.0|2|Refrigerante
-36|Sukita|54.0|2|Refrigerante
-37|Pepsi|54.0|2|Refrigerante
-38|Guarana Antartica|54.0|2|Refrigerante
-40|Calabresa|12.0|1|Pizza
-41|Portuguesa|12.0|1|Pizza
-42|Frango Com Catupiri|12.0|1|Pizza
-43|Marguerita|12.0|1|Pizza
-44|Carne seca|12.0|1|Pizza
-45|Mussarela|12.0|1|Pizza
-46|Quatro queijo|12.0|1|Pizza
-47|Pepperoni|12.0|1|Pizza
-48|Atum|12.0|1|Pizza
-49|ChocolateMorango|12.0|1|Pizza
-50|Prestígio|12.0|1|Pizza
-51|Sorvete|12.0|1|Pizza
-52|Romeu e Julieta|12.0|1|Pizza
-53|Brigadeiro|12.0|1|Pizza
-54|Banana|12.0|1|Pizza
-55|Chocolate|12.0|1|Pizza
+1|Antartica|9.9|4|Cerveja
+2|Brahma|11.9|4|Cerveja
+3|Glacial|3.9|4|Cerveja
+4|Hineken|12.9|4|Cerveja
+5|Skol|9.9|4|Cerveja
+6|Istela|9.9|4|Cerveja
+7|Amstel|10.9|4|Cerveja
+8|Itaipava|6.5|4|Cerveja
+20|Suco de Laranja|10.5|3|suco
+21|Suco de Uva|10.5|3|suco
+22|Suco de Limão|10.5|3|suco
+23|Suco de Morango|10.5|3|suco
+24|Suco de Pessego|10.5|3|suco
+25|Suco de Maracuja|10.5|3|suco
+26|Suco de Caju|6.5|3|suco
+30|Coca Cola|6.19|2|Refrigerante
+31|Fanta Laranja|6.19|2|Refrigerante
+32|Fanta Uva|6.19|2|Refrigerante
+33|Fanta Guarana|6.19|2|Refrigerante
+34|Sprite|6.19|2|Refrigerante
+35|Coca Cola|6.19|2|Refrigerante
+36|Sukita|6.19|2|Refrigerante
+37|Pepsi|6.19|2|Refrigerante
+38|Guarana Antartica|6.19|2|Refrigerante
+40|Calabresa|54.9|1|Pizza
+41|Portuguesa|54.9|1|Pizza
+42|Frango Com Catupiri|54.9|1|Pizza
+43|Marguerita|54.9|1|Pizza
+44|Carne Seca|54.9|1|Pizza
+45|Mussarela|54.9|1|Pizza
+46|Quatro Queijo|54.9|1|Pizza
+47|Pepperoni|54.9|1|Pizza
+48|Atum|54.9|1|Pizza
+49|ChocolateMorango|54.9|1|Pizza
+50|Prestígio|54.9|1|Pizza
+51|Sorvete|54.9|1|Pizza
+52|Romeu e Julieta|54.9|1|Pizza
+53|Brigadeiro|54.9|1|Pizza
+54|Banana|54.9|1|Pizza
+55|Chocolate|54.9|1|Pizza
