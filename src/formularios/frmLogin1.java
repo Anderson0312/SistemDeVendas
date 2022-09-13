@@ -149,7 +149,7 @@ public class frmLogin1 extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         
-        if(!msDados_DB.validarUsuario(txtUsuario.getText(), new String(txtSenha.getPassword()))) { // faz a verificação de usuario
+        if(!msDados.validarUsuario(txtUsuario.getText(), new String(txtSenha.getPassword()))) { // faz a verificação de usuario
             JOptionPane.showMessageDialog(rootPane,"Usuario e senha incorretas"); // se o usuario for incorreto mostra uma caixa de texto
             txtUsuario.setText(""); // reseta o conteudo das caixas
             txtSenha.setText("");
@@ -159,14 +159,10 @@ public class frmLogin1 extends javax.swing.JFrame {
         frmPrincipal mPrincipal = new frmPrincipal(); // chama a classe de frmPrincipal e cria a variavel mPrincipa 
         this.setVisible(false); // set o frame de login com falso para tirar ele da tela
         mPrincipal.setDados(msDados);
-        
-        mPrincipal.setDados_DB(msDados_DB);
-        
-        mPrincipal.setPerfil(msDados_DB.getPerfil(txtUsuario.getText()));
+        mPrincipal.setPerfil(msDados.getPerfil(txtUsuario.getText()));
         mPrincipal.setSenha(new String(txtSenha.getPassword()));
         mPrincipal.setUsuario(txtUsuario.getText());
-        mPrincipal.setLocationRelativeTo(null);
-        //mPrincipal.setExtendedState(); // seta o frame de formulario principal como tamanho maximo da tela
+        mPrincipal.setExtendedState(MAXIMIZED_BOTH); // seta o frame de formulario principal como tamanho maximo da tela
         mPrincipal.setVisible(true); // seta a visibilidade dele como true para mostrar na tela
 
     }//GEN-LAST:event_btnEntrarActionPerformed
