@@ -673,7 +673,22 @@ public class frmFinal extends javax.swing.JInternalFrame {
         return d;
     }
     
-    private void btnAplicarTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarTotalActionPerformed
+     
+    //Funçao de teste do Final
+    public double testeFinal(double entregaTest, double descontoTest){
+        //Calcula o Total final da venda
+        String entrega = Double.toString(entregaTest);
+        double entregaD = fixMoney(entrega);
+        double desconto = descontoTest;
+        
+        double subtotal = 100.00;
+        
+        double totalTest = entregaD + (subtotal - ((desconto / 100) * subtotal));
+        
+        return totalTest;
+    }
+   
+    public void btnAplicarTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarTotalActionPerformed
         //Mensagens de erros
         if(descontoFinal.getText().equals("")) {
             JOptionPane.showMessageDialog(rootPane,"Favor adicione um valor de desconto ou 0!");
@@ -767,7 +782,8 @@ public class frmFinal extends javax.swing.JInternalFrame {
 
 
 }
-   
+
+
     
     
 
