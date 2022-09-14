@@ -684,6 +684,7 @@ public class frmFinal extends javax.swing.JInternalFrame {
         double subtotal = 100.00;
         
         double totalTest = entregaD + (subtotal - ((desconto / 100) * subtotal));
+        //int totalT = (int) totalTest;
         
         return totalTest;
     }
