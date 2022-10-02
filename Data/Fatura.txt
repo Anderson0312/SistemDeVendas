@@ -36,3 +36,364 @@ Dinheiro:21,14
 ----------------------------
 TOTAL PAGO: 21,14
 ----------------------------
+----------------------------
+           Pizzaria         
+   CNPJ;                    
+   Local;                   
+   Telefone;                
+                            
+----------------------------
+CUPOM: 1
+DATA VENDA: 2022-10-01
+----------------------------
+TOTAL DOS PRODUTOS: 
+TAXA DE ENTREGA: 5
+TOTAL GERAL: 248,54
+----------------------------
+    *FORMA DE PAGAMENTO*    
+Dinheiro:248,54
+----------------------------
+TOTAL PAGO: 248,54
+----------------------------
+----------------------------
+           Pizzaria         
+   CNPJ;                    
+   Local;                   
+   Telefone;                
+                            
+----------------------------
+CUPOM: 1
+DATA VENDA: 2022-10-01
+----------------------------
+TOTAL DOS PRODUTOS: 
+TAXA DE ENTREGA: 0
+TOTAL GERAL: 219,60
+----------------------------
+    *FORMA DE PAGAMENTO*    
+Dinheiro:219,60
+----------------------------
+TOTAL PAGO: 219,60
+----------------------------
+----------------------------
+           Pizzaria         
+   CNPJ;                    
+   Local;                   
+   Telefone;                
+                            
+----------------------------
+CUPOM: 1
+DATA VENDA: 2022-10-01
+----------------------------
+TOTAL DOS PRODUTOS: 
+TAXA DE ENTREGA: 2
+TOTAL GERAL: 55,80
+----------------------------
+    *FORMA DE PAGAMENTO*    
+Dinheiro:55,80
+----------------------------
+TOTAL PAGO: 55,80
+----------------------------
+----------------------------
+           Pizzaria         
+   CNPJ;                    
+   Local;                   
+   Telefone;                
+                            
+----------------------------
+CUPOM: 1
+DATA VENDA: 2022-10-01
+----------------------------
+TOTAL DOS PRODUTOS: 
+TAXA DE ENTREGA: 2
+TOTAL GERAL: 271,01
+----------------------------
+    *FORMA DE PAGAMENTO*    
+Dinheiro:271,01
+----------------------------
+TOTAL PAGO: 271,01
+----------------------------
+----------------------------
+           Pizzaria         
+   CNPJ;                    
+   Local;                   
+   Telefone;                
+                            
+----------------------------
+CUPOM: 1
+DATA VENDA: 2022-10-02
+----------------------------
+TOTAL DOS PRODUTOS: 
+TAXA DE ENTREGA: 3
+TOTAL GERAL: 162,76
+----------------------------
+    *FORMA DE PAGAMENTO*    
+Dinheiro:162,76
+----------------------------
+TOTAL PAGO: 162,76
+----------------------------
+----------------------------
+           Pizzaria         
+   CNPJ;                    
+   Local;                   
+   Telefone;                
+                            
+----------------------------
+CUPOM: 1
+DATA VENDA: 2022-10-02
+----------------------------
+TOTAL DOS PRODUTOS: 
+TAXA DE ENTREGA: 3
+TOTAL GERAL: 56,25
+----------------------------
+    *FORMA DE PAGAMENTO*    
+Dinheiro:56,25
+----------------------------
+TOTAL PAGO: 56,25
+----------------------------
+----------------------------
+           Pizzaria         
+   CNPJ;                    
+   Local;                   
+   Telefone;                
+                            
+----------------------------
+CUPOM: 1
+DATA VENDA: 2022-10-02
+----------------------------
+TOTAL DOS PRODUTOS: 
+TAXA DE ENTREGA: 2
+TOTAL GERAL: 163,41
+----------------------------
+    *FORMA DE PAGAMENTO*    
+Dinheiro:163,41
+----------------------------
+TOTAL PAGO: 163,41
+----------------------------
+----------------------------
+           Pizzaria         
+   CNPJ;                    
+   Local;                   
+   Telefone;                
+                            
+----------------------------
+CUPOM: 1
+DATA VENDA: 2022-10-02
+----------------------------
+TOTAL DOS PRODUTOS: 
+TAXA DE ENTREGA: 2
+TOTAL GERAL: 55,80
+----------------------------
+    *FORMA DE PAGAMENTO*    
+Dinheiro:55,80
+----------------------------
+TOTAL PAGO: 55,80
+----------------------------
+----------------------------
+           Pizzaria         
+   CNPJ;                    
+   Local;                   
+   Telefone;                
+                            
+----------------------------
+CUPOM: 1
+DATA VENDA: 2022-10-02
+----------------------------
+TOTAL DOS PRODUTOS: 
+TAXA DE ENTREGA: 2
+TOTAL GERAL: 55,80
+----------------------------
+    *FORMA DE PAGAMENTO*    
+Dinheiro:55,80
+----------------------------
+TOTAL PAGO: 55,80
+----------------------------
+----------------------------
+           Pizzaria         
+   CNPJ;                    
+   Local;                   
+   Telefone;                
+                            
+----------------------------
+CUPOM: 1
+DATA VENDA: 2022-10-02
+----------------------------
+TOTAL DOS PRODUTOS: 
+TAXA DE ENTREGA: 2
+TOTAL GERAL: 55,80
+----------------------------
+    *FORMA DE PAGAMENTO*    
+Dinheiro:55,80
+----------------------------
+TOTAL PAGO: 55,80
+----------------------------
+----------------------------
+           Pizzaria         
+   CNPJ;                    
+   Local;                   
+   Telefone;                
+                            
+----------------------------
+CUPOM: 1
+DATA VENDA: 2022-10-02
+----------------------------
+TOTAL DOS PRODUTOS: 
+TAXA DE ENTREGA: 3
+TOTAL GERAL: 56,25
+----------------------------
+    *FORMA DE PAGAMENTO*    
+Dinheiro:56,25
+----------------------------
+TOTAL PAGO: 56,25
+----------------------------
+----------------------------
+           Pizzaria         
+   CNPJ;                    
+   Local;                   
+   Telefone;                
+                            
+----------------------------
+CUPOM: 1
+DATA VENDA: 2022-10-02
+----------------------------
+TOTAL DOS PRODUTOS: 
+TAXA DE ENTREGA: 2
+TOTAL GERAL: 55,80
+----------------------------
+    *FORMA DE PAGAMENTO*    
+Dinheiro:55,80
+----------------------------
+TOTAL PAGO: 55,80
+----------------------------
+----------------------------
+           Pizzaria         
+   CNPJ;                    
+   Local;                   
+   Telefone;                
+                            
+----------------------------
+CUPOM: 1
+DATA VENDA: 2022-10-02
+----------------------------
+TOTAL DOS PRODUTOS: 
+TAXA DE ENTREGA: 2
+TOTAL GERAL: 55,80
+----------------------------
+    *FORMA DE PAGAMENTO*    
+Dinheiro:55,80
+----------------------------
+TOTAL PAGO: 55,80
+----------------------------
+----------------------------
+           Pizzaria         
+   CNPJ;                    
+   Local;                   
+   Telefone;                
+                            
+----------------------------
+CUPOM: 1
+DATA VENDA: 2022-10-02
+----------------------------
+TOTAL DOS PRODUTOS: 
+TAXA DE ENTREGA: 2
+TOTAL GERAL: 55,80
+----------------------------
+    *FORMA DE PAGAMENTO*    
+Dinheiro:55,80
+----------------------------
+TOTAL PAGO: 55,80
+----------------------------
+----------------------------
+           Pizzaria         
+   CNPJ;                    
+   Local;                   
+   Telefone;                
+                            
+----------------------------
+CUPOM: 1
+DATA VENDA: 2022-10-02
+----------------------------
+TOTAL DOS PRODUTOS: 
+TAXA DE ENTREGA: 2
+TOTAL GERAL: 55,80
+----------------------------
+    *FORMA DE PAGAMENTO*    
+Dinheiro:55,80
+----------------------------
+TOTAL PAGO: 55,80
+----------------------------
+----------------------------
+           Pizzaria         
+   CNPJ;                    
+   Local;                   
+   Telefone;                
+                            
+----------------------------
+CUPOM: 1
+DATA VENDA: 2022-10-02
+----------------------------
+TOTAL DOS PRODUTOS: 
+TAXA DE ENTREGA: 2
+TOTAL GERAL: 55,80
+----------------------------
+    *FORMA DE PAGAMENTO*    
+Dinheiro:55,80
+----------------------------
+TOTAL PAGO: 55,80
+----------------------------
+----------------------------
+           Pizzaria         
+   CNPJ;                    
+   Local;                   
+   Telefone;                
+                            
+----------------------------
+CUPOM: 2
+DATA VENDA: 2022-10-02
+----------------------------
+TOTAL DOS PRODUTOS: 
+TAXA DE ENTREGA: 2
+TOTAL GERAL: 163,41
+----------------------------
+    *FORMA DE PAGAMENTO*    
+Dinheiro:163,41
+----------------------------
+TOTAL PAGO: 163,41
+----------------------------
+----------------------------
+           Pizzaria         
+   CNPJ;                    
+   Local;                   
+   Telefone;                
+                            
+----------------------------
+CUPOM: 1
+DATA VENDA: 2022-10-02
+----------------------------
+TOTAL DOS PRODUTOS: 
+TAXA DE ENTREGA: 2
+TOTAL GERAL: 163,41
+----------------------------
+    *FORMA DE PAGAMENTO*    
+Dinheiro:163,41
+----------------------------
+TOTAL PAGO: 163,41
+----------------------------
+----------------------------
+           Pizzaria         
+   CNPJ;                    
+   Local;                   
+   Telefone;                
+                            
+----------------------------
+CUPOM: 1
+DATA VENDA: 2022-10-02
+----------------------------
+TOTAL DOS PRODUTOS: 
+TAXA DE ENTREGA: 2
+TOTAL GERAL: 217,21
+----------------------------
+    *FORMA DE PAGAMENTO*    
+Dinheiro:217,21
+----------------------------
+TOTAL PAGO: 217,21
+----------------------------

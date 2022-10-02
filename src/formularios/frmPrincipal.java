@@ -6,7 +6,11 @@ import classes.BackGround;
 import classes.Dados;
 import classes.Dados_DB;
 import classes.Utilidades;
+import static classes.Utilidades.objectToInt;
+import static classes.Utilidades.objectToString;
 import java.text.DecimalFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -1174,8 +1178,14 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     //Função fica Verificando se de 1 em 1 segundo se ha atualização na nota fiscal, se tem ele altera no frmPrincipal 
     private void timer2OnTime(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timer2OnTime
-        int numFatura = msDados.getNumeroFatura();
-        txtNNota.setText("" + (numFatura+1));
+        int numFatura = msDados.getNumeroFatura()+1;
+
+        if (numFatura != objectToInt(txtNNota.getText())){
+            limparTablea(); 
+        } 
+        
+        txtNNota.setText("" + numFatura);
+
               
     }//GEN-LAST:event_timer2OnTime
 
