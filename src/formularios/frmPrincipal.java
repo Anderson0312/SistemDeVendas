@@ -1182,6 +1182,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         if (numFatura != objectToInt(txtNNota.getText())){
             limparTablea(); 
+            txtValorTot.setText("00,00");
         } 
         
         txtNNota.setText("" + numFatura);
