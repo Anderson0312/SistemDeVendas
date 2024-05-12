@@ -11,8 +11,8 @@ Este repositório contém o código-fonte de um Sistema de Vendas desenvolvido p
 
 ### Tecnologias Utilizadas
 
-- Linguagem de Programação: Python
-- Framework Web: Django
+- Linguagem de Programação: Java
+- Framework Web: java
 - Banco de Dados: SQLite (configurável para outros bancos de dados SQL)
 - Frontend: HTML, CSS, JavaScript
 
